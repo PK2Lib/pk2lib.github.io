@@ -1,0 +1,16 @@
+@font-face {
+	font-family: "Vademecum";
+	src: url("vademecum.eot");
+	src: url("vademecum.otf");
+	src: url("vademecum.svg");
+	src: url("vademecum.ttf");
+	src: url("vademecum.woff");
+}
+@font-face {
+	font-family: "XoloniumRegular";
+	src: url("Xolonium-Regular.eot");
+	src: url("Xolonium-Regular.otf");
+	src: url("Xolonium-Regular.svg");
+	src: url("Xolonium-Regular.ttf");
+	src: url("Xolonium-Regular.woff");
+}

@@ -1,11 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UFT-8" />
-    <title>PK2Lib</title>
-  </head>
-  <body>
-    <h1>This is a placeholder.</h1>
-    <p>There will be something here soon.</p>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="description" content="Database of fanmade maps &amp; other custom resources for Pekka Kana 2" />
+		<title>The Pekka Kana 2 Library</title>
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Chelsea+Market&subset=latin,latin-ext" />
+		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="style/jquery.fullPage.css" media="(min-width: 520px), (min-height: 520px)" />
+		<link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="style/main.css" />
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.visible.js"></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/binFile.js"></script>
+		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_images.js"></script>
+		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_sprites.js"></script>
+		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_maps.js"></script>
+		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_bg.js"></script>
+        <script type="text/javascript">
+            var currentTileset = new Image();
+            var currentPalette = {};
+            var currentBackground = new Image();
+            function preInit() {
+				devoutAppend = function(){};
+                init();
+                pk2.dirs.root = "//dl.dropboxusercontent.com/u/158776840/vanilla_assets/";
+                window.onresize = function () {
+                    CANVAS_WIDTH = window.innerWidth;
+                    CANVAS_HEIGHT = window.innerHeight + 64;
+                    bg_canvas.width = CANVAS_WIDTH;
+                    bg_canvas.height = CANVAS_HEIGHT;
+                    camera.width = CANVAS_WIDTH;
+                    camera.height = CANVAS_HEIGHT;
+                };
+                loadMapAndCenterOnTile("rooster island 1/level004.map", 79, 24);
+            }
+        </script>
+		<script type="text/javascript">
+			// Twitter
+			!function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
+				if (!d.getElementById(id)) {
+					js = d.createElement(s);
+					js.id = id;
+					js.src = p+"://platform.twitter.com/widgets.js";
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			}(document,"script","twitter-wjs");
+
+			// Facebook
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/fi_FI/sdk.js#xfbml=1&version=v2.6";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<!--<script type="text/javascript" src="js/scripts.js"></script>-->
+		<script type="text/javascript">
+			// Checking window size
+			console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
+
+			$(document).ready(function() {
+				// fullPage initiation
+				if ($(window).width() >= 520 && $(window).height() >= 520) {
+					$('#fullpage').fullpage({
+						scrollingSpeed: 500,
+						paddingBottom: '2rem',
+						paddingTop: '1rem',
+						navigation: true,
+						navigationPosition: 'right',
+						slidesNavigation: true
+					});
+				} else {
+					$("img[src='#'], iframe").each(function(){
+						$(this).attr("src", $(this).attr("data-src"));
+					});
+				}
+
+				// Welcome Pekka Image
+				(function() {
+					var pekka = {};
+					pekka.element = $("#welcome img.wobbly").eq(0);
+					pekka.src = pekka.element.attr("src");
+					for (var i = 0; i < 20; i++) {
+						pekka.element.before('<div class="wobbly"></div>');
+					}
+					pekka.div = $(".wobbly");
+					pekka.div.eq(0).css("width", "130px");
+					pekka.div.eq(1).css("width", "144px");
+					pekka.div.eq(2).css("width", "153px");
+					pekka.div.eq(3).css("width", "156px");
+					pekka.div.eq(4).css("width", "155px");
+					pekka.div.eq(5).css("width", "147px");
+					pekka.div.eq(6).css("width", "138px");
+					pekka.div.eq(7).css("width", "122px");
+					pekka.div.eq(8).css("width", "144px");
+					pekka.div.eq(9).css("width", "146px");
+					pekka.div.eq(10).css("width", "146px");
+					pekka.div.eq(11).css("width", "102px");
+					pekka.div.eq(12).css("width", "103px");
+					pekka.div.eq(13).css("width", "116px");
+					pekka.div.eq(14).css("width", "119px");
+					pekka.div.eq(15).css("width", "121px");
+					pekka.div.eq(16).css("width", "120px");
+					pekka.div.eq(17).css("width", "111px");
+					pekka.div.eq(18).css("width", "136px");
+					pekka.div.eq(19).css("width", "109px");
+					pekka.div.css("background-image", "url(" + pekka.src + ")");
+					for (var i = 0; i < 20; i++) {
+						pekka.div.eq(i).css("background-position", function() {
+							var height = 0;
+							height += i * 16;
+							return "right -" + height + "px";
+						});
+					}
+					pekka.element.remove();
+				})();
+
+				// Bird flight time
+				function birdFlightTime() {
+					$("#bird").css("transition-duration", function(){
+						return screen.width * 16 + "ms";
+					});
+				}
+				$(window).resize(function(){birdFlightTime();});
+				birdFlightTime();
+
+				// Forum Link
+				$("#forum").click(function(){
+					$(this).next().children().eq(0).trigger("click");
+				});
+			}); // End
+		</script>
+	</head>
+	<body onLoad="preInit();">
+		<main id="fullpage">
+			<header id="page_header" class="section active border">
+				<div class="left decoration"><div></div></div>
+				<h1><span>PK2</span><span>Lib</span></h1>
+				<div class="right decoration"><div></div></div>
+				<div id="tagline">
+					<p>Database of fanmade maps &amp; other custom resources for <a href="./about/#abpk2">Pekka Kana 2</a></p>
+				</div>
+				<nav id="sicons">
+					<a id="facebook"   title="Like us on Facebook!"                 href="//facebook.com/PK2Lib"></a>
+					<a id="twitter"    title="Follow us on Twitter!"                href="//twitter.com/PK2Lib"></a>
+					<a id="googleplus" title="Follow us on Google+!"                href="//plus.google.com/u/2/b/104548937917913992326/104548937917913992326/"></a>
+					<a id="youtube"    title="Subscribe to our channel on YouTube!" href="//youtube.com/PK2Lib"></a>
+					<a id="github"     title="Follow us on GitHub!"                 href="//github.com/PK2Lib"></a>
+					<a id="dropbox"    title="See our Dropbox Public folder!"       href="//www.dropbox.com/sh/x20mu4f9h01qtls/AACXTgeYi5uP4wNl_7X-kZ6sa?dl=0"></a>
+				</nav>
+			</header>
+			<section id="welcome" class="section light">
+				<h2 style="display: none;">Welcome</h2>
+				<div>
+					<article id="episodes" style="background-color: rgba(244, 67, 54, 0.8);">
+						<h3>Visit Our Episode Database</h3>
+						<p>We host custom fan-made <strong>episodes</strong>, that is, collection of <strong>levels</strong> (or maps) that you can play in the game. To download episodes people have made and sent us, visit our <a href="./downloads/episodeDB/">Episode Database</a>. You will find all sorts of interesting bits and pieces varying from one-level episodes to episodes with tens of levels to play! Everything from classic Janne Kivilahti style to modern space travel adventure style.</p>
+						<figure>
+							<a href="images/screenshots/shot3.png" target="_blank"><img data-src="images/screenshots/shot3.png" src="#" alt="Screenshot" /></a>
+							<a href="images/screenshots/shot1.png" target="_blank"><img data-src="images/screenshots/shot1.png" src="#" alt="Screenshot" /></a>
+							<a href="images/screenshots/shot2.png" target="_blank"><img data-src="images/screenshots/shot2.png" src="#" alt="Screenshot" /></a>
+							<a href="images/screenshots/shot4.png" target="_blank"><img data-src="images/screenshots/shot4.png" src="#" alt="Screenshot" /></a>
+						</figure>
+					</article>
+					<article style="background-color: rgba(33, 150, 243, 0.8);">
+						<h3>Welcome to PK2Lib!</h3>
+						<img src="images/PEKKAKA2.png" alt="Pekka Kana" class="wobbly" />
+						<p>Hello and welcome to <strong>the Pekka Kana 2 Library</strong> (<em>PK2Lib</em> for short) &mdash; an unofficial fan-driven project that provides a database of free episodes (collection of game maps) and other resources for <strong>Pekka Kana 2</strong>, an old-school freeware 2D platformer!</p>
+						<p>We provide links for downloading maps & resources made by the fandom of Pekka Kana 2 and publish reviews, tutorials and other additional stuff related to PK2.</p>
+						<p>All services provided are completely free, and all the episodes and resources published by us are released under a Creative Commons Attribution Non-Commercial Share-Alike 3.0 Unported License. Visit our Disclaimer and License page for more information.</p>
+						<p>If you have no clue what Pekka Kana 2 is all about, but are a friend of old-school platform games, we recommend you take a look at our page <a href="./about/#abpk2">about Pekka Kana 2</a>.</p>
+					</article>
+					<article style="background-color: rgba(76, 175, 80, 0.8);">
+						<h3>Other Downloads</h3>
+						<p>We have tons of other resources than episodes, as well, like custom sprites, level backgrounds and tilesets. You can find them in our <a href="./downloads/resourceDB/">Resource Database</a>.</p>
+						<p>We also have stuff to make your life easier, such as the unofficial sprite editor. We also host all the other games produced by Piste Gamez, as well as all the soundtracks of those games. See our <a href="./downloads/">Downloads</a> main page for anything you might be interested in downloading.</p>
+					</article>
+				</div>
+			</section>
+			<section id="runningthegame" class="section dark">
+				<h2>Having Trouble Running PK2?</h2>
+				<div>
+					<article style="background-color: rgba(139, 195, 74, 0.8);">
+						<h3>We Have a Solution for You!</h3>
+						<p>It has proven to be very tricky to get Pekka Kana 2 working on modern Windows systems, such as Windows 7 and the most recent one, Windows 10. Your game might have weird colors or black boxes around sprites &mdash; and in the worst case, the game might not run at all.</p>
+						<p>Fortunately, we have a solution for you &mdash; multiple solutions, in fact! On Windows 7 and older systems, shutting down explorer.exe (that is, the Windows Explorer) has seemed to help. However, that is an awful way of doing things.</p>
+						<p>Our recommended solution is a program called <strong>DxWnd</strong>. See our page for <a href="">running PK2 on modern systems</a> for more information.</p>
+					</article>
+					<article style="background-color: rgba(255, 152, 0, 0.8);">
+						<h3>We Are Developing a New Version</h3>
+						<p>As the source code of Pekka Kana 2 has been published and is open for everyone to play with, we are developing a new version for modern operating systems that, in fact, runs in the browser. For more information about this project, see our page for <a href="./dev/JSPK2/">JSPK2</a>.</p>
+					</article>
+				</div>
+			</section>
+			<section id="forcreators" class="section light">
+				<h2 style="display: none;">For Creators</h2>
+				<div>
+					<article id="joinus" style="background-color: rgba(0, 188, 212, 0.8);">
+						<h3>Join Us!</h3>
+						<p>You can apply for an episode reviewer/tester position. As an episode reviewer/tester, you are able to</p>
+						<ul>
+							<li>test untested episodes,</li>
+							<li>take screenshots for episodes that do not have any yet and</li>
+							<li>write episode reviews on our blog.</li>
+						</ul>
+						<p>Even if you are not a member of our staff, you can, of course, send us screenshots of your own episode that we are hosting or even include them in the episode itself.</p>
+						<p>If you are a fan of PK2 or other Piste Gamez’ games but don’t want to do any episode testing or write reviews, you can still register to our blog. It will be easier to comment blog posts. So if you comment a lot, it is considerable to register a profile.</p>
+						<p>More information can be found on our <a href="">application page</a>.</p>
+					</article>
+					<article id="submit" style="background-color: rgba(156, 39, 176, 0.8);">
+						<h3>Send Us Your Episode</h3>
+						<p>Are you an episode creator, a map maker? Would you like to have your very own episode that you created to be available for download on our Episode Database? No problem! Send you episodes to us, and we will add it to the database.</p>
+						<p>For more instructions for submitting a new episode, see our <a href="./submit/">page for episode submitting</a>.</p>
+					</article>
+					<article style="background-color: rgba(255, 235, 59, 0.8);">
+						<h3>Help &amp; Tutorials</h3>
+						<p>We have loads of different kind of help articles and tutorials for understanding how the level editor, the game itself and different kind of files work. If you want to know how to construct a tileset or how the color palettes in PK2 images work, we recommend you check out our <a href="./help/">help page</a>.</p>
+						<figure>
+							<img data-src="images/pktree.png" src="#" alt="Pekka sitting under a tree." />
+						</figure>
+					</article>
+				</div>
+			</section>
+			<section id="social" class="section light border">
+				<div id="fb-root"></div>
+				<h2>PK2Lib Goes Social</h2>
+				<div>
+					<a class="twitter-timeline"
+					   href="https://twitter.com/pk2lib"
+					   data-widget-id="247784264744181761"
+					   data-chrome="transparent"
+					>Tweets by @pk2lib</a>
+					<div style="width: 1000px;">
+						<div class="fb-page" data-href="https://www.facebook.com/pk2lib/" data-tabs="timeline" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pk2lib/"><a href="https://www.facebook.com/pk2lib/">PK2Lib</a></blockquote></div></div>
+					</div>
+				</div>
+			</section>
+			<section id="soundtracks" class="section light border">
+				<div class="slide active">
+					<h3>Pekka Kana 2 Soundtrack</h3>
+					<figure>
+						<img data-src="images/PK2OST_cover.png" src="#" alt="Cover" />
+						<figcaption>Get the original soundtrack of Pekka Kana 2 <a href="#">here</a>!</figcaption>
+					</figure>
+				</div>
+				<div class="slide">
+					<h3>Q-Lat 2 Soundtrack</h3>
+				</div>
+				<div class="slide">
+					<h3>Q-Lat 3 Soundtrack</h3>
+				</div>
+				<div class="slide">
+					<h3>Beez Soundtrack</h3>
+				</div>
+			</section>
+			<section id="theater" class="section dark border">
+				<h2>Videos</h2>
+				<div class="video slide active">
+					<iframe width="640" height="480" data-src="//www.youtube.com/embed/-Yfp1Xu71nw"></iframe>
+				</div>
+				<div class="video slide">
+					<iframe width="640" height="480" data-src="//www.youtube.com/embed/j0wQKTr_YII"></iframe>
+				</div>
+				<div class="video slide">
+					<iframe width="640" height="480" data-src="//www.youtube.com/embed/IiF5VKvRAkE"></iframe>
+				</div>
+				<div class="video slide">
+					<iframe width="640" height="480" data-src="//www.youtube.com/embed/NCCyQViGDSM"></iframe>
+				</div>
+			</section>
+			<footer id="page_footer" class="section border">
+				<nav>
+					<a href="./about/">About Us</a>
+					<a href="./downloads/">Downloads</a>
+					<a href="./submit/">Submit an Episode or Resources</a>
+					<a href="./help/">Help &amp; Tutorials</a>
+					<a href="./dev/JSPK2/">JSPK2</a>
+					<br />
+					<a href="./apply/">Apply for Staff Position</a>
+					<a href="./contact/">Contact Us</a>
+					<a href="./advertise/">Advertise</a>
+					<a href="./links/">Links</a>
+					<a href="./disclaimer/">Disclaimer &amp; License</a>
+				</nav>
+				<div id="ficons">
+					<a id="html5"      title="HTML5"      href="//www.w3.org/TR/html5/"></a>
+					<a id="css3"       title="CSS3"       href="//www.w3.org/TR/CSS/"></a>
+					<a id="javascript" title="JavaScript" href="//www.javascript.com/"></a>
+					<a id="jquery"     title="jQuery"     href="//jquery.com/"></a>
+				</div>
+				<a id="pistegamez" title="PisteGamez.net" href="//pistegamez.net/"></a>
+				<video id="forum" width="288" height="216" autoplay loop>
+					<source type="video/ogg" data-src="videos/jointheforum.ogv" />
+				</video>
+				<a href="//pistegamez.proboards.com/" style="display: none;" target="_blank"><span></span></a>
+				<div id="bird"></div>
+				<div id="copy">&copy; 2003&mdash;2016 PK2Lib, Piste Gamez and other authors of our content</div>
+			</footer>
+		</main>
+		<canvas id="bg-canvas"></canvas>
+		<!--<textarea id="devout" class="hiddenComponent" style="width: 300px; height: 480px;">DevOut</textarea>-->
+	</body>
 </html>

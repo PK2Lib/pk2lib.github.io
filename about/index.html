@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>About Us &mdash; The Pekka Kana 2 Library</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Chelsea+Market&subset=latin,latin-ext" />
+		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="../fonts/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="../style/text.css" />
+		<link rel="stylesheet" type="text/css" href="../style/jquery.diabolicImagePreview.css" />
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="../js/hyphenate.js"></script>
+		<script type="text/javascript" src="../js/jquery.smooth-scroll.js"></script>
+		<script type="text/javascript" src="../js/jquery.diabolicImagePreview.js"></script>
+		<script>
+			$(document).ready(function(){
+				// Bird flight time
+				function birdFlightTime() {
+					$("#bird").css("animation", function(){
+						return "birdAnim " + screen.width * 16 + "ms linear 3s infinite";
+					});
+				}
+				$(window).resize(function(){birdFlightTime();});
+				birdFlightTime();
+				
+				// See more buttons
+				$("article").each(function(){
+					var id = $(this).children().eq(0).attr("id");
+					$(this).prepend('<nav><div class="arrow down"></div> <a href="#' + id + '">[ See more&hellip; ]</a> <div class="arrow down"></div></nav>');
+					$(this).append('<nav><div class="arrow up"></div> <a href="#' + id + '">[ See less ]</a> <div class="arrow up"></div></nav>');
+				});
+				$("article nav:first-child a").each(function(){
+					$(this).click(function(){
+						$(this).parent().fadeOut(500);
+						$(this).parent().parent().css("height", function(){
+							var height = 0;
+							for (var i = 1; i < $(this).children().length; i++) {
+								height += $(this).children().eq(i).outerHeight(true);
+							}
+							return height + "px";
+						});
+					$(this).smoothScroll();
+					});
+				});
+				$("article nav:last-child a").each(function(){
+					$(this).click(function(){
+						$(this).parent().parent().css("height", "32em");
+						$(this).parent().siblings().eq(0).fadeIn(800);
+					});
+					$(this).smoothScroll();
+				});
+
+				// Implementing smoothScroll
+				$("a").smoothScroll();
+				
+				// Emails
+				/*var email = {decode: function(uri) {return decodeURIComponent(uri);}, list: []};
+				email.list[0] = email.decode("%63%72%75%64%65%6C%69%73%2E%64%69%61%62%6F%6C%75%73%40%67%6D%61%69%6C%2E%63%6F%6D");	// TEO
+				email.list[1] = email.decode("%72%61%76%6D%61%68%6F%76%40%67%6D%61%69%6C%2E%63%6F%6D");								// Rav Mahov
+				email.list[2] = email.decode("%70%69%6F%74%72%2E%77%77%77%77%40%67%6D%61%69%6C%2E%63%6F%6D");						// piotrulos
+				email.list[3] = email.decode("%76%654%65%72%6E%69%6B%40%67%6D%61%69%6C%2E%63%6F%6D");								// Sah War
+				email.list[4] = email.decode("%6C%73%75%64%6E%79%40%67%6D%61%69%6C%2E%63%6F%6D");									// lsudny
+				for (var i = 0; i < email.list.length; i++) {
+					$("span.email").eq(i).append('<a href="mailto:' + email.list[i] + '">' + email.list[i] + '</a>');
+				}*/
+				
+				// Figures
+				$("figure").each(function(){
+					var columns = $(this).data("columns");
+					if ($(this).children().eq($(this).children().length - 1)[0].tagName == "FIGCAPTION") {
+						for (var i = 0; i < $(this).children().length - 1; i++) {
+							$(this).children().eq(i).css("width", "calc(100% / " + columns + " - 0.4rem)");
+						}
+						$(this).css("height", function(){
+							return Math.ceil(($(this).innerWidth() / columns) * ($(this).children().length / columns)) + "px";
+						});
+					} else {
+						$(this).children().each(function(){
+							$(this).css("width", "calc(100% / " + columns + " - 0.4rem)");
+						});
+						$(this).css("height", function(){
+							return Math.ceil(($(this).innerWidth() / columns) * ($(this).children().length / columns)) + "px";
+						});
+					}
+				});
+				
+				// Exit tile
+				(function(){
+					var exit = {tile: $("div.exit")};
+					exit.posY = exit.tile.data("bottom") * 32;
+					exit.posX = exit.tile.data("left") * 32;
+					exit.tile.css({"bottom": exit.posY + "px", "left": exit.posX + "px"});
+					exit.tile.click(function(){
+						$("audio.exit").trigger("play");
+					});
+				})();
+				
+				(function(){
+					var waterfall = {tile: $("div.waterfall")};
+					waterfall.posY = waterfall.tile.data("bottom") * 32;
+					waterfall.posX = waterfall.tile.data("right") * 32;
+					waterfall.tile.css({"bottom": waterfall.posY + "px", "right": waterfall.posX + "px"});
+				})();
+
+			}); // The End
+
+		</script>
+	</head>
+	<body>
+		<header id="page_header">
+			<h1><span>PK2</span><span>Lib</span></h1>
+			<div id="bird"></div>
+		</header>
+		<aside>
+			<div class="waterfall" data-bottom="0" data-right="11"></div>
+		</aside>
+		<main>
+			<article class="about">
+				<h2 id="abus" title="About Us">About Us</h2>
+				<p><strong>The Pekka Kana 2 Library</strong> (previously known as <a href="http://pk2mapstore2.wordpress.com/">The PK2 Mapstore 2</a> for a very short time) is the semiofficial successor to the abandoned <a href="http://mapstore.the.cz/" target="_blank">PK2 Mapstore</a>, a fan-driven website which hosted custom user made episodes for Pekka Kana 2 (and was maintained and hosted by Tomas Macek). We aim at gradually encompassing all freely available <em title="Collections of maps">episodes</em> (and individual maps) for PK2 and we are a voluntary project which relies on eager fans to write reviews of old and new episodes for the aforementioned game.</p>
+				<p>The fanbase of PK2 is a humble but dedicated group of people who care for the game and create custom episodes (collections of maps/levels), language translations of the game, <a href="http://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29" target="_blank">sprites</a>, in-game backgrounds, music and other game-related stuff to keep PK2 alive. The PK2 modders are primarily based around <a href="http://pistegamez.proboards.com">Piste Gamez’ forum</a> and can be found there discussing the upcoming PK3 and chatting about various aspects of PK2, especially map-making.</p>
+				<p>This project hopes to satisfy the fans’ greed for a new place to host their own fanmade PK2 maps/episodes and custom resources, to read reviews of other people’s maps, download the respective files, discuss levels, level authors, etc. Instruction on how to submit your fanmade woks can be found on the <a href="">Episode/Resource submission page</a>.</p>
+				<p>All comments, suggestions and other feedback are welcome. More information about contacting us lies on our <a href="">contact page</a>.</p>
+				<table class="l" style="width: 100%;">
+					<thead>
+						<tr>
+							<th colspan="2">The Pekka Kana 2 Library
+						</th></tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>URL</td>
+							<td><a href="http://pk2lib.netai.net">pk2lib.netai.net</a></td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td>Database of fanmade maps &amp; other custom resources for Pekka Kana 2</td>
+						</tr>
+						<tr>
+							<td>Founded</td>
+							<td>12 June, 2010</td>
+						</tr>
+						<tr>
+							<td>Founder(s)</td>
+							<td>The Evil One, lsudny, Sah War</td>
+						</tr>
+						<tr>
+							<td>Content License</td>
+							<td><a href="//creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution Non-Commercial Share-Alike v3 License</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<h3 title="History">History</h3>
+				<p>In lare 2010s, the Mapstore became very passive when it comes to accepting new episode submissions, mostly due to the inactivation of Tomas Macek, the administator of the Mapstore, The Evil One got an idea – to create his own Mapstore. lsudny had also been thinking about the very same thing, and together they started to design this new brain-child. Or they would have if someone hadn’t appeared: A long-time inactive member Sah War had already created a website called The PK2 Mapstore 2.</p>
+				<p>TEO thought it was ultimately stupid to have such a name and he experienced Sahwar’s website would become a rival for his and lsudny’s new hosting site that hadn’t yet been created, though. Because of this rivalry, he suggested that Sah War join them – or they join Sahwar’s project. So, after (too) long discussions, they compounded.</p>
+				<p>The new project got a new name which went through bruising arguing and finally got its current form – The Pekka Kana 2 Library aka PK2Lib. In that time, PK2Lib was a WordPress.com hosted blog. After it got hacked or something, the site moved to a free host: http://pk2lib.netai.net.</p>
+				<p>Unfortunately it did not last forever. In 2015, the free webhost provider decided to delete all of the content for pretty much no reason. After that, the website moved to more reliable mediums after being down for more than a year.</p>
+			</article>
+			<article class="about">
+				<h2 id="staff" title="Staff">Staff</h2>
+				<h3 title="The Evil One">The Evil One</h3>
+				<details open>
+					<summary class="staffjob">
+						project initiator &bull; co-creator &bull; administrator &bull; web designer <br />
+						regular writer/updater &bull; episode reviewer &bull; episode/map creator
+					</summary>
+					<p>The Evil One (TEO for short) – better known in the Interned as his artist name <strong>Crudelis Diabolus</strong> – is a Finnish multimedia artist who has been a PK2 fanatic since 2004. Back then, it was one good game in his collection but, after a few years, he found the Piste Gamez community and became interested in map creating. Now, ironically, he has seen the community die soon after his joining.</p>
+					<img src="../images/profiles/teo.png" alt="The Evil One" title="Crudelis Diabolus aka The Evil One" class="left" />
+					<p>TEO has his own style in everything he does. It has been described baroque, sprawling and winding, although he prefers the term “psychedelicious diabolism”. He is a composer, a digital artist and a writer. To find out more, visit his website.</p>
+					<p>TEO has released two full episodes: Raven Island and Galactic Cataclysm. They boht are downloadable on PK2Lib’s <a href="">episode database</a>. He has also been creating other maps, which are probably to be released one day. TEO also has created a huge pile of sprites, tilesets (usually modifications of other tilesets and/or parts of them) and sceneries. He has also found many new songs from <a href="http://modarchive.org">Mod Archive</a> to use in his episodes.</p>
+					<h4>Contact information:</h4>
+					<ul>
+						<li>Website: <a href="//crudelisdiabolus.com/">crudelisdiabolus.com</a></li>
+						<li>Email: <div class="email teo"><a title="Sorry but you will have to type it manually :)"></a></div></li>
+						<li>Forum profile: <a href="//pistegamez.proboards.com/index.cgi?action=viewprofile&amp;user=theevilone">The Evil One</a></li>
+					</ul>
+				</details>
+				<h3>RavMahov</h3>
+				<details open>
+					<summary class="staffjob">game &amp; software developer</summary>
+					<img src="../images/profiles/ravmahov.png" alt="RavMahov" title="" class="right" />
+					<p>RavMahov is a Polish programmer who has created a web browser version of the first adventure of Pekka Kana, the original game being written by Antti Suuronen. He is also the main developer of a browser version of PK2 and all of related tools.</p>
+					<p>He first had an idea of a mobile version of the original Pekka Kana in 2009, and while none of the Piste Gamez staff members was interested enough, he decided to try it himself (not before a bit of an argument with piotrulos). The first version of JSPKana was then released in 2012.</p>
+					<p>He is also a fan of <a href="//en.wikipedia.org/wiki/Tesla_Motors#Car_models">Tesla cars</a>.</p>
+					<h4>Contact information:</h4>
+					<ul>
+						<li>Email: <div class="email ravmahov"><a title="Sorry but you will have to type it manually :)"></a></div></li>
+						<li>Forum profile: <a href="//pistegamez.proboards.com/index.cgi?action=viewprofile&amp;user=roborayman">RavMahov</a></li>
+					</ul>
+				</details>
+				<h3 title="piotrulos">piotrulos</h3>
+				<details open>
+					<summary class="staffjob">game &amp; software developer</summary>
+					<img src="../images/profiles/piotrulos.jpg" alt="piotrulos" title="A monkey. Which is apparently piotrulos…" class="left" />
+					<p>piotrulos is a(nother) Polish programmer who was in charge of the project of creating a new version of Pekka Kana 2. He was rarely online when the
+					administration of PK2Lib used to have some chat togehter, and now he’s been inactive for at least as long time as lsudny. However, he has lately shown some signs of life on the forums.</p>
+					<p>piotrulos is the admin of an unofficial <a href="http://pistegamez-polska.tk/">Polish Piste Gamez fansite</a>. Not much is known about him
+					since he’s such a mysterious person, don’t you think?</p>
+					<h4>Contact information:</h4>
+					<ul>
+						<li>Email: <div class="email piotrulos"><a title="Sorry but you will have to type it manually :)"></a></div></li>
+						<li>Forum profile: <a href="//pistegamez.proboards.com/index.cgi?action=viewprofile&amp;user=piotrulos">piotrulos</a></li>
+					</ul>
+				</details>
+				<h3 title="Sah War">Sah War <span class="inactive">(inactive)</span></h3>
+				<details open>
+					<summary class="staffjob">project initiator &bull; co-creator &bull; admin &bull; writer/updater</summary>
+					<p>Sah War or, as TEO tends to call him, Sahwar is a Bulgarian wise man who never speaks with short words. He is verbally creative. He is the voice
+					of reason. He is – the omniverse.</p>
+					<img src="../images/profiles/sahwar.png" alt="Sah War" title="One of Sah War’s alter ego’s outlooks (visuals)" class="right" />
+					<p>Generally, Sah War is very inactive but when he opens his mouth, he speaks sensical things. The style he prefers is an opposite for that of
+					TEO’s: it is simple, ascetic and not complex at all. Simple is beautiful, he might say. When TEO gets an idea of filling PK2Lib’s website with giant tentacles,
+					Sah War stops the madness and remains reasonable when twistedly laughing Evil One slowly starts to notice that his more or less ingenious plan has been
+					foiled.</p>
+					<p>Sah War is planning to release his own episode which is making progress, slowly but steadily. Beware the frogs.</p>
+					<h4>Contact information:</h4>
+					<ul>
+						<li>Email: <div class="email sahwar"><a title="Sorry but you will have to type it manually :)"></a></div></li>
+						<li>Forum profile: <a href="//pistegamez.proboards.com/index.cgi?action=viewprofile&amp;user=sahwar">sahwar</a></li>
+					</ul>
+				</details>
+				<h3 title="lsudny">lsudny <span class="inactive">(inactive)</span></h3>
+				<details open>
+					<summary class="staffjob">project initiator &bull; co-creator &bull; admin &bull; writer/updater</summary>
+					<p>ldusny (the name should never be capitalized, he keeped remarking) is a Polish electronic musician. His style of creating music differs from TEO’s like day differs from night. lsudny’s genre is psybient – and he’s good at creating atmosphearic songs.</p>
+					<img src="../images/profiles/lsudny.png" alt="lsudny" title="lsudny banner" class="left" />
+					<p>lsudny was the first member of the administration of PK2Lib who joined the Piste Gamez forum. After the beginning of 2011, he became inactive orwing to his lack of interest in Piste Gamez’ games. Since then, he hasn’t been seen on Piste Gamez forum.</p>
+					<p>He had an episode project of his own but he never finished it due to the same lack of interest which drove him away from the community.</p>
+					<h4>Contact information:</h4>
+					<ul>
+						<li>Email: <div class="email lsudny"><a title="Sorry but you will have to type it manually :)"></a></div></li>
+						<li>Forum profile: <a href="//pistegamez.proboards.com/index.cgi?action=viewprofile&amp;user=djpekka19">lsudny</a></li>
+					</ul>
+				</details>
+			</article>
+			<article class="about">
+				<h2 id="abpk2" title="About Pekka Kana 2">About Pekka Kana 2</h2>
+				<p><strong>Pekka Kana 2</strong> (PK2 for short) is an open-source old-shcool platform game, created by <em>Janne Kivilahti</em> from an indie game developer group <em>Piste Gamez</em>. The game is about a rooster called Pekka whose goal is to save kidnapped chickens.</p>
+				<blockquote cite="//www.pistegamez.net/game_pk2.html">
+					<p>Pekka Kana 2 (Pekka the Rooster 2) is a jump ’n’ run game made in the spirit of old classic platformers such as Super Mario, Sonic the Hedgehog, Jazz Jackrabbit, Super Frog and so on.</p>
+					<p>The simple goal in each level is to find the exit sign, which is usually not that simple as it sounds because of enemies, traps, and quirky puzzles.</p>
+					<p>Pekka Kana 2 was released in year 2003 at Assembly ’03 Game Development Competition, and placed 2nd. Since then the game has been featured in numerous different sites and cover discs. Players have also made their own levels with the PK2 Level Editor, which was released later in 2003. […] Pekka Kana 2 has also been translated to several languages […].</p>
+					<p>Unfortunately because the game is quite old and uses old version of DirectX (7), many experience <mark title="We have a solution for this! Keep reading!">problems when trying to run the game on modern OSs like Windows Vista</mark> and graphics cards that don’t support all of Direct 7’s old 2D features. Recommended setup for PK2 is Windows 98 and an old graphics card.</p>
+					<footer><a href="//www.pistegamez.net/game_pk2.html">pistegamez.net</a></footer>
+				</blockquote>
+				<p>Even though Pekka Kana 2 was designed for Windows 98 and has issues with modern operating systems, it is possible to run it without any troubles on modern Windows systems like Windows 7 or even Windows 10. It takes some effort but is not very complicated. See our page for <a href="">running PK2 nowadays</a> for more information on that.</p>
+				<p>In late 2010, the full source code for PK2 (the source code of the latest versions of Pekka Kana 2 and the PK2 Level Editor, along with all graphics &amp; music content of PK2) was publicly released by Janne Kivilahti, the creator of the game (announced with a forum post on the official Piste Gamez forums), thus changing the previously freeware game to an open-source game (we also host the source code, <a href="">download here</a>). Since then many PK2 fans, the PK2lib team included, have started efforts that aim to produce various fan modifications of PK2. More information about our efforts on modernizing the game <a href="">can be found here</a>.</p>
+				<p>Piste Gamez still preserves copyright/authorship/creative rights over the Pekka Kana series and all elements therein, but fan modifications are allowed if credit to Janne &amp; Piste Gamez is given, according to Janne. This led to the numerous fanmade PK2 episodes and graphics resources for use in making such episodes. Here’s the official statement of Janne on that legal/authorship/licensing/distribution topic included in the released PK2 source code package:
+					<q>The source package contains the source codes for the game Pekka Kana 2, written by Janne Kivilahti. The game and its code are copyrighted by Janne Kivilahti, but you can modify and use the code freely as long as the original author is mentioned.</q>
+				</p>
+				<p>So it basically means, that you can do whatever you want with it as long as Janne (Piste Gamez) is credited as the original author (similar to
+				the GNU GPL license). Also, as <a href="//pistegamez.proboards.com/index.cgi?action=viewprofile&amp;user=pahakeisari" target="_blank">tusam</a> pointed out,
+				one more thing MAY also apply: during installation, it does say: "Pekka Kana 2 is freeware. You may distribute it in any way you want, as long as you don’t try
+				to make any profit out of it.</p>
+				<p>PK2 has been periodically updated from 2003 to 2007. As of 22 September 2010, the latest officially released versions of the installers are: PK2
+				v1.21 Installer &amp; PK2 Level Editor v0.91 (beta). Both are functional (apart from a few small bugs and annoyances) if installed properly on a PC that satisfies
+				PK2’s recommended system requirements (copied from PK2’s website):</p>
+				<ul>
+					<li>Windows 98/XP (PK2 is also reported to work under Windows Vista &amp; Windows 7, although there are some bugs/problems)</li>
+					<li>P500 processor or better</li>
+					<li>DirectX 9 (or at least 7)</li>
+					<li>20 MB hard disk space</li>
+					<li>30 MB system memory.</li>
+				</ul>
+				<p>For more details of PK2 and PK2-related topic, visit the game’s offical website &amp; the official PK2 subforum boards on the Piste Gamez’ forum.</p>
+				<h3>Pekka Kana 3?</h3>
+				<p>The Piste Gamez team grew a bit and started working on a 3rd game of the PK series in 2007, but this takes a lot of time to create and as of 2010 Pekka Kana 3 is still in development. Some work-in-progress screenshots of PK3 gameplay (in-game graphics) and the GUI of the new Piste Gamez Editor that will power PK3 have been released through the years in the PK3 section of the official Piste Gamez forum. However, PK3 development is currently frozen due to personal matters:</p>
+				<img class="right" src="../images/screenshots/PK3/09.png" alt="A Screenshot of Pekka Kana 3 in Development" />
+				<blockquote cite="//pistegamez.proboards.com/thread/769/why-hold-breath-waiting-pk3">
+					<h4>Why you shouldn’t hold your breath while waiting for PK3</h4>
+					<p>Ok, I don't remember when I last posted something here, but it has certainly been a while (too long). I know there are people still waiting for the next Pekka Kana game to appear, so I might explain where things are at now.</p>
+					<p>PK3 hasn't been in the works for years now. I guess the main reason is, that I just lost my motivation to do it. I don't make games because I want money, but just because I think it's fun and you can learn important skills while doing it. So what killed my motivation?</p>
+					<p>Too high expectations for the game, for one. We (me and Jerome) tried to keep the game from getting too big so it would be possible to finish it, but eventually we got too ambitious anyway. That leads to...</p>
+					<p>Lack of time. When I was making PK2, I was still studying, so I had lots of free time. But now with work, band stuff and all, I basically had only time to make PK3 on weekends, and I'm really slow, so not much progress was made. It takes me about two weekends to draw, animate and program a new character (sprite) for the game. And it might not even make it to the game if it isn't good enough. When you see a finished game, you only see the tip of the iceberg of all the work that was put in the game. There are loads of graphics, sprites, music and other stuff that never made it to PK2. Sometimes I think that the quality of the game can be measured by looking at all the stuff that was never used in the game :D Deluxe Paint, which I have used to create the graphics (using DosBox) is not cutting it anymore - too bound to it's 1992 limitations - allowing only 320x200 resolution for animations is pain when making bigger sprites.</p>
+					<p>Platform. Finding one that can still run the game after many years is difficult. PK2 is difficult to run on modern hardware since it uses DirectX 7 and all the possible acceleration tricks used back then. Our older games run on MS-DOS and are even harder to run anymore. I didn't want that to happen to my next game. I also wanted a platform that could cover all the major operating systems with minimal work. At least when we started PK3, it was difficult to find something like that. Things have changed though.</p>
+					<p>Saturation. When I started PK2 back in the days, there were not so many platformers on PC (not to mention good ones). That has changed quite a bit as they seem to be the favorite genre of indie game developers. It's hard to count all the new platforming games realeased and in the works now.</p>
+					<p>Rayman Legends : D This is how I wanted PK3 to look like and to feel like. Except with more chickens... And these guys had an army of developers. With two people there is only some much you can do.</p>
+					<p>So where does that leave PK3? I still have hopes of getting the game done some day. However, continuing the work on PK3 would mean starting from scratch with modern computers in mind. The increasing performance of the browser and technologies like HTML5 and WebGL (it's event possible to use XBox360 controller in a browser) make it a very appealing candidate for a new PK game. I'm also working on a paint software of my own, that hopefully will replace Deluxe Paint and frees me from it's limitations...</p>
+					<p>But all in all, don't hold your breath while waiting for PK3. If it's going to come out, it's going to be a long time... but hey - <a href="//en.wikipedia.org/wiki/Duke_Nukem_Forever">Duke Nukem Forever</a> came out eventually, so everything is possible ;)</p>
+					<p>Meanwhile - try out Rayman Legends if you already haven't - that's what I'm playing :) It's seriously good, no one pays me for saying that.</p>
+					<p>Also, I'm working on another game currently - of which you will hear more about later.</p>
+					<footer>Janne Kivilahti on the <a href="//pistegamez.proboards.com/thread/769/why-hold-breath-waiting-pk3">Piste Gamez forum</a>, 15th April 2015</footer>
+				</blockquote>
+				<figure data-columns="3">
+					<img src="../images/screenshots/PK3/01.jpg" alt="Screenshot 1" />
+					<img src="../images/screenshots/PK3/02.jpg" alt="Screenshot 2" />
+					<img src="../images/screenshots/PK3/03.jpg" alt="Screenshot 3" />
+					<img src="../images/screenshots/PK3/04.png" alt="Screenshot 4" />
+					<img src="../images/screenshots/PK3/05.png" alt="Screenshot 5" />
+					<img src="../images/screenshots/PK3/06.png" alt="Screenshot 6" />
+					<img src="../images/screenshots/PK3/07.png" alt="Screenshot 7" />
+					<img src="../images/screenshots/PK3/08.png" alt="Screenshot 8" />
+					<img src="../images/screenshots/PK3/09.png" alt="Screenshot 9" />
+					<img src="../images/screenshots/PK3/10.jpg" alt="Screenshot 10" />
+					<img src="../images/screenshots/PK3/11.png" alt="Screenshot 11" />
+					<img src="../images/screenshots/PK3/12.png" alt="Screenshot 12" />
+					<img src="../images/screenshots/PK3/13.jpg" alt="Screenshot 13" />
+					<img src="../images/screenshots/PK3/14.png" alt="Screenshot 14" />
+					<img src="../images/screenshots/PK3/15.png" alt="Screenshot 15" />
+					<img src="../images/screenshots/PK3/16.png" alt="Screenshot 16" />
+					<img src="../images/screenshots/PK3/17.png" alt="Screenshot 17" />
+					<img src="../images/screenshots/PK3/18.png" alt="Screenshot 18" />
+					<figcaption>All the screenshots Janne has revealed</figcaption>
+				</figure>
+			</article>
+		</main>
+		<aside>
+			<div class="exit" data-bottom="12" data-left="10"></div>
+			<audio class="exit" src="../sounds/finishedlevel.mp3" type="audio/mpeg"></audio>
+		</aside>
+		<footer id="page_footer"> &copy 2010 &mdash; 2016 PK2Lib. All texts co-written by The Evil One &amp; Sah War.</footer>
+	</body>
+</html>
