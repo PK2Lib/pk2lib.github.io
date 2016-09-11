@@ -8,137 +8,24 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Chelsea+Market&subset=latin,latin-ext" />
 		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="style/jquery.fullPage.css" media="(min-width: 520px), (min-height: 520px)" />
-		<link rel="stylesheet" type="text/css" href="fonts/fonts.css" />
-		<link rel="stylesheet" type="text/css" href="style/main.css" />
+		<link rel="stylesheet" type="text/css" href="/style/jquery.fullPage.css" media="(min-width: 520px), (min-height: 520px)" />
+		<link rel="stylesheet" type="text/css" href="/fonts/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="/style/frontpage.css" />
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="js/jquery.visible.js"></script>
-		<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.visible.js"></script>
+		<script type="text/javascript" src="/js/jquery.fullPage.min.js"></script>
+		<script type="text/javascript" src="/js/canvas.js"></script>
+		<script type="text/javascript" src="/js/social.js"></script>
+		<script type="text/javascript" src="/js/frontpage.js"></script>
+		<script type="text/javascript" src="/js/jquery.diabolicImageToolKit.js"></script>
 		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/binFile.js"></script>
 		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_images.js"></script>
 		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_sprites.js"></script>
 		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_maps.js"></script>
 		<script type="text/javascript" src="//dl.dropboxusercontent.com/u/3681010/Projects/PK2_background/pk2_bg.js"></script>
-        <script type="text/javascript">
-            var currentTileset = new Image();
-            var currentPalette = {};
-            var currentBackground = new Image();
-            function preInit() {
-				devoutAppend = function(){};
-                init();
-                pk2.dirs.root = "//dl.dropboxusercontent.com/u/158776840/vanilla_assets/";
-                window.onresize = function () {
-                    CANVAS_WIDTH = window.innerWidth;
-                    CANVAS_HEIGHT = window.innerHeight + 64;
-                    bg_canvas.width = CANVAS_WIDTH;
-                    bg_canvas.height = CANVAS_HEIGHT;
-                    camera.width = CANVAS_WIDTH;
-                    camera.height = CANVAS_HEIGHT;
-                };
-                loadMapAndCenterOnTile("rooster island 1/level004.map", 79, 24);
-            }
-        </script>
-		<script type="text/javascript">
-			// Twitter
-			!function(d, s, id){
-				var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
-				if (!d.getElementById(id)) {
-					js = d.createElement(s);
-					js.id = id;
-					js.src = p+"://platform.twitter.com/widgets.js";
-					fjs.parentNode.insertBefore(js,fjs);
-				}
-			}(document,"script","twitter-wjs");
-
-			// Facebook
-			(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/fi_FI/sdk.js#xfbml=1&version=v2.6";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
-		<!--<script type="text/javascript" src="js/scripts.js"></script>-->
-		<script type="text/javascript">
-			// Checking window size
-			console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
-
-			$(document).ready(function() {
-				// fullPage initiation
-				if ($(window).width() >= 520 && $(window).height() >= 520) {
-					$('#fullpage').fullpage({
-						scrollingSpeed: 500,
-						paddingBottom: '2rem',
-						paddingTop: '1rem',
-						navigation: true,
-						navigationPosition: 'right',
-						slidesNavigation: true
-					});
-				} else {
-					$("img[src='#'], iframe").each(function(){
-						$(this).attr("src", $(this).attr("data-src"));
-					});
-				}
-
-				// Welcome Pekka Image
-				(function() {
-					var pekka = {};
-					pekka.element = $("#welcome img.wobbly").eq(0);
-					pekka.src = pekka.element.attr("src");
-					for (var i = 0; i < 20; i++) {
-						pekka.element.before('<div class="wobbly"></div>');
-					}
-					pekka.div = $(".wobbly");
-					pekka.div.eq(0).css("width", "130px");
-					pekka.div.eq(1).css("width", "144px");
-					pekka.div.eq(2).css("width", "153px");
-					pekka.div.eq(3).css("width", "156px");
-					pekka.div.eq(4).css("width", "155px");
-					pekka.div.eq(5).css("width", "147px");
-					pekka.div.eq(6).css("width", "138px");
-					pekka.div.eq(7).css("width", "122px");
-					pekka.div.eq(8).css("width", "144px");
-					pekka.div.eq(9).css("width", "146px");
-					pekka.div.eq(10).css("width", "146px");
-					pekka.div.eq(11).css("width", "102px");
-					pekka.div.eq(12).css("width", "103px");
-					pekka.div.eq(13).css("width", "116px");
-					pekka.div.eq(14).css("width", "119px");
-					pekka.div.eq(15).css("width", "121px");
-					pekka.div.eq(16).css("width", "120px");
-					pekka.div.eq(17).css("width", "111px");
-					pekka.div.eq(18).css("width", "136px");
-					pekka.div.eq(19).css("width", "109px");
-					pekka.div.css("background-image", "url(" + pekka.src + ")");
-					for (var i = 0; i < 20; i++) {
-						pekka.div.eq(i).css("background-position", function() {
-							var height = 0;
-							height += i * 16;
-							return "right -" + height + "px";
-						});
-					}
-					pekka.element.remove();
-				})();
-
-				// Bird flight time
-				function birdFlightTime() {
-					$("#bird").css("transition-duration", function(){
-						return screen.width * 16 + "ms";
-					});
-				}
-				$(window).resize(function(){birdFlightTime();});
-				birdFlightTime();
-
-				// Forum Link
-				$("#forum").click(function(){
-					$(this).next().children().eq(0).trigger("click");
-				});
-			}); // End
-		</script>
 	</head>
-	<body onLoad="preInit();">
+	<body>
 		<main id="fullpage">
 			<header id="page_header" class="section active border">
 				<div class="left decoration"><div></div></div>
