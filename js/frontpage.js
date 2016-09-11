@@ -51,6 +51,8 @@ $(document).ready(function() {
 
 
 // Canvas stuff
-document.getElementsByTagName("body")[0].addEventListener("load", preInit());
+document.getElementsByTagName("body")[0].onLoad = function() {
+	preInit();
+};
 
 
