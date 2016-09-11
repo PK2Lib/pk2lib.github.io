@@ -131,12 +131,30 @@
 					$("#page_header h1").css("transform", "scale(" + scale + "," + scale + ")");
 				})();
 
+
+				/* Parallax Scrolling */
+				function initiateParallaxScrolling(element) {
+					function scrollBackground(element) {
+						var yPos = -($(window).scrollTop() / element.data("speed"));
+						element.css("background-position", "0 " + yPos + "px");
+					}
+					element.each(function(){
+						scrollBackground($(this));
+						var prxbg = $(this);
+						$(window).scroll(function() {
+							scrollBackground(prxbg);
+						});
+					});
+				}
+				
+				initiateParallaxScrolling($("#page_header"));
+
 			}); // The End
 
 		</script>
 	</head>
 	<body>
-		<header id="page_header">
+		<header id="page_header" data-speed="-2">
 			<h1><span>PK2</span><span>Lib</span></h1>
 			<nav>
 				<a href="/">Home</a>
