@@ -123,6 +123,13 @@
 						$("div.blueswitch").eq(2).animate({"bottom": $("div.blueswitch").eq(2).data("bottom") * 32 + "px"}, 1000, "linear");
 					}, 30000);
 				});
+				
+				
+				// Size of the logo
+				(function(){
+					var scale = Math.max(0.2, Math.min(1, window.innerHeight / 1080));
+					$("#page_header h1").css("transform", "scale(" + scale + "," + scale + ")");
+				})();
 
 			}); // The End
 
