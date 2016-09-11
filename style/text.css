@@ -374,6 +374,11 @@ article {
 	max-width: 100%;
 }
 
+article.fullcontent {
+	overflow: auto;
+	height: auto;
+}
+
 article nav:first-child {
 	position: absolute;
 	bottom: 0;

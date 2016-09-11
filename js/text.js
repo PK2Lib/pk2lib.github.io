@@ -14,9 +14,11 @@ $(document).ready(function(){
 	
 	// See more buttons
 	$("article").each(function(){
-		var id = $(this).children().eq(0).attr("id");
-		$(this).prepend('<nav><div class="arrow down"></div> <a href="#' + id + '">[ See more&hellip; ]</a> <div class="arrow down"></div></nav>');
-		$(this).append('<nav><div class="arrow up"></div> <a href="#' + id + '">[ See less ]</a> <div class="arrow up"></div></nav>');
+		if (!$(this).hasClass("fullcontent")) {
+			var id = $(this).children().eq(0).attr("id");
+			$(this).prepend('<nav><div class="arrow down"></div> <a href="#' + id + '">[ See more&hellip; ]</a> <div class="arrow down"></div></nav>');
+			$(this).append('<nav><div class="arrow up"></div> <a href="#' + id + '">[ See less ]</a> <div class="arrow up"></div></nav>');
+		}
 	});
 	$("article nav:first-child a").each(function(){
 		$(this).click(function(){
