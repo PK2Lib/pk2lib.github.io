@@ -128,7 +128,9 @@
 				// Size of the logo
 				(function(){
 					var scale = Math.max(0.2, Math.min(1, window.innerHeight / 1080));
+					var height = $("#page_header h1").outerHeight();
 					$("#page_header h1").css("transform", "scale(" + scale + "," + scale + ")");
+					$("#page_header nav").css("margin-top", "-" + scale * height + "px");
 				})();
 
 			}); // The End
