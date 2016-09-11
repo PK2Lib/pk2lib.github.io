@@ -5,15 +5,14 @@
 // Checking window size
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
 
-// Canvas stuff
-document.body.onLoad = function() {
-	preInit();
-};
-
 
 // DOM loaded
 $(document).ready(function() {	
 	
+	// Canvas stuff
+	document.body.onLoad = preInit();
+
+
 	// fullPage initiation
 	if ($(window).width() >= 520 && $(window).height() >= 520) {
 		$('#fullpage').fullpage({
