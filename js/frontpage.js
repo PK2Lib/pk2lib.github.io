@@ -6,7 +6,7 @@
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
 
 // Canvas stuff
-document.getElementsByTagName("body")[0].onload = function() {
+document.body.onLoad = function() {
 	preInit();
 };
 
