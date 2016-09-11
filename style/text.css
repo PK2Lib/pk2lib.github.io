@@ -210,10 +210,17 @@ div.waterfall {
 	background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
 }
 
+div.water {
+	height: 32px;
+	position: absolute;
+	bottom: 0;
+	background: url("../images/water.gif") repeat-x;
+}
+
 #page_footer {
 	height: 64px;
 	line-height: 64px;
-	background: url("../images/riverBG.png") repeat-x top left;
+	background: url("../images/water.gif") repeat-x, url("../images/riverBG.png") repeat-x top left;
 	position: fixed;
 	left: calc((100% - 864px) / 2);
 	bottom: 0;

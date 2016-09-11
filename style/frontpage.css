@@ -327,6 +327,7 @@ h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 
 
 #page_footer nav a {
 	margin: 0 1rem;
+	white-space: nowrap;
 }
 
 #pistegamez {

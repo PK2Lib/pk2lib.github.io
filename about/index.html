@@ -88,7 +88,7 @@
 				});
 				
 				// Exit tile
-				(function(){
+/*				(function(){
 					var exit = {tile: $("div.exit")};
 					exit.posY = exit.tile.data("bottom") * 32;
 					exit.posX = exit.tile.data("left") * 32;
@@ -96,14 +96,43 @@
 					exit.tile.click(function(){
 						$("audio.exit").trigger("play");
 					});
-				})();
+				})();*/
 				
-				(function(){
+				// Waterfall
+/*				(function(){
 					var waterfall = {tile: $("div.waterfall")};
 					waterfall.posY = waterfall.tile.data("bottom") * 32;
 					waterfall.posX = waterfall.tile.data("right") * 32;
 					waterfall.tile.css({"bottom": waterfall.posY + "px", "right": waterfall.posX + "px"});
-				})();
+				})();*/
+				
+				// Water surface
+				function positionSpecialTiles(element, callback) {
+					element.each(function(){
+						var alignment = "";
+						var posX = 0;
+						var posY = 0;
+						if ($(this).data("right") !== undefined) {
+							alignment = "right";
+							posX = $(this).data("right") * 32;
+						} else if ($(this).data("left") !== undefined) {
+							alignment = "left";
+							posX = $(this).data("left") * 32;
+						}
+						posY = $(this).data("bottom") * 32;
+						$(this).css({"bottom": posY + "px", alignment: posX + "px"});
+					});
+
+					if (callback !== undefined) {
+						callback();
+					}
+				}
+				
+				positionSpecialTiles($("div.waterfall"));
+				positionSpecialTiles($("div.water"));
+				positionSpecialTiles($("div.exit"), function(){
+					$("audio.exit").trigger("play");
+				});
 
 			}); // The End
 
@@ -116,6 +145,7 @@
 		</header>
 		<aside>
 			<div class="waterfall" data-bottom="0" data-right="11"></div>
+			<div class="water" style="width: 416px;" data-bottom="1" data-right="0"></div>
 		</aside>
 		<main>
 			<article class="about">
@@ -308,6 +338,7 @@
 			</article>
 		</main>
 		<aside>
+			<div class="water" style="width: 704px;" data-bottom="1" data-left="0"></div>
 			<div class="exit" data-bottom="12" data-left="10"></div>
 			<audio class="exit" src="../sounds/finishedlevel.mp3" type="audio/mpeg"></audio>
 		</aside>
