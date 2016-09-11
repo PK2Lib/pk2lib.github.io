@@ -276,10 +276,12 @@ div.blueswitch {
 #page_header nav {
 	width: 704px;
 	max-width: 100%;
-	margin: 0 auto;
 	padding: 0.5rem 0 0;
 	text-align: center;
 	line-height: 1.5em;
+	position: absolute;
+	bottom: 5px;
+	left: calc((100% - 704px) / 2);
 }
 
 #page_header nav a {
