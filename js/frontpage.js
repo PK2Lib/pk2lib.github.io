@@ -45,13 +45,14 @@ $(document).ready(function() {
 	});
 	
 	
-
+// Canvas stuff
+$("body").load(function(){
+	preInit();
+});
 	
 	
 }); // END
 
 
-// Canvas stuff
-document.getElementsByTagName("body")[0].onLoad = preInit();
 
 
