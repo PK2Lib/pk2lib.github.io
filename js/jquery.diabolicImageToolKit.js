@@ -118,7 +118,9 @@ function curvifyAnImage(jQuerySelector, maxWidth, alignment, yourClassName, remo
 				});
 			}
 
-			callback();
+			if (callback != undefined) {
+				callback();
+			}
 		}
 	};
 }
