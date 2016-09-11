@@ -5,6 +5,11 @@
 // Checking window size
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
 
+// Canvas stuff
+document.getElementsByTagName("body")[0].onload = function() {
+	preInit();
+};
+
 
 // DOM loaded
 $(document).ready(function() {	
@@ -49,10 +54,5 @@ $(document).ready(function() {
 	
 }); // END
 
-
-// Canvas stuff
-document.getElementsByTagName("body")[0].onLoad = function() {
-	preInit();
-};
 
 
