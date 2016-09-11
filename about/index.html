@@ -86,27 +86,9 @@
 						});
 					}
 				});
+
 				
-				// Exit tile
-/*				(function(){
-					var exit = {tile: $("div.exit")};
-					exit.posY = exit.tile.data("bottom") * 32;
-					exit.posX = exit.tile.data("left") * 32;
-					exit.tile.css({"bottom": exit.posY + "px", "left": exit.posX + "px"});
-					exit.tile.click(function(){
-						$("audio.exit").trigger("play");
-					});
-				})();*/
-				
-				// Waterfall
-/*				(function(){
-					var waterfall = {tile: $("div.waterfall")};
-					waterfall.posY = waterfall.tile.data("bottom") * 32;
-					waterfall.posX = waterfall.tile.data("right") * 32;
-					waterfall.tile.css({"bottom": waterfall.posY + "px", "right": waterfall.posX + "px"});
-				})();*/
-				
-				// Water surface
+				// Special tiles 'n' stuff
 				function positionSpecialTiles(element, callback) {
 					element.each(function(){
 						if ($(this).data("right") !== undefined) {
@@ -149,6 +131,18 @@
 	<body>
 		<header id="page_header">
 			<h1><span>PK2</span><span>Lib</span></h1>
+			<nav>
+				<a href="/about/">About Us</a>
+				<a href="/downloads/">Downloads</a>
+				<a href="/submit/">Submit an Episode or Resources</a>
+				<a href="/help/">Help &amp; Tutorials</a>
+				<a href="/dev/JSPK2/">JSPK2</a>
+				<a href="/apply/">Apply for Staff Position</a>
+				<a href="/contact/">Contact Us</a>
+				<a href="/advertise/">Advertise</a>
+				<a href="/links/">Links</a>
+				<a href="/disclaimer/">Disclaimer &amp; License</a>
+			</nav>
 			<div id="bird"></div>
 		</header>
 		<aside>
