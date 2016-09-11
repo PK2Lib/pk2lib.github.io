@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../fonts/fonts.css" />
 		<link rel="stylesheet" type="text/css" href="../style/text.css" />
 		<link rel="stylesheet" type="text/css" href="../style/jquery.diabolicImagePreview.css" />
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="../js/hyphenate.js"></script>
 		<script type="text/javascript" src="../js/jquery.smooth-scroll.js"></script>
@@ -109,18 +109,12 @@
 				// Water surface
 				function positionSpecialTiles(element, callback) {
 					element.each(function(){
-						var alignment = "";
-						var posX = 0;
-						var posY = 0;
 						if ($(this).data("right") !== undefined) {
-							alignment = "right";
-							posX = $(this).data("right") * 32;
+							$(this).css("right", $(this).data("right") * 32 + "px");
 						} else if ($(this).data("left") !== undefined) {
-							alignment = "left";
-							posX = $(this).data("left") * 32;
+							$(this).css("left", $(this).data("left") * 32 + "px");
 						}
-						posY = $(this).data("bottom") * 32;
-						$(this).css({"bottom": posY + "px", alignment: posX + "px"});
+						$(this).css("bottom", $(this).data("bottom") * 32 + "px");
 					});
 
 					if (callback !== undefined) {
@@ -131,7 +125,21 @@
 				positionSpecialTiles($("div.waterfall"));
 				positionSpecialTiles($("div.water"));
 				positionSpecialTiles($("div.exit"), function(){
-					$("audio.exit").trigger("play");
+					$(".exit").click(function(){
+						$("audio.exit").trigger("play");
+					});
+				});
+				positionSpecialTiles($("div.blueswitch"));
+				$("div.blueswitch").eq(0).click(function(){
+					$("audio.switch").trigger("play");
+					$(this).animate({"bottom": ($(this).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
+					$("div.blueswitch").eq(1).animate({"bottom": ($("div.blueswitch").eq(1).data("bottom") + 1) * 32 + "px"}, 1000, "linear");
+					$("div.blueswitch").eq(2).animate({"bottom": ($("div.blueswitch").eq(2).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
+					setTimeout(function(){
+						$("div.blueswitch").eq(0).animate({"bottom": $("div.blueswitch").eq(0).data("bottom") * 32 + "px"}, 1000, "linear");
+						$("div.blueswitch").eq(1).animate({"bottom": $("div.blueswitch").eq(1).data("bottom") * 32 + "px"}, 1000, "linear");
+						$("div.blueswitch").eq(2).animate({"bottom": $("div.blueswitch").eq(2).data("bottom") * 32 + "px"}, 1000, "linear");
+					}, 30000);
 				});
 
 			}); // The End
@@ -146,6 +154,10 @@
 		<aside>
 			<div class="waterfall" data-bottom="0" data-right="11"></div>
 			<div class="water" style="width: 416px;" data-bottom="1" data-right="0"></div>
+			<div class="blueswitch" data-bottom="9" data-right="9" style="cursor: pointer; z-index: 1;"></div>
+			<div class="blueswitch" data-bottom="6" data-right="7" style="background-position: 0 -32px;"></div>
+			<div class="blueswitch" data-bottom="5" data-right="7" style="background-position: 0 -64px;"></div>
+			<div class="blueswitch" data-bottom="8" data-right="9" style="background-position: 0 -96px; z-index: 2;"></div>
 		</aside>
 		<main>
 			<article class="about">
@@ -340,8 +352,9 @@
 		<aside>
 			<div class="water" style="width: 704px;" data-bottom="1" data-left="0"></div>
 			<div class="exit" data-bottom="12" data-left="10"></div>
-			<audio class="exit" src="../sounds/finishedlevel.mp3" type="audio/mpeg"></audio>
 		</aside>
 		<footer id="page_footer"> &copy 2010 &mdash; 2016 PK2Lib. All texts co-written by The Evil One &amp; Sah War.</footer>
+		<audio class="exit" src="../sounds/finishedlevel.mp3" type="audio/mpeg"></audio>
+		<audio class="switch" src="../sounds/switch3.mp3" type="audio/mpeg"></audio>
 	</body>
 </html>

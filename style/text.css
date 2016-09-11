@@ -185,13 +185,23 @@ aside:last-of-type {
 	background: url("../images/frogwell_kehys2.png") bottom left no-repeat;
 }
 
+aside > * {
+	position: absolute;
+	bottom: 0;
+}
+
+aside:first-of-type > * {
+	right: 200vmax;
+}
+
+aside:last-of-type > * {
+	left: 200vmax;
+}
+
 div.exit {
 	width: 32px;
 	height: 32px;
 	border-radius: 16px;
-	position: absolute;
-	bottom: 0;
-	left: 200vmax;
 	cursor: pointer;
 	transition: all 500ms;
 }
@@ -204,17 +214,18 @@ div.exit:hover {
 div.waterfall {
 	width: 32px;
 	height: 416px;
-	position: absolute;
-	bottom: 0;
-	right: 200vmax;
 	background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
 }
 
 div.water {
 	height: 32px;
-	position: absolute;
-	bottom: 0;
 	background: url("../images/water.gif") repeat-x;
+}
+
+div.blueswitch {
+	background: url("../images/switch.png") no-repeat;
+	width: 32px;
+	height: 32px;
 }
 
 #page_footer {
