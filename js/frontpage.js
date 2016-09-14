@@ -10,6 +10,7 @@ console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + wi
 $(document).ready(function() {	
 	
 	// Canvas stuff
+	var backgroundMap = {path: "rooster island 1/level004.map", x: 79, y: 24};
 	document.body.onLoad = preInit();
 
 

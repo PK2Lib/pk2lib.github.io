@@ -13,5 +13,5 @@ function preInit() {
 		camera.width = CANVAS_WIDTH;
 		camera.height = CANVAS_HEIGHT;
 	};
-	loadMapAndCenterOnTile("rooster island 1/level004.map", 79, 24);
+	loadMapAndCenterOnTile(backgroundMap.path, backgroundMap.x, backgroundMap.y);
 }
