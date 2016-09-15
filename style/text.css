@@ -11,6 +11,7 @@
 	margin:  0;
 	padding: 0;
 	border:  0;
+	z-index: 0;
 }
 
 article, aside, details, figure, footer, header, main, nav, section, summary {display: block;}
@@ -179,7 +180,7 @@ aside {
 	bottom: 0;
 	width: calc(50% - 320px);
 	height: 100vh;
-	z-index: 2;
+	z-index: 3;
 }
 
 aside:first-of-type {
@@ -243,7 +244,7 @@ div.blueswitch {
 	left: calc((100% - 864px) / 2);
 	bottom: 0;
 	width: 864px;
-	z-index: 0;
+	z-index: 2;
 	text-align: center;
 	color: rgba(255, 255, 255, 0.7);
 	font-family: "Verdana";
@@ -356,6 +357,7 @@ h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 
 
 article nav {
 	text-align: center;
+	z-index: 1;
 }
 
 article nav a, article nav a:link, article nav a:visited {
