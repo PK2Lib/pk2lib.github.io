@@ -31,6 +31,7 @@ img {
 body {
 	background: url("../images/FACTORY2.png") center center;
 	color: rgba(255, 255, 255, 0.75);
+	font-family: "Roboto Slab", "Verdana", sans-serif;
 }
 
 main {
