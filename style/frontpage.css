@@ -208,16 +208,17 @@ h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 
 	height: calc(100vh - 320px);
 	float: left;
 	width: 100%;
-	position: relative;
 	margin: -40px 0 0;
 }
 
 #tagline p {
 	text-align: center;
 	font-size: 1.3em;
-	margin-top: 23vmin;
-	position: relative;
+	position: absolute;
 	padding: 0 15%;
+	width: 70%;
+	left: 0;
+	top: 68vh;
 }
 
 

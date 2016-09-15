@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+/* ««««««««««««««««««««««««««««««««««
+   « Stylesheet for PK2Lib dev page »
+   »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» */
+
+
+
+/* Reset */
+
+* {
+	margin:  0;
+	padding: 0;
+	border:  0;
+}
+
+article, aside, details, figure, footer, header, main, nav, section, summary {display: block;}
+
+img {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	max-width: 100%;
+}
+
+
+
+/* Basic */
+
+body {
+	background: url("/images/FACTORY2.png") center center;
+}

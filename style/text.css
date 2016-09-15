@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
-/*	«««««««««««««««««««««««««
-	« Stylesheet for PK2Lib »
-	»»»»»»»»»»»»»»»»»»»»»»»»»	*/
+/* ««««««««««««««««««««««««««««««««««««
+   « Stylesheet for PK2Lib text pages »
+   »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» */
 
 
 
@@ -434,3 +434,4 @@ div.email a:hover {opacity: 0;}
 
 
 
+.disclaimer {font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;}
