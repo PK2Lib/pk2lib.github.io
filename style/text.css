@@ -26,14 +26,6 @@ img {
 
 
 
-/* Sprites */
-
-blockquote {
-	background-image: url("../images/css_sprite.png");
-}
-
-
-
 /* General */
 
 h2, h3 {
@@ -121,6 +113,7 @@ blockquote::before {
     left: 0;
     position: absolute;
     top: -0.15em;
+	opacity: 0.54;
 }
 
 blockquote footer {
