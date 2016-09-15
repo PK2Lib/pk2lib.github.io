@@ -80,7 +80,6 @@ h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgb
 h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
 
 aside nav {
-	padding: 1rem;
 }
 
 aside nav a {
