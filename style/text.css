@@ -276,6 +276,13 @@ div.blueswitch {
 	position: relative;
 }
 
+h1 > span {float: left; width: 240px; height: 120px;}
+h1 > span:first-child {color: #000000; line-height: 100px; text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.2);}
+h1 > span:last-child {color: #FFFFFF; line-height: 140px; text-shadow: 0 3pt 6pt rgba(255, 255, 255, 0.2);}
+
+h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
+h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
+
 #page_header nav {
 	width: 704px;
 	max-width: 100%;
@@ -297,14 +304,6 @@ div.blueswitch {
 #page_header nav a:hover {
 	color: #000000;
 }
-
-
-h1 > span {float: left; width: 240px; height: 120px;}
-h1 > span:first-child {color: #000000; line-height: 100px; text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.2);}
-h1 > span:last-child {color: #FFFFFF; line-height: 140px; text-shadow: 0 3pt 6pt rgba(255, 255, 255, 0.2);}
-
-h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
-h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
 
 #bird {
 	width: 29px;
