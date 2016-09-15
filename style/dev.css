@@ -214,7 +214,7 @@ h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 
 aside nav {
 }
 
-aside nav a {
+aside nav a, aside nav a:link, aside nav a:visited {
 	float: left;
 	clear: left;
 	margin: 0 0 0 1.5rem;
