@@ -111,6 +111,16 @@ blockquote {
 	background-position: -176px 0;
 	background-repeat: no-repeat;
 	padding: 0.5rem 32px 0.5rem 92px;
+	position: relative;
+}
+
+blockquote::before {
+    content: "“";
+    display: block;
+    font-size: 14em;
+    left: 0;
+    position: absolute;
+    top: -0.15em;
 }
 
 blockquote footer {
