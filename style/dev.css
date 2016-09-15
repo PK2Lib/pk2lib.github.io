@@ -86,14 +86,22 @@ aside nav {
 aside nav a {
 	float: left;
 	clear: left;
-	margin: 0 0 0 1rem;
+	margin: 0 0 0 1.5rem;
 	white-space: nowrap;
 	color: #FFFFFF;
-	transition: color 200ms;
+	transition: all 200ms;
+	padding: 0.2rem 0.5rem;
+	text-transform: none;
+	border-radius: 0.3rem;
+	background: rgba(0, 0, 0, 0.75);
+	text-shadow: 0 0 0.2rem 0.1rem rgba(0, 0, 0, 0.75);
 }
 
 aside nav a:hover {
 	color: #000000;
+	margin: 0 0 0 3rem;
+	background: rgba(255, 255, 255, 0.75);
+	text-shadow: 0 0 0.2rem 0.1rem rgba(255, 255, 255, 0.75);
 }
 
 
