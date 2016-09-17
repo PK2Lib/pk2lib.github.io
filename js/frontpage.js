@@ -5,12 +5,12 @@
 // Checking window size
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
 
+var backgroundMap = {path: "rooster island 1/level004.map", x: 79, y: 24};
 
 // DOM loaded
 $(document).ready(function() {	
 	
 	// Canvas stuff
-	var backgroundMap = {path: "rooster island 1/level004.map", x: 79, y: 24};
 	document.body.onLoad = preInit();
 
 
