@@ -231,7 +231,7 @@ aside nav a, aside nav a:link, aside nav a:visited {
 	padding: 0.2rem 0.5rem;
 	text-decoration: none;
 	border-radius: 0.3rem;
-	background: rgba(0, 0, 0, 0.75);
+	background: rgba(0, 0, 0, 0.85);
 	text-shadow: 0 0 0.2rem 0.1rem rgba(0, 0, 0, 0.75);
 	color: #FFFFFF;
 }
