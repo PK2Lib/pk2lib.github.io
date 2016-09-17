@@ -5,7 +5,16 @@
 // Checking window size
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
 
-var backgroundMap = {path: "rooster island 1/level004.map", x: 79, y: 24};
+var backgroundMap = (function(){
+	var obj = [
+		{path: "rooster island 1/level004.map", x: 79, y: 24}, // rainy forest
+		{path: "rooster island 2/level3.map", x: 153, y: 102}, // water cavern
+		{path: "rooster island 1/level009.map", x: 91, y: 71}, // forest riddle
+		{path: "rooster island 2/level5.map", x: 103, y: 71}   // forest riddle 2
+	];
+	var random = Math.min(Math.floor(Math.random() * 4), 3);
+	return obj[random];
+})();
 
 // DOM loaded
 $(document).ready(function() {	
