@@ -234,6 +234,7 @@ aside nav a, aside nav a:link, aside nav a:visited {
 	background: rgba(0, 0, 0, 0.85);
 	box-shadow: 0 0 0.2rem 0.1rem rgba(0, 0, 0, 0.75);
 	color: #FFFFFF;
+	text-shadow: none;
 }
 
 aside nav a:hover {
