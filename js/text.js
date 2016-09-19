@@ -1,6 +1,6 @@
-/* «««««««««««««««««««««««««««««««««
-   « Scripts for PK2Lib text pages »
-   »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» */
+/*********************************
+ * Scripts for PK2Lib text pages *
+ *********************************/
 
 $(document).ready(function(){
 	// Bird flight time

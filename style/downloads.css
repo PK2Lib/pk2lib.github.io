@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
-/* ««««««««««««««««««««««««««««««««««««««««
-   « Stylesheet for PK2Lib Downloads page »
-   »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» */
+/****************************************
+ * Stylesheet for PK2Lib Downloads page *
+ ****************************************/
 
 
 
@@ -187,3 +187,41 @@ main {
 	margin: 1rem auto;
 	box-sizing: border-box;
 }
+
+#page_header {
+	background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
+	width: 100%;
+	height: 35vh;
+	max-height: 512px;
+	min-height: 240px;
+	padding: 16px 0 48px;
+	position: relative;
+	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
+	            0 0 6pt rgba(0, 0, 0, 0.5) inset;
+	overflow: hidden;
+}
+
+#page_header h1 {
+	width: 240px;
+	height: 240px;
+	font-family: "XoloniumRegular";
+	text-align: center;
+	background-image: url("../images/logo.png");
+	background-size: 100%;
+	display: block;
+	font-size: 56pt;
+	margin: auto;
+	border-radius: 4px;
+	z-index: 2;
+	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
+	            0 0 4pt rgba(0, 0, 0, 0.5) inset;
+	position: relative;
+}
+
+h1 > span {float: left; width: 240px; height: 120px;}
+h1 > span:first-child {color: #000000; line-height: 100px; text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.2);}
+h1 > span:last-child {color: #FFFFFF; line-height: 140px; text-shadow: 0 3pt 6pt rgba(255, 255, 255, 0.2);}
+
+h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
+h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
+

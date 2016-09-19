@@ -1,6 +1,6 @@
-/* «««««««««««««««««««««««««««««««««
-   « Scripts for PK2Lib front page »
-   »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»» */
+/*********************************
+ * Scripts for PK2Lib front page *
+ *********************************/
 
 // Checking window size
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
