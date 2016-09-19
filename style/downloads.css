@@ -206,15 +206,10 @@ main {
 	height: 240px;
 	font-family: "XoloniumRegular";
 	text-align: center;
-	background-image: url("../images/logo.png");
-	background-size: 100%;
 	display: block;
 	font-size: 56pt;
 	margin: auto;
-	border-radius: 4px;
 	z-index: 2;
-	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
-	            0 0 4pt rgba(0, 0, 0, 0.5) inset;
 	position: relative;
 }
 
@@ -224,4 +219,25 @@ h1 > span:last-child {color: #FFFFFF; line-height: 140px; text-shadow: 0 3pt 6pt
 
 h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
 h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
+
+#page_header nav {
+	width: 60%;
+	padding: 0.5rem 0 0;
+	text-align: center;
+	line-height: 1.5em;
+	position: absolute;
+	bottom: 5px;
+	left: calc((60%) / 2);
+}
+
+#page_header nav a {
+	margin: 0 1rem;
+	white-space: nowrap;
+	color: #FFFFFF;
+	transition: color 200ms;
+}
+
+#page_header nav a:hover {
+	color: #000000;
+}
 
