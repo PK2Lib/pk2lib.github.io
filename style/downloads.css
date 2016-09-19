@@ -189,16 +189,12 @@ main {
 }
 
 #page_header {
-	background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
 	width: 100%;
 	height: 35vh;
 	max-height: 512px;
 	min-height: 240px;
 	padding: 16px 0 48px;
 	position: relative;
-	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
-	            0 0 6pt rgba(0, 0, 0, 0.5) inset;
-	overflow: hidden;
 }
 
 #page_header h1 {
@@ -206,10 +202,15 @@ main {
 	height: 240px;
 	font-family: "XoloniumRegular";
 	text-align: center;
+	background-image: url("../images/logo.png");
+	background-size: 100%;
 	display: block;
 	font-size: 56pt;
 	margin: auto;
+	border-radius: 4px;
 	z-index: 2;
+	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
+	            0 0 4pt rgba(0, 0, 0, 0.5) inset;
 	position: relative;
 }
 
