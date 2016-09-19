@@ -172,3 +172,18 @@ body {
 	left: 0;
 	z-index: -1000;
 }
+
+main {
+	background: rgba(0, 0, 0, 0.85);
+	width: 33%;
+	min-width: 320px;
+	max-width: 960px;
+	padding: 1rem;
+	border: 0.5rem solid rgba(255, 255, 255, 1);
+	border-image-source: url("../images/qbg2.png");
+	border-image-width: 0.5rem;
+	border-image-repeat: round;
+	border-image-slice: 22;
+	margin: 1rem auto;
+	box-sizing: border-box;
+}
