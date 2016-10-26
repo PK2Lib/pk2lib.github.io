@@ -20,7 +20,8 @@ var backgroundMap = (function(){
 $(document).ready(function() {	
 	
 	// Canvas stuff
-	$("body").load(function(){preInit();});
+	document.body.onLoad = preInit;
+
 
 	// fullPage initiation
 	if ($(window).width() >= 520 && $(window).height() >= 520) {
