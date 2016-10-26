@@ -7,9 +7,7 @@ var backgroundMap = (function(){
 	}
 })();
 
-IMG_BACKGROUND.src = "/images/CASTLE.png";
-
 $(document).ready(function(){
-	$("a").smoothScroll();
+	//$("a").smoothScroll();
 	preInit();
 });
