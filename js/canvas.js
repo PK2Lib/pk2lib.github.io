@@ -3,8 +3,8 @@ var currentPalette = {};
 var currentBackground = new Image();
 function preInit() {
 	devoutAppend = function(){};
-	init();
 	pk2.dirs.root = "//dl.dropboxusercontent.com/u/158776840/vanilla_assets/";
+	init();
 	window.onresize = function () {
 		CANVAS_WIDTH = window.innerWidth;
 		CANVAS_HEIGHT = window.innerHeight + 64;

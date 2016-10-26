@@ -136,6 +136,14 @@ $(document).ready(function(){
 	}
 	
 	initiateParallaxScrolling($("#page_header"));
+	
+	/* Site URL */
+	(function(){
+		$("#this").empty().append(window.location.hostname);								// for non-root paths
+		$("a#this").attr("href", "http://" + window.location.hostname);
+		var url1 = "http://validator.w3.org/check?uri=" + window.location.href;					// W3C HTML validator link
+		$("#validhtml").attr("href", url1);
+	})();
 
 }); // The End
 
