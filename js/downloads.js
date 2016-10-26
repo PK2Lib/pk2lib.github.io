@@ -7,11 +7,7 @@ var backgroundMap = (function(){
 	}
 })();
 
-IMAGE1.src = "/images/1.png";
-IMAGE2.src = "/images/2.png";
-IMAGE3.src = "/images/3.png";
-IMAGE4.src = "/images/CASTLE.png";
-APPLE_SPR.src = "/images/apple_sprite.png";
+IMG_BACKGROUND.src = "/images/CASTLE.png";
 pk2.images.SPR_BONS.src = "/images/SPR_BONS.png";
 
 $(document).ready(function(){
