@@ -20,7 +20,7 @@ var backgroundMap = (function(){
 $(document).ready(function() {	
 	
 	// Canvas stuff
-	document.body.onLoad = preInit();
+	document.body.onLoad = preInit;
 
 
 	// fullPage initiation
