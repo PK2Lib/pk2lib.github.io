@@ -10,6 +10,6 @@ var backgroundMap = (function(){
 IMG_BACKGROUND.src = "/images/CASTLE.png";
 
 $(document).ready(function(){
-	$("body").load(preInit());
+	$("body").load(function(){preInit();});
 	$("a").smoothScroll();
 });
