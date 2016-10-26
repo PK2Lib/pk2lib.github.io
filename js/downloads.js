@@ -8,7 +8,6 @@ var backgroundMap = (function(){
 })();
 
 IMG_BACKGROUND.src = "/images/CASTLE.png";
-pk2.images.SPR_BONS.src = "/images/SPR_BONS.png";
 
 $(document).ready(function(){
 	document.body.onLoad = preInit();
