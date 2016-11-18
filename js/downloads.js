@@ -1,3 +1,6 @@
+/* History state shit */
+var stateObj = {};
+
 var backgroundMap = (function(){
 	var random = Math.round(Math.random());
 	if (random == 0) {
@@ -10,4 +13,13 @@ var backgroundMap = (function(){
 $(document).ready(function(){
 	//$("a").smoothScroll();
 	preInit();
+
+	$("#episodeDB").click(function(){
+		history.pushState(stateObj, "Episode Database", "./episodeDB/");
+	});
+
+	$("#resourceDB").click(function(){
+		history.pushState(stateObj, "Episode Database", "./resourceDB/");
+	});
 });
+
