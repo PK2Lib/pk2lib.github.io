@@ -15,19 +15,16 @@ $(document).ready(function(){
 	preInit();
 
 	window.onpopstate = function(event) {
-		if (event.state == null) {
-			$("#back").click();
+		if (event.state == null || event.state.sectionId == "downloads") {
+			goBack($("#back"));
+		} else if (event.state.sectionId == "episodeDB") {
+			sectionLinkActivation("episodeDB");
+		} else if (event.state.sectionId == "resourceDB") {
+			sectionLinkActivation("resourceDB");
 		}
 	};
 
-	function sectionLinkActivation(sectionID, sectionName, replaceHistoryEntry) {
-		if (arguments.length > 2) {
-			if (replaceHistoryEntry) {
-				history.replaceState(null, sectionName, "./" + sectionID + "/");
-			} else {
-				history.pushState({}, sectionName, "./" + sectionID + "/");
-			}
-		}
+	function sectionLinkActivation(sectionID) {
 		$(".active").delay(300).animate({"height": "0"}, 100, "swing");
 		$(".active").removeClass("active");
 		$("#" + sectionID).css({"height": "auto"}).delay(400).fadeIn(500, "swing", function() {
@@ -38,28 +35,36 @@ $(document).ready(function(){
 	}
 
 	$("#episodeDB-link").click(function(){
-		sectionLinkActivation("episodeDB", "Episode Database", false);
+		sectionLinkActivation("episodeDB");
+		history.pushState({sectionId: "episodeDB"}, "Episode Database", "./episodeDB/");
 	});
 
 	$("#resourceDB-link").click(function(){
-		sectionLinkActivation("resourceDB", "Resource Database", false);
+		sectionLinkActivation("resourceDB");
+		history.pushState({sectionId: "resourceDB"}, "Resource Database", "./resourceDB/");
 	});
 
-	$("#back").click(function(){
-		history.pushState(null, "Downloads", "..");
+	function goBack(element) {
 		$(".active").removeClass("active");
-		$(this).fadeOut(300, "swing");
+		element.fadeOut(300, "swing");
 		$("#landing").css({"height": "auto"}).delay(400).fadeIn(500, "swing", function(){
 			$(this).addClass("active");
 			$("section:not(.active)").css("display", "none");
 		});
+	}
+
+	$("#back").click(function(){
+		history.pushState({sectionId: "downloads"}, "Downloads", "..");
+		goBack($(this));
 	});
 
 	/* Landing on the page */
 	if (window.location.href.indexOf("?p=episodeDB") != -1) {
-		sectionLinkActivation("episodeDB", "Episode Database", true);
+		sectionLinkActivation("episodeDB");
+		history.replaceState({sectionId: "episodeDB"}, "Episode Database", "./episodeDB/");
 	} else if (window.location.href.indexOf("?p=resourceDB") != -1) {
-		sectionLinkActivation("resourceDB", "Resource Database", true);
+		sectionLinkActivation("resourceDB");
+		history.replaceState({sectionId: "resourceDB"}, "Resource Database", "./resourceDB/");
 	} else {
 		$("section:not(.active)").css("display", "none");
 	}

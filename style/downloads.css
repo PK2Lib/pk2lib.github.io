@@ -52,6 +52,12 @@ h3.link, h4.link {
 	padding: 0.3em;
 	display: block;
 	margin: 1em auto !important;
+	transition: all 200ms;
+}
+
+h3.link:hover, h4.link:hover {
+	transform: translateY(-0.3em);
+	color: #FFFFFF;
 }
 
 h3.link {font-size: 2rem;}
