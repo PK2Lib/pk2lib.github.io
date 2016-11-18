@@ -1,1 +1,1 @@
-DirectoryIndex ../index.html
+Redirect 301 /index.html ../index.html
