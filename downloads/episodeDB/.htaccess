@@ -1,1 +1,1 @@
-Redirect 301 /index.html ../index.html
+Redirect 301 index.html ../index.html
