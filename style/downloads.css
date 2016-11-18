@@ -42,7 +42,7 @@ h4 {margin: 1rem 0 0.5rem;}
 
 h2 + h3 {margin-top: 0;}
 
-h3.link {
+h3.link, h4.link {
 	font-family: inherit;
 	background: #3f51b5;
 	border: 0.08em solid #1a237e;
@@ -50,13 +50,22 @@ h3.link {
 	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5), 0 0 6pt rgba(0, 0, 0, 0.5) inset;
 	cursor: pointer;
 	padding: 0.3em;
-	font-size: 2rem;
 	display: block;
-	margin: 1em auto;
+	margin: 1em auto !important;
 }
 
-h3.link::before {
+h3.link {font-size: 2rem;}
+
+h3.link::before, h4.link::before {
 	content: "> ";
+}
+
+h4.link {
+	text-align: center;
+	text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
+	margin: 4rem 0 2rem;
+	font-weight: normal;
+	max-width: 80%;
 }
 
 p, ul, ol {
@@ -203,6 +212,7 @@ main {
 	border-image-slice: 22;
 	margin: 1rem auto;
 	box-sizing: border-box;
+	position: relative;
 }
 
 #page_header {
@@ -259,3 +269,35 @@ h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 
 	color: #000000;
 }
 
+section {
+	opacity: 0;
+	transition: opacity 300ms;
+}
+
+section:not(:first-child) {
+	margin-top: 3em;
+}
+
+section.active {
+	opacity: 1;
+}
+
+#back {
+	margin: 0 0 1em;
+	font-variant: small-caps;
+	height: 2em;
+	line-height: 2em;
+	clear: both;
+	cursor: pointer;
+	color: rgba(63, 81, 181, 0.8);
+	position: absolute;
+	left: 1rem;
+}
+
+#back:hover {
+	color: rgba(63, 81, 181, 1);
+}
+
+#back::before {
+	content: "↩ ";
+}

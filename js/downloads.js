@@ -14,12 +14,54 @@ $(document).ready(function(){
 	//$("a").smoothScroll();
 	preInit();
 
-	$("#episodeDB").click(function(){
-		history.pushState(stateObj, "Episode Database", "./episodeDB/");
+	window.onpopstate = function(event) {
+		if (event.state == null) {
+			$("#back").click();
+		}
+	};
+
+	function sectionLinkActivation(sectionID, sectionName, replaceHistoryEntry) {
+		if (arguments.length > 2) {
+			if (replaceHistoryEntry) {
+				history.replaceState(null, sectionName, "./" + sectionID + "/");
+			} else {
+				history.pushState({}, sectionName, "./" + sectionID + "/");
+			}
+		}
+		$(".active").delay(300).animate({"height": "0"}, 100, "swing");
+		$(".active").removeClass("active");
+		$("#" + sectionID).css({"height": "auto"}).delay(400).fadeIn(500, "swing", function() {
+			$(this).addClass("active");
+			$("#back").fadeIn(300, "swing");
+			$("section:not(.active)").css("display", "none");
+		});
+	}
+
+	$("#episodeDB-link").click(function(){
+		sectionLinkActivation("episodeDB", "Episode Database", false);
 	});
 
-	$("#resourceDB").click(function(){
-		history.pushState(stateObj, "Episode Database", "./resourceDB/");
+	$("#resourceDB-link").click(function(){
+		sectionLinkActivation("resourceDB", "Resource Database", false);
 	});
+
+	$("#back").click(function(){
+		history.pushState(null, "Downloads", "..");
+		$(".active").removeClass("active");
+		$(this).fadeOut(300, "swing");
+		$("#landing").css({"height": "auto"}).delay(400).fadeIn(500, "swing", function(){
+			$(this).addClass("active");
+			$("section:not(.active)").css("display", "none");
+		});
+	});
+
+	/* Landing on the page */
+	if (window.location.href.indexOf("?p=episodeDB") != -1) {
+		sectionLinkActivation("episodeDB", "Episode Database", true);
+	} else if (window.location.href.indexOf("?p=resourceDB") != -1) {
+		sectionLinkActivation("resourceDB", "Resource Database", true);
+	} else {
+		$("section:not(.active)").css("display", "none");
+	}
 });
 
