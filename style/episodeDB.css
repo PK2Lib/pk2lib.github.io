@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+/****************************************
+ * Stylesheet for PK2Lib Downloads page *
+ ****************************************/
+
+
+#episodeDB footer {
+    clear: both;
+}
+
+.episode {
+    float: left;
+    width: 100%;
+    padding: 0.25em;
+    background: #3f51b5;
+    border: 0.08em solid #1a237e;
+    border-radius: 0.2em;
+    box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5), 0 0 6pt rgba(0, 0, 0, 0.5) inset;
+    margin-top: 0.5em;
+    color: rgba(0,0,0,0.5);
+    transition: all 300ms;
+    box-sizing: border-box;
+}
+
+.episode.active, .episode:hover {
+    background: rgba(63, 81, 181, 0.8);
+}
+
+.episode:hover {
+    border-color: #4527a0;
+}
+
+.episode.active {
+    color: rgba(0,0,0,0.75);
+}
+
+.episode:not(.active) {
+    width: 80%;
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.episode * {
+    transition: all 300ms;
+}
+
+.episode:not(.active) > * {
+    display: none;
+    height: 0;
+}
+
+.episode:not(.active) > header,
+.episode:not(.active) > figure {
+    height: auto;
+    display: block;
+    float: left;
+    width: 50%
+}
+
+.episode.active > * {
+    width: 100%;
+}
+
+.episode figure img {
+    max-width: calc(100% - 0.4rem);
+}
+.episode:not(.active) figure img:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.episode footer a {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.episode table td:first-child {
+    width: 33%;
+}
+
+.episode h3 {
+    font-family: inherit;
+    font-size: 2rem;
+}
+
+.episode:not(.active) h3 {
+    margin: 0;
+}
+
+.episode:not(.active) h4 {
+    text-align: center;
+}
+
+.episode:not(.active) figcaption {
+    display: none;
+}

@@ -276,6 +276,8 @@ h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 
 }
 
 section {
+	float: left;
+	width: 100%;
 	opacity: 0;
 	transition: opacity 300ms;
 }
@@ -306,4 +308,9 @@ section.active {
 
 #back::before {
 	content: "↩ ";
+}
+
+
+footer {
+	clear: both;
 }
