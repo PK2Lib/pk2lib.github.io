@@ -32,7 +32,7 @@ var episodeDatum2 = '{' +
 	'	"filesize": "533 kB",' +
 	'	"description": "The second official episode by Janne",' +
 	'	"review": "[insert_URL_to_review_here]",' +
-	'	"tested": true,' +
+	'	"tested": false,' +
 	'	"screenshots": [' +
 	'		{"imgURL": "URL1"},' +
 	'		{"imgURL": "URL2"},' +
@@ -131,11 +131,15 @@ $(document).ready(function(){
 		}
 
 		/* Checkbox to indicate whether or not the episode has been tested by us */
-		var testedInput = '<input type="checkbox" disabled ';
+		var testedInput = '<span class="';
 		if (episodeDatum.tested) {
-			testedInput += "checked";
+			testedInput += 'tested">';
+			testedInput += "☑";
+		} else {
+			testedInput += 'untested">';
+			testedInput += "☒";
 		}
-		testedInput += " />";
+		testedInput += "</span>";
 
 		/* Screenshots */
 		var screenshots = "";
@@ -146,7 +150,7 @@ $(document).ready(function(){
 		}
 
 		/* Appending the episode block */
-		$("#episodeDB").append('<div class="episode" id="' + episodeDatum.id + '">' +
+		$("#episodeDB").append('<div class="episode clickable" id="' + episodeDatum.id + '">' +
 			'<header>' +
 			'<h3>' + episodeDatum.episodeName + '</h3>' +
 			'<h4>Released ' + episodeDatum.date + '</h4>' +
@@ -194,7 +198,16 @@ $(document).ready(function(){
 	}
 
 	$(".episode").click(function(){
-		$(this).addClass("active");
+		if ($(this).hasClass("clickable")) {
+            $(this).addClass("active");
+            $(this).removeClass("clickable");
+		}
+	});
+
+	$(".episode footer a").click(function(event){
+		event.preventDefault();
+		$(this).parents(".episode").removeClass("active");
+        $(this).parents(".episode").addClass("clickable");
 	});
 });
 

@@ -73,6 +73,21 @@
     display: block;
     text-align: center;
     width: 100%;
+    box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.3), 0 0 6pt rgba(0, 0, 0, 0.1) inset;
+    background: rgba(0, 0, 0, 0.1);
+    height: 2em;
+    line-height: 2em;
+    border-radius: 1em;
+    transition: all 200ms;
+    color: rgba(255, 255, 255, 0.66);
+    text-shadow: none;
+}
+
+.episode footer a:hover {
+    box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.3), 0 0 6pt rgba(0, 0, 0, 0.3) inset;
+    background: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .episode table td:first-child {
@@ -94,4 +109,28 @@
 
 .episode:not(.active) figcaption {
     display: none;
+}
+
+.episode.active h3:hover {
+    color: #000000;
+}
+
+.tested {
+    color: #4caf50;
+}
+
+.untested {
+    color: #b71c1c;
+}
+
+.tested, .untested {
+    font-size: 2em;
+    display: block;
+    height: 0.5em;
+    line-height: 35%;
+    font-family: "Arial Unicode MS";
+}
+
+.episode table tr:not(:first-of-type) td:first-child {
+    vertical-align: top;
 }
