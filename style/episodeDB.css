@@ -63,6 +63,10 @@
     opacity: 0.75;
 }
 
+.episode:not(.active):hover > figure {
+    opacity: 1;
+}
+
 .episode.active > * {
     width: 100%;
 }

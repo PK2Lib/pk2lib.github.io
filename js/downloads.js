@@ -121,11 +121,20 @@ $(document).ready(function(){
 	for (var i = 0; i < episodeData.length; i++) {
 		episodeDatum = JSON.parse(episodeData[i]);
 
+
 		/* Download links */
 		var downloadLinks = "";
 		for (var j = 0; j < episodeDatum.downloadLink.length; j++) {
+            var filename = "";
+            if (episodeDatum.downloadLink[j].linURL.indexOf("/") != -1) {
+                filename = episodeDatum.downloadLink[j].linkURL.slice(episodeDatum.downloadLink[j].lastIndexOf("/"));
+			} else {
+            	filename = episodeDatum.downloadLink[j].linkURL;
+			}
+
 			downloadLinks += "<li>";
-			downloadLinks += '<a href="' + episodeDatum.downloadLink[j].linkURL + '">'
+			downloadLinks += '<a href="' + episodeDatum.downloadLink[j].linkURL
+				+ '" download="' + filename + '">'
 				+ episodeDatum.downloadLink[j].linkName +'</a>'
 			downloadLinks += "</li>";
 		}
