@@ -11,7 +11,6 @@
 .episode {
     float: left;
     width: 100%;
-    padding: 0.25em;
     background: #3f51b5;
     border: 0.08em solid #1a237e;
     border-radius: 0.2em;
@@ -32,6 +31,7 @@
 
 .episode.active {
     color: rgba(0,0,0,0.75);
+    padding: 0.25em;
 }
 
 .episode:not(.active) {
@@ -54,7 +54,9 @@
     height: auto;
     display: block;
     float: left;
-    width: 50%
+    width: 50%;
+    padding: 0.25em;
+    box-sizing: border-box;
 }
 
 .episode.active > * {

@@ -150,7 +150,7 @@ $(document).ready(function(){
 		}
 
 		/* Appending the episode block */
-		$("#episodeDB").append('<div class="episode clickable" id="' + episodeDatum.id + '">' +
+		$("#episodeDB").append('<div class="episode" id="' + episodeDatum.id + '">' +
 			'<header>' +
 			'<h3>' + episodeDatum.episodeName + '</h3>' +
 			'<h4>Released ' + episodeDatum.date + '</h4>' +
@@ -197,17 +197,18 @@ $(document).ready(function(){
 			'</div>');
 	}
 
-	$(".episode").click(function(){
-		if ($(this).hasClass("clickable")) {
-            $(this).addClass("active");
-            $(this).removeClass("clickable");
+	$(".episode footer a").click(function(event){
+		event.preventDefault();
+		$(this).parents(".episode").each(function(){
+			$(this).removeClass("active");
+        });
+	});
+
+	$(".episode header, .episode figure").click(function(){
+		if (!$(this).parent().hasClass("active")) {
+            $(this).parent().addClass("active");
 		}
 	});
 
-	$(".episode footer a").click(function(event){
-		event.preventDefault();
-		$(this).parents(".episode").removeClass("active");
-        $(this).parents(".episode").addClass("clickable");
-	});
 });
 
