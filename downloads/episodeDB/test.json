@@ -1,0 +1,65 @@
+[
+  {
+    "id": 0,
+    "date": "2003-01-02",
+    "episodeName": "Rooster Island 1",
+    "downloadLink": [
+      {
+        "linkName": "Version 1.0",
+        "linkURL": "URL1"
+      },
+      {
+        "linkName": "Version 1.2",
+        "linkURL": "URL2"
+      }
+    ],
+    "authors": "Janne Kivilahti",
+    "numberOfMaps": 11,
+    "filesize": "228 kB",
+    "description": "The first content of the whole game",
+    "review": "It’s a classic.",
+    "tested": true,
+    "screenshots": [
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_01.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_02.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_03.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_04.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_05.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_06.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_07.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_08.gif"}
+    ]
+  },
+
+  {
+    "id": 1,
+    "date": "2004-06-01",
+    "episodeName": "Rooster Island 2",
+    "downloadLink": [
+      {
+        "linkName": "Version 1.0",
+        "linkURL": "URL1"
+      },
+      {
+        "linkName": "Version 1.2",
+        "linkURL": "URL2"
+      }
+    ],
+    "authors": "Janne Kivilahti",
+    "numberOfMaps": 13,
+    "filesize": "533 kB",
+    "description": "The second official episode by Janne",
+    "review": "[insert_URL_to_review_here]",
+    "tested": false,
+    "screenshots": [
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_12.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_13.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_14.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_15.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_16.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_17.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_18.gif"},
+      {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_19.gif"}
+    ]
+  }
+]
