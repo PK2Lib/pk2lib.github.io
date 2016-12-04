@@ -17,7 +17,6 @@
     "numberOfMaps": 11,
     "filesize": "228 kB",
     "description": "The first content of the whole game",
-    "review": "It’s a classic.",
     "tested": true,
     "screenshots": [
       {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_01.gif"},
@@ -33,7 +32,7 @@
 
   {
     "id": 1,
-    "date": "2004-06-01",
+    "date": "2003-09-02",
     "episodeName": "Rooster Island 2",
     "downloadLink": [
       {
@@ -49,7 +48,10 @@
     "numberOfMaps": 13,
     "filesize": "533 kB",
     "description": "The second official episode by Janne",
-    "review": "[insert_URL_to_review_here]",
+    "review": {
+      "text": "Read here",
+      "reviewURL": "URL"
+    },
     "tested": false,
     "screenshots": [
       {"imgURL": "http://kiwi.mbnet.fi/pistegamez/pk2/SHOT_12.gif"},

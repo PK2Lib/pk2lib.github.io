@@ -93,13 +93,21 @@ $(document).ready(function(){
                 downloadLinks += "</li>";
             }
 
+            /* Review link */
+            var review = "";
+            if (!episodeDatum.review) {
+            	review += 'None yet.';
+			} else {
+            	review = '<a href="' + episodeDatum.review.reviewURL + '">' + episodeDatum.review.text + '</a>';
+			}
+
 			/* Checkbox to indicate whether or not the episode has been tested by us */
             var testedInput = '<span class="';
             if (episodeDatum.tested) {
-                testedInput += 'tested">';
+                testedInput += 'tested" title="This episode has been tested by PK2Lib!">';
                 testedInput += "☑";
             } else {
-                testedInput += 'untested">';
+                testedInput += 'untested" title="Unfortunately, this episode has not been tested by us yet.">';
                 testedInput += "☒";
             }
             testedInput += "</span>";
@@ -143,15 +151,15 @@ $(document).ready(function(){
                 '</tr>' +
                 '<tr>' +
                 '<td>Our review:</td>' +
-                '<td>' + episodeDatum.review + '</td>' +
+                '<td>' + review + '</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<td>Tested: </td>' +
                 '<td>' + testedInput + '</td>' +
                 '</tr>' +
                 '</table>' +
-                '<figure>' + screenshots +
-                '<figcaption>Screenshots</figcaption>' +
+                '<figure>' +
+				'<figcaption>Screenshots</figcaption>' + screenshots +
                 '</figure>' +
                 '<footer>' +
                 '<a href="#">⋀</a>' +
@@ -196,4 +204,3 @@ $(document).ready(function(){
 	}
 
 });
-
