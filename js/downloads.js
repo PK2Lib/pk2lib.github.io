@@ -15,8 +15,8 @@ var episodeDatum1 = '{' +
 	'	"tested": true,' +
 	'	"screenshots": [' +
 	'		{"imgURL": "http://www.pistegamez.net/PK2/SHOT10.gif"},' +
-	'		{"imgURL": "URL2"},' +
-	'		{"imgURL": "URL3"}' +
+	'		{"imgURL": "http://www.pistegamez.net/PK2/SHOT1.gif"},' +
+	'		{"imgURL": "http://www.pistegamez.net/PK2/SHOT2.gif"}' +
 	'	]' +
 	'}';
 var episodeDatum2 = '{' +
@@ -34,9 +34,9 @@ var episodeDatum2 = '{' +
 	'	"review": "[insert_URL_to_review_here]",' +
 	'	"tested": false,' +
 	'	"screenshots": [' +
-	'		{"imgURL": "URL1"},' +
-	'		{"imgURL": "URL2"},' +
-	'		{"imgURL": "URL3"}' +
+	'		{"imgURL": "http://www.pistegamez.net/PK2/SHOT5.gif"},' +
+	'		{"imgURL": "http://www.pistegamez.net/PK2/SHOT8.gif"},' +
+	'		{"imgURL": "http://www.pistegamez.net/PK2/SHOT7.gif"}' +
 	'	]' +
 	'}';
 
@@ -71,8 +71,8 @@ $(document).ready(function(){
 	};
 
 	function sectionLinkActivation(sectionID, sectionName) {
-		$(".active").delay(300).animate({"height": "0"}, 100, "swing");
-		$(".active").removeClass("active");
+		$("section.active").delay(300).animate({"height": "0"}, 100, "swing");
+		$("section.active").removeClass("active");
 		$("#" + sectionID).css({"height": "auto"}).delay(400).fadeIn(500, "swing", function() {
 			$(this).addClass("active");
 			$("#back").fadeIn(300, "swing");
@@ -126,7 +126,7 @@ $(document).ready(function(){
 		var downloadLinks = "";
 		for (var j = 0; j < episodeDatum.downloadLink.length; j++) {
             var filename = "";
-            if (episodeDatum.downloadLink[j].linURL.indexOf("/") != -1) {
+            if (episodeDatum.downloadLink[j].linkURL.indexOf("/") != -1) {
                 filename = episodeDatum.downloadLink[j].linkURL.slice(episodeDatum.downloadLink[j].lastIndexOf("/"));
 			} else {
             	filename = episodeDatum.downloadLink[j].linkURL;
@@ -218,6 +218,26 @@ $(document).ready(function(){
             $(this).parent().addClass("active");
 		}
 	});
+
+	function cycleScreenshots(element) {
+        var length = element.children("figure").eq(0).children("img").length;
+
+		element.children("figure").eq(0).children("img").each(function(index){
+            var t = $(this);
+            setTimeout(function() {
+                t.parent().children("img").removeClass("active");
+                t.addClass("active");
+                var interval = setInterval(function() {
+                    t.parent().children("img").removeClass("active");
+                    t.addClass("active");
+                }, 6000 * length);
+            }, 6000 * index);
+		});
+	}
+
+	$(".episode").each(function() {
+		cycleScreenshots($(this));
+    });
 
 });
 
