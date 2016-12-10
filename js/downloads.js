@@ -75,7 +75,6 @@ $(document).ready(function(){
         for (var i = 0; i < episodeData.length; i++) {
             episodeDatum = episodeData[i];
 
-
 			/* Download links */
             var downloadLinks = "";
             for (var j = 0; j < episodeDatum.downloadLink.length; j++) {
@@ -124,7 +123,7 @@ $(document).ready(function(){
             $("#episodeDB").append('<div class="episode" id="' + episodeDatum.id + '">' +
                 '<header>' +
                 '<h3>' + episodeDatum.episodeName + '</h3>' +
-                '<h4>Released ' + episodeDatum.date + '</h4>' +
+                '<h4>Released ' + new Date(episodeDatum.date).toLocaleDateString() + '</h4>' +
                 '</header>' +
                 '<table>' +
                 '<tr>' +
