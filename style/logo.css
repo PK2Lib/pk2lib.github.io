@@ -15,9 +15,34 @@
     position: relative;
 }
 
-#page_header h1 > span {float: left; width: 240px; height: 120px;}
-#page_header h1 > span:first-child {color: #000000; line-height: 100px; text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.2);}
-#page_header h1 > span:last-child {color: #FFFFFF; line-height: 140px; text-shadow: 0 3pt 6pt rgba(255, 255, 255, 0.2);}
+#page_header h1 > span {
+    float: left;
+    width: 240px;
+    height: 120px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    box-shadow: 0 0 4pt rgba(0, 0, 0, 0.5) inset;
+    border-color: transparent;
+    border-style: solid;
+}
+
+#page_header h1 > span:first-child {
+    color: #000000;
+    line-height: 68px;
+    text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.2);
+    border-width: 0 16px 16px 0;
+    padding: 16px 0 0 16px;
+    background-color: #FFFFFF;
+}
+
+#page_header h1 > span:last-child {
+    color: #FFFFFF;
+    line-height: 108px;
+    text-shadow: 0 3pt 6pt rgba(255, 255, 255, 0.2);
+    border-width: 16px 0 0 16px;
+    padding: 0 16px 16px 0;
+    background-color: #000000;
+}
 
 #page_header h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
 #page_header h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
