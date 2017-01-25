@@ -48,6 +48,7 @@
 	-moz-transition: all 200ms linear;
 	-o-transition: all 200ms linear;
 	cursor: pointer;
+	text-shadow: none;
 }
 
 .imgview a.dismiss:hover {
@@ -95,8 +96,10 @@
 	left: 4rem;
 	border-right-color: rgba(255, 255, 255, 0.75);
 }
+.imgview .arrow.left:hover {border-right-color: rgba(255, 255, 255, 1);}
 
 .imgview .arrow.right {
 	right: 4rem;
 	border-left-color: rgba(255, 255, 255, 0.75);
 }
+.imgview .arrow.right:hover {border-left-color: rgba(255, 255, 255, 1);}
