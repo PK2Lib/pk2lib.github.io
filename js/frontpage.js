@@ -5,10 +5,15 @@
 // Checking window size
 console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + window.innerHeight + "\n" + "Screen width: " + screen.width + '\n' + "Screen height: " + screen.height);
 
+
+
+// Background
+var pk2assetsroot = "./game_assets/";
+var pk2CustomLibraryRoot = "./js/bg/";
 var backgroundMap = (function(){
 	var obj = [
 		{path: "rooster island 1/level004.map", x: 79, y: 24}, // rainy forest
-		{path: "rooster island 2/level3.map", x: 153, y: 102}, // water cavern
+		{path: "rooster island 2/level3.map", x: 146, y: 116}, // water cavern
 		{path: "rooster island 1/level009.map", x: 91, y: 71}, // forest riddle
 		{path: "rooster island 2/level5.map", x: 103, y: 71}   // forest riddle 2
 	];
@@ -16,12 +21,14 @@ var backgroundMap = (function(){
 	return obj[random];
 })();
 
+
+
 // DOM loaded
 $(document).ready(function() {	
 	
 
 	// fullPage initiation
-	if ($(window).width() >= 520 && $(window).height() >= 520) {
+	if (($(window).width() >= 640 && $(window).height() >= 640) || $(window).width() > $(window).height()) {
 		$('#fullpage').fullpage({
 			scrollingSpeed: 500,
 			paddingBottom: '2rem',
@@ -55,9 +62,7 @@ $(document).ready(function() {
 		$(this).next().children().eq(0).trigger("click");
 	});
 	
-	
-	preInit();
-	
+
 }); // END
 
 

@@ -1,81 +1,85 @@
+// Background
+
+var pk2assetsroot = "../game_assets/";
+var pk2CustomLibraryRoot = "../js/bg/";
 
 var backgroundMap = (function(){
-	var random = Math.round(Math.random());
-	if (random == 0) {
-		return {path: "rooster island 2/level6.map", x: 138, y: 196}; // castle of clocks
-	} else {
-		return {path: "rooster island 1/level005.map", x: 69, y: 176}; // castle of towers
-	}
+    var random = Math.round(Math.random());
+    if (random == 0) {
+        return {path: "rooster island 2/level6.map", x: 130, y: 196}; // castle of clocks
+    } else {
+        return {path: "rooster island 1/level005.map", x: 73, y: 204}; // castle of towers
+    }
 })();
 
 $(document).ready(function(){
-	//$("a").smoothScroll();
-	preInit();
+    //$("a").smoothScroll();
+    preInit();
 
-	window.onpopstate = function(event) {
-		if (event.state == null || event.state.sectionId == "downloads") {
-			goBack($("#back"));
-		} else if (event.state.sectionId == "episodeDB") {
-			sectionLinkActivation("episodeDB");
-		} else if (event.state.sectionId == "resourceDB") {
-			sectionLinkActivation("resourceDB");
-		}
-	};
+    window.onpopstate = function(event) {
+        if (event.state == null || event.state.sectionId == "downloads") {
+            goBack($("#back"));
+        } else if (event.state.sectionId == "episodeDB") {
+            sectionLinkActivation("episodeDB");
+        } else if (event.state.sectionId == "resourceDB") {
+            sectionLinkActivation("resourceDB");
+        }
+    };
 
-	function sectionLinkActivation(sectionID, sectionName) {
-		$("section.active").delay(300).animate({"height": "0"}, 100, "swing");
-		$("section.active").removeClass("active");
-		$("#" + sectionID).css({"height": "auto"}).delay(400).fadeIn(500, "swing", function() {
-			$(this).addClass("active");
-			$("#back").fadeIn(300, "swing");
-			$("section:not(.active)").css("display", "none");
-		});
-		$("title").text(sectionName + " &mdash; The Pekka Kana 2 Library");
-	}
+    function sectionLinkActivation(sectionID, sectionName) {
+        $("section.active").delay(300).animate({"height": "0"}, 100, "swing");
+        $("section.active").removeClass("active");
+        $("#" + sectionID).css({"height": "auto"}).delay(400).fadeIn(500, "swing", function() {
+            $(this).addClass("active");
+            $("#back").fadeIn(300, "swing");
+            $("section:not(.active)").css("display", "none");
+        });
+        $("title").text(sectionName + " &mdash; The Pekka Kana 2 Library");
+    }
 
-	$("#episodeDB-link").click(function(){
-		sectionLinkActivation("episodeDB", "Episode Database");
-		history.pushState({sectionId: "episodeDB"}, "Episode Database", "./episodeDB/");
-	});
+    $("#episodeDB-link").click(function(){
+        sectionLinkActivation("episodeDB", "Episode Database");
+        history.pushState({sectionId: "episodeDB"}, "Episode Database", "./episodeDB/");
+    });
 
-	$("#resourceDB-link").click(function(){
-		sectionLinkActivation("resourceDB", "Resource Database");
-		history.pushState({sectionId: "resourceDB"}, "Resource Database", "./resourceDB/");
-	});
+    $("#resourceDB-link").click(function(){
+        sectionLinkActivation("resourceDB", "Resource Database");
+        history.pushState({sectionId: "resourceDB"}, "Resource Database", "./resourceDB/");
+    });
 
-	function goBack(element) {
-		$(".active").removeClass("active");
-		element.fadeOut(300, "swing");
-		$("#landing").css({"height": "auto"}).delay(400).fadeIn(500, "swing", function(){
-			$(this).addClass("active");
-			$("section:not(.active)").css("display", "none");
-		});
+    function goBack(element) {
+        $(".active").removeClass("active");
+        element.fadeOut(300, "swing");
+        $("#landing").css({"height": "auto"}).delay(400).fadeIn(500, "swing", function(){
+            $(this).addClass("active");
+            $("section:not(.active)").css("display", "none");
+        });
         $("title").text("Downloads &mdash; The Pekka Kana 2 Library");
-	}
+    }
 
-	$("#back").click(function(){
-		history.pushState({sectionId: "downloads"}, "Downloads", "..");
-		goBack($(this));
-	});
+    $("#back").click(function(){
+        history.pushState({sectionId: "downloads"}, "Downloads", "..");
+        goBack($(this));
+    });
 
-	/* Landing on the page */
-	if (window.location.href.indexOf("?p=episodeDB") != -1) {
-		sectionLinkActivation("episodeDB", "Episode Database");
-		history.replaceState({sectionId: "episodeDB"}, "Episode Database", "./episodeDB/");
-	} else if (window.location.href.indexOf("?p=resourceDB") != -1) {
-		sectionLinkActivation("resourceDB", "Resource Database");
-		history.replaceState({sectionId: "resourceDB"}, "Resource Database", "./resourceDB/");
-	} else {
-		$("section:not(.active)").css("display", "none");
-	}
+    /* Landing on the page */
+    if (window.location.href.indexOf("?p=episodeDB") != -1) {
+        sectionLinkActivation("episodeDB", "Episode Database");
+        history.replaceState({sectionId: "episodeDB"}, "Episode Database", "./episodeDB/");
+    } else if (window.location.href.indexOf("?p=resourceDB") != -1) {
+        sectionLinkActivation("resourceDB", "Resource Database");
+        history.replaceState({sectionId: "resourceDB"}, "Resource Database", "./resourceDB/");
+    } else {
+        $("section:not(.active)").css("display", "none");
+    }
 
 
-	/* Episodes on display */
+    /* Episodes on display */
     jQuery.getJSON("/downloads/episodeDB/test.json", function(episodeData) {
         for (var i = 0; i < episodeData.length; i++) {
             episodeDatum = episodeData[i];
 
-			/* Download links */
+            /* Download links */
             var downloadLinks = "";
             for (var j = 0; j < episodeDatum.downloadLink.length; j++) {
                 var filename = "";
@@ -95,12 +99,12 @@ $(document).ready(function(){
             /* Review link */
             var review = "";
             if (!episodeDatum.review) {
-            	review += 'None yet.';
-			} else {
-            	review = '<a href="' + episodeDatum.review.reviewURL + '">' + episodeDatum.review.text + '</a>';
-			}
+                review += 'None yet.';
+            } else {
+                review = '<a href="' + episodeDatum.review.reviewURL + '">' + episodeDatum.review.text + '</a>';
+            }
 
-			/* Checkbox to indicate whether or not the episode has been tested by us */
+            /* Checkbox to indicate whether or not the episode has been tested by us */
             var testedInput = '<span class="';
             if (episodeDatum.tested) {
                 testedInput += 'tested" title="This episode has been tested by PK2Lib!">';
@@ -111,7 +115,7 @@ $(document).ready(function(){
             }
             testedInput += "</span>";
 
-			/* Screenshots */
+            /* Screenshots */
             var screenshots = "";
             for (var j = 0; j < episodeDatum.screenshots.length; j++) {
                 screenshots += '<img alt="shot' + (j + 1) + '"';
@@ -119,7 +123,7 @@ $(document).ready(function(){
                 screenshots += " />";
             }
 
-			/* Appending the episode block */
+            /* Appending the episode block */
             $("#episodeDB").append('<div class="episode" id="' + episodeDatum.id + '">' +
                 '<header>' +
                 '<h3>' + episodeDatum.episodeName + '</h3>' +
@@ -158,7 +162,7 @@ $(document).ready(function(){
                 '</tr>' +
                 '</table>' +
                 '<figure>' +
-				'<figcaption>Screenshots</figcaption>' + screenshots +
+                '<figcaption>Screenshots</figcaption>' + screenshots +
                 '</figure>' +
                 '<footer>' +
                 '<a href="#">⋀</a>' +
@@ -186,10 +190,10 @@ $(document).ready(function(){
     });
 
 
-	function cycleScreenshots(element) {
+    function cycleScreenshots(element) {
         var length = element.children("figure").eq(0).children("img").length;
 
-		element.children("figure").eq(0).children("img").each(function(index){
+        element.children("figure").eq(0).children("img").each(function(index){
             var t = $(this);
             setTimeout(function() {
                 t.parent().children("img").removeClass("active");
@@ -199,7 +203,7 @@ $(document).ready(function(){
                     t.addClass("active");
                 }, 6000 * length);
             }, 6000 * index);
-		});
-	}
+        });
+    }
 
 });
