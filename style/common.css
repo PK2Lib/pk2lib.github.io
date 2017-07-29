@@ -7,12 +7,15 @@
 /* Reset */
 
 * {
-    margin:  0;
+    margin: 0;
     padding: 0;
-    border:  0;
+    border: 0;
+    z-index: 0;
 }
 
-article, aside, details, figure, footer, header, main, nav, section, summary {display: block;}
+article, aside, details, figure, footer, header, main, nav, section, summary {
+    display: block;
+}
 
 img {
     user-select: none;
@@ -23,10 +26,35 @@ img {
     max-width: 100%;
 }
 
-html, body {width: 100%; height: 100%;}
+/* Body */
 
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Chelsea Market", "Verdana", sans-serif;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.7);
+}
 
+/* Fonts */
 
+@font-face {
+    font-family: "Vademecum";
+    src: url("../fonts/vademecum.eot");
+    src: url("../fonts/vademecum.otf");
+    src: url("../fonts/vademecum.svg");
+    src: url("../fonts/vademecum.ttf");
+    src: url("../fonts/vademecum.woff");
+}
+
+@font-face {
+    font-family: "Xolonium";
+    src: url("../fonts/Xolonium-Regular.eot");
+    src: url("../fonts/Xolonium-Regular.otf");
+    src: url("../fonts/Xolonium-Regular.svg");
+    src: url("../fonts/Xolonium-Regular.ttf");
+    src: url("../fonts/Xolonium-Regular.woff");
+}
 
 /* Logo */
 
@@ -77,5 +105,187 @@ html, body {width: 100%; height: 100%;}
     border-bottom-right-radius: 4px;
 }
 
-#page_header h1 ::-moz-selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
-#page_header h1 ::selection {color: rgba(255, 255, 255, 0.3); text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0);}
+#page_header h1 ::-moz-selection {
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0);
+}
+
+#page_header h1 ::selection {
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0);
+}
+
+/* Headers */
+
+h2, h3 {
+    font-family: "Vademecum";
+    text-align: center;
+    text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
+    margin: 4rem 0 2rem;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+h4 {
+    margin: 1rem 0 0.5rem;
+}
+
+h2 + h3 {
+    margin-top: 0;
+}
+
+/* Paragraphs & lists */
+
+p, ul, ol {
+    text-align: justify;
+}
+
+p:not(:first-of-type) {
+    text-indent: 1.5rem;
+}
+
+h3 + p:not(:first-of-type) {
+    text-indent: 0;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul, ol {
+    margin: 1rem 0 1rem 2rem;
+}
+
+p + ul, h4 + ul, p + ol, h4 + ol {
+    margin: 0 0 1rem 2rem;
+}
+
+/* Blockquotes */
+
+blockquote {
+    background-position: -176px 0;
+    background-repeat: no-repeat;
+    padding: 0.5rem 32px 0.5rem 92px;
+    position: relative;
+}
+
+blockquote::before {
+    content: "“";
+    display: block;
+    font-size: 14em;
+    left: 0;
+    position: absolute;
+    top: -0.15em;
+    opacity: 0.54;
+}
+
+blockquote footer {
+    padding: 0.5rem 0 0.5rem 64px;
+}
+
+blockquote footer::before {
+    content: "— ";
+}
+
+/* Figures & images */
+
+figure {
+    text-align: center;
+    display: inline-block;
+}
+
+figure img {
+    margin: 0.2rem;
+    float: left;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
+figure img:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+figcaption {
+    float: left;
+    width: 100%;
+    margin-top: 0.5rem;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+}
+
+img, photo {
+    margin: 0.5rem;
+}
+
+img.left, photo.left  {float: left;}
+img.right, photo.right {float: right;}
+
+mark {
+    background-color: #e0e0e0;
+    color: inherit;
+    cursor: help;
+    border-radius: 0.2rem;
+}
+
+/* Tables */
+
+table {
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.7);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.7);
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    border-spacing: 1rem;
+}
+
+table tr > td:first-child {
+    text-align: right;
+}
+
+table tr > td:last-child {
+    text-align: left;
+}
+
+/* Defaul link styles */
+
+a, a:link, a:visited {
+    color: #e65100;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 100ms linear;
+}
+
+a:hover, a:active {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Default selection styles */
+
+::-moz-selection {
+    color: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+::selection {
+    color: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Canvas */
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+

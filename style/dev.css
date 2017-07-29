@@ -3,228 +3,75 @@
  * Stylesheet for PK2Lib dev page *
  **********************************/
 
-
-
-/* Reset */
-
-* {
-	margin:  0;
-	padding: 0;
-	border:  0;
-}
-
-article, aside, details, figure, footer, header, main, nav, section, summary {display: block;}
-
-img {
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	max-width: 100%;
-}
-
-
-
 /* General */
 
-h2, h3 {
-	font-family: "Vademecum";
-	text-align: center;
-	text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
-	margin: 4rem 0 2rem;
-	font-weight: normal;
-}
-
-h2 {font-size: 4rem;}
-h3 {font-size: 2.8rem;}
-h4 {margin: 1rem 0 0.5rem;}
-
-h2 + h3 {margin-top: 0;}
-
-p, ul, ol {
-	text-align: justify;
-}
-
-p:not(:first-of-type) {text-indent: 1.5rem;}
-h3 + p:not(:first-of-type) {text-indent: 0;}
-
 a, a:link, a:visited {
-	color: #e65100;
-	cursor: pointer;
-	text-decoration: none;
-	text-shadow: 0 3pt 6pt #FFFFFF;
-	transition: all 100ms linear;
+    color: #e65100;
+    text-shadow: 0 3pt 6pt #FFFFFF;
 }
 
 a:hover, a:active {
-	color: #000000;
-	text-decoration: underline;
+    color: #000000;
 }
 
-figure {
-	text-align: center;
-	display: inline-block;
-}
-
-figure img {
-	margin: 0.2rem;
-	float: left;
-	transition: all 300ms;
-	cursor: pointer;
-}
-
-figure img:hover {
-	transform: translateY(-0.3rem);
-	box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-}
-
-figcaption {
-	float: left;
-	width: 100%;
-	margin-top: 0.5rem;
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
-}
-
-
-ul {
-	list-style-type: square;
-}
-
-ul, ol {
-	margin: 1rem 0 1rem 2rem;
-}
-
-p + ul, h4 + ul, p + ol, h4 + ol {
-	margin: 0 0 1rem 2rem;
-}
-
-blockquote {
-	background-position: -176px 0;
-	background-repeat: no-repeat;
-	padding: 0.5rem 32px 0.5rem 92px;
-	position: relative;
-}
-
-blockquote::before {
-    content: "“";
-    display: block;
-    font-size: 14em;
-    left: 0;
-    position: absolute;
-    top: -0.15em;
-	opacity: 0.54;
-}
-
-blockquote footer {
-	padding: 0.5rem 0 0.5rem 64px;
-}
-
-blockquote footer::before {
-	content: "— ";
-}
-
-table {
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.7);
-	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.7);
-	margin: 1.5rem 0;
-	padding: 0.5rem;
-	border-spacing: 1rem;
-}
-
-table tr > td:first-child {
-	text-align: right;
-}
-table tr > td:last-child {
-	text-align: left;
-}
-
-img {
-	margin: 0.5rem;
-}
-
-img.left  {float: left;}
-img.right {float: right;}
-
-mark {
-	background-color: #e0e0e0;
-	color: inherit;
-	cursor: help;
-	border-radius: 0.2rem;
-}
-
-::-moz-selection  {color: rgba(0, 0, 0, 0.8); background: rgba(255, 255, 255, 0.8);}
-::selection       {color: rgba(0, 0, 0, 0.8); background: rgba(255, 255, 255, 0.8);}
-
-
-
-/* Basic structure */
+/* Structure */
 
 body {
-	background: url("../images/FACTORY3.png") center center;
-	color: rgba(255, 255, 255, 0.75);
-	font-family: "Roboto Slab", "Verdana", sans-serif;
-}
-
-#bg-canvas {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: -1000;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Roboto Slab", "Verdana", sans-serif;
 }
 
 main {
-	float: right;
-	background: rgba(0, 0, 0, 0.85);
-	width: 33%;
-	min-width: 320px;
-	max-width: 960px;
-	padding: 1rem;
-	border: 0.5rem solid rgba(255, 255, 255, 1);
-	border-image-source: url("../images/qbg3.png");
-	border-image-width: 0.5rem;
-	border-image-repeat: round;
-	border-image-slice: 22;
-	margin: 1rem;
-	box-sizing: border-box;
+    float: right;
+    background: rgba(0, 0, 0, 0.85);
+    width: 33%;
+    min-width: 320px;
+    max-width: 960px;
+    padding: 1rem;
+    border: 0.5rem solid rgba(255, 255, 255, 1);
+    border-image-source: url("../images/qbg3.png");
+    border-image-width: 0.5rem;
+    border-image-repeat: round;
+    border-image-slice: 22;
+    margin: 1rem;
+    box-sizing: border-box;
 }
 
 aside {
-	float: left;
-	min-width: calc(240px + 2rem);
+    float: left;
+    min-width: calc(240px + 2rem);
 }
 
 #page_header h1 {
-	margin: 1rem auto;
+    margin: 1rem auto;
 }
 
 aside nav {
 }
 
 aside nav a, aside nav a:link, aside nav a:visited {
-	float: left;
-	clear: left;
-	margin: 0 0 0 1.5rem;
-	white-space: nowrap;
-	color: #FFFFFF;
-	transition: all 200ms;
-	padding: 0.2rem 0.5rem;
-	text-decoration: none;
-	border-radius: 0.3rem;
-	background: rgba(0, 0, 0, 0.85);
-	box-shadow: 0 0 0.2rem 0.1rem rgba(0, 0, 0, 0.75);
-	color: #FFFFFF;
-	text-shadow: none;
+    float: left;
+    clear: left;
+    margin: 0 0 0 1.5rem;
+    white-space: nowrap;
+    color: #FFFFFF;
+    transition: all 200ms;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 0.2rem 0.1rem rgba(0, 0, 0, 0.75);
+    color: #FFFFFF;
+    text-shadow: none;
 }
 
 aside nav a:hover {
-	color: #000000;
-	transform: translateX(1rem);
-	background: rgba(255, 255, 255, 0.75);
-	box-shadow: 0 0 0.2rem 0.1rem rgba(255, 255, 255, 0.75);
+    color: #000000;
+    transform: translateX(1rem);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 0.2rem 0.1rem rgba(255, 255, 255, 0.75);
 }
 
-
 aside nav a::before {
-	content: "> ";
+    content: "> ";
 }

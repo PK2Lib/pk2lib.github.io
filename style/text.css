@@ -3,393 +3,325 @@
  * Stylesheet for PK2Lib text pages *
  ************************************/
 
-
 /* General */
 
-h2, h3 {
-	font-family: "Vademecum";
-	text-align: center;
-	text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
-	margin: 4rem 0 2rem;
-	font-weight: normal;
+::-moz-selection {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.8);
 }
 
-h2 {font-size: 4rem;}
-h3 {font-size: 2.8rem;}
-h4 {margin: 1rem 0 0.5rem;}
-
-h2 + h3 {margin-top: 0;}
-
-p, ul, ol {
-	text-align: justify;
+::selection {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.8);
 }
 
-p:not(:first-of-type) {text-indent: 1.5rem;}
-h3 + p:not(:first-of-type) {text-indent: 0;}
-
-a, a:link, a:visited {
-	color: #e65100;
-	cursor: pointer;
-	text-decoration: none;
-	text-shadow: 0 3pt 6pt #FFFFFF;
-	transition: all 100ms linear;
-}
-
-a:hover, a:active {
-	color: #000000;
-	text-decoration: underline;
-}
-
-figure {
-	text-align: center;
-	display: inline-block;
-}
-
-figure img {
-	margin: 0.2rem;
-	float: left;
-	transition: all 300ms;
-	cursor: pointer;
-}
-
-figure img:hover {
-	transform: translateY(-0.3rem);
-	box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-}
-
-figcaption {
-	float: left;
-	width: 100%;
-	margin-top: 0.5rem;
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.5);
+a {
+    text-shadow: 0 3pt 6pt #FFFFFF;
 }
 
 
-ul {
-	list-style-type: square;
-}
-
-ul, ol {
-	margin: 1rem 0 1rem 2rem;
-}
-
-p + ul, h4 + ul, p + ol, h4 + ol {
-	margin: 0 0 1rem 2rem;
-}
-
-blockquote {
-	background-position: -176px 0;
-	background-repeat: no-repeat;
-	padding: 0.5rem 32px 0.5rem 92px;
-	position: relative;
-}
-
-blockquote::before {
-    content: "“";
-    display: block;
-    font-size: 14em;
-    left: 0;
-    position: absolute;
-    top: -0.15em;
-	opacity: 0.54;
-}
-
-blockquote footer {
-	padding: 0.5rem 0 0.5rem 64px;
-}
-
-blockquote footer::before {
-	content: "— ";
-}
-
-table {
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.7);
-	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.7);
-	margin: 1.5rem 0;
-	padding: 0.5rem;
-	border-spacing: 1rem;
-}
-
-table tr > td:first-child {
-	text-align: right;
-}
-table tr > td:last-child {
-	text-align: left;
-}
-
-img {
-	margin: 0.5rem;
-}
-
-img.left  {float: left;}
-img.right {float: right;}
-
-mark {
-	background-color: #e0e0e0;
-	color: inherit;
-	cursor: help;
-	border-radius: 0.2rem;
-}
-
-::-moz-selection  {color: rgba(255, 255, 255, 0.8); background: rgba(0, 0, 0, 0.8);}
-::selection       {color: rgba(255, 255, 255, 0.8); background: rgba(0, 0, 0, 0.8);}
-
-
-
-/* Basic Structure */
+/* Structure */
 
 body {
-	font-family: "Chelsea Market", "Verdana", sans-serif;
-	color: rgba(0, 0, 0, 0.7);
-	background: #FFFFFF;
+    background: #FFFFFF;
 }
 
 main {
-	width: 704px;
-	max-width: 100%;
-	padding: 0 0 96px;
-	margin: 0 auto;
-	box-sizing: border-box;
+    width: 704px;
+    max-width: 100%;
+    padding: 0 0 96px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 aside {
-	position: fixed;
-	bottom: 0;
-	width: calc(50% - 320px);
-	height: 100vh;
-	z-index: 3;
+    position: fixed;
+    bottom: 0;
+    width: calc(50% - 320px);
+    height: 100vh;
+    z-index: 3;
 }
 
 aside:first-of-type {
-	right: calc(50% + 320px);
-	background: url("../images/frogwell_kehys1.png") bottom right no-repeat;
+    right: calc(50% + 320px);
+    background: url("../images/frogwell_kehys1.png") bottom right no-repeat;
 }
 
 aside:last-of-type {
-	left: calc(50% + 320px);
-	background: url("../images/frogwell_kehys2.png") bottom left no-repeat;
+    left: calc(50% + 320px);
+    background: url("../images/frogwell_kehys2.png") bottom left no-repeat;
 }
 
 aside > * {
-	position: absolute;
-	bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 aside:first-of-type > * {
-	right: 200vmax;
+    right: 200vmax;
 }
 
 aside:last-of-type > * {
-	left: 200vmax;
+    left: 200vmax;
 }
 
 div.exit {
-	width: 32px;
-	height: 32px;
-	border-radius: 16px;
-	cursor: pointer;
-	transition: all 500ms;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 500ms;
 }
 
 div.exit:hover {
-	box-shadow: 0 0 16px rgba(0, 0, 0, 0.5),
-	            0 0 8px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(0, 0, 0, 0.5) inset;
 }
 
 div.waterfall {
-	width: 32px;
-	height: 416px;
-	background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
+    width: 32px;
+    height: 416px;
+    background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
 }
 
 div.water {
-	height: 32px;
-	background: url("../images/water.gif") repeat-x;
+    height: 32px;
+    background: url("../images/water.gif") repeat-x;
 }
 
 div.blueswitch {
-	background: url("../images/switch.png") no-repeat;
-	width: 32px;
-	height: 32px;
+    background: url("../images/switch.png") no-repeat;
+    width: 32px;
+    height: 32px;
 }
 
 #page_footer {
-	height: 64px;
-	line-height: 64px;
-	background: url("../images/water.gif") repeat-x, url("../images/riverBG.png") repeat-x top left;
-	position: fixed;
-	left: calc((100% - 864px) / 2);
-	bottom: 0;
-	width: 864px;
-	z-index: 2;
-	text-align: center;
-	color: rgba(255, 255, 255, 0.7);
-	font-family: "Verdana";
-	font-size: 0.7rem;
+    height: 64px;
+    line-height: 64px;
+    background: url("../images/water.gif") repeat-x, url("../images/riverBG.png") repeat-x top left;
+    position: fixed;
+    left: calc((100% - 864px) / 2);
+    bottom: 0;
+    width: 864px;
+    z-index: 2;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Verdana";
+    font-size: 0.7rem;
 }
 
 #page_header {
-	background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
-	width: 100%;
-	height: 35vh;
-	max-height: 512px;
-	min-height: 240px;
-	padding: 16px 0 48px;
-	position: relative;
-	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
-	            0 0 6pt rgba(0, 0, 0, 0.5) inset;
-	overflow: hidden;
+    background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
+    width: 100%;
+    height: 35vh;
+    max-height: 512px;
+    min-height: 240px;
+    padding: 16px 0 48px;
+    position: relative;
+    box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
+    0 0 6pt rgba(0, 0, 0, 0.5) inset;
+    overflow: hidden;
 }
 
 #page_header nav {
-	width: 704px;
-	max-width: 100%;
-	padding: 0.5rem 0 0;
-	text-align: center;
-	line-height: 1.5em;
-	position: absolute;
-	bottom: 5px;
-	left: calc((100% - 704px) / 2);
+    width: 704px;
+    max-width: 100%;
+    padding: 0.5rem 0 0;
+    text-align: center;
+    line-height: 1.5em;
+    position: absolute;
+    bottom: 5px;
+    left: calc((100% - 704px) / 2);
 }
 
 #page_header nav a {
-	margin: 0 1rem;
-	white-space: nowrap;
-	color: #FFFFFF;
-	transition: color 200ms;
+    margin: 0 1rem;
+    white-space: nowrap;
+    color: #FFFFFF;
+    transition: color 200ms;
 }
 
 #page_header nav a:hover {
-	color: #000000;
+    color: #000000;
 }
 
 #bird {
-	width: 29px;
-	height: 26px;
-	position: absolute;
-	top: 140px;
-	left: -60px;
-	background: url("../images/Bird.gif");
-	animation: birdAnim 24s linear 3s infinite;
-	z-index: 1;
+    width: 29px;
+    height: 26px;
+    position: absolute;
+    top: 140px;
+    left: -60px;
+    background: url("../images/Bird.gif");
+    animation: birdAnim 24s linear 3s infinite;
+    z-index: 1;
 }
 
 @keyframes birdAnim {
-	0% {left: -60px;}
-	100% {left: calc(100% + 60px)}
+    0% {
+        left: -60px;
+    }
+    100% {
+        left: calc(100% + 60px)
+    }
 }
 
-
 .arrow {
-	border-color: rgba(0, 0, 0, 0);
-	border-style: solid;
-	width: 0;
-	height: 0;
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0.3rem;
+    border-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0.3rem;
 }
 
 .arrow.left {
-	border-width: 1rem 1.5rem 1rem 0;
-	border-right-color: rgba(0, 0, 0, 0.7);
-}
-.arrow.right {
-	border-width: 1rem 0 1rem 1.5rem;
-	border-left-color: rgba(0, 0, 0, 0.7);
-}
-.arrow.up {
-	border-width: 0 1rem 1.5rem 1rem;
-	border-bottom-color: rgba(0, 0, 0, 0.7);
-}
-.arrow.down {
-	border-width: 1.5rem 1rem 0 1rem;
-	border-top-color: rgba(0, 0, 0, 0.7);
+    border-width: 1rem 1.5rem 1rem 0;
+    border-right-color: rgba(0, 0, 0, 0.7);
 }
 
+.arrow.right {
+    border-width: 1rem 0 1rem 1.5rem;
+    border-left-color: rgba(0, 0, 0, 0.7);
+}
+
+.arrow.up {
+    border-width: 0 1rem 1.5rem 1rem;
+    border-bottom-color: rgba(0, 0, 0, 0.7);
+}
+
+.arrow.down {
+    border-width: 1.5rem 1rem 0 1rem;
+    border-top-color: rgba(0, 0, 0, 0.7);
+}
 
 article nav {
-	text-align: center;
-	z-index: 1;
+    text-align: center;
+    z-index: 1;
 }
 
 article nav a, article nav a:link, article nav a:visited {
-	color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 article nav .arrow {
-	transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
 }
 
 article nav:last-child {
-	margin: 2rem 0;
+    margin: 2rem 0;
 }
 
 article {
-	position: relative;
-	overflow: hidden;
-	transition: all 1000ms;
-	height: 32em;
-	padding: 0 32px;
-	box-sizing: border-box;
-	max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 1000ms;
+    height: 32em;
+    padding: 0 32px;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 article.fullcontent {
-	overflow: auto;
-	height: auto;
+    overflow: auto;
+    height: auto;
 }
 
 article nav:first-child {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 4em;
-	padding-top: 12em;
-	background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4em;
+    padding-top: 12em;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
-
 #staff ~ h3 {
-	font-size: 1.5rem;
-	font-family: inherit;
-	text-align: left;
+    font-size: 1.5rem;
+    font-family: inherit;
+    text-align: left;
 }
 
 .inactive {
-	color: #b71c1c;
-	font-size: 1rem;
+    color: #b71c1c;
+    font-size: 1rem;
 }
 
 summary {
-	text-align: center;
-	margin: 1rem 0;
-	color: #4a148c;
+    text-align: center;
+    margin: 1rem 0;
+    color: #4a148c;
 }
-
 
 div.email, div.email a {
-	background-image: url("../images/email.png");
-	height: 1em;
-	vertical-align: middle;
-	width: 100%;
-	display: inline-block;
+    background-image: url("../images/email.png");
+    height: 1em;
+    vertical-align: middle;
+    width: 100%;
+    display: inline-block;
 }
 
-div.email a {transition: opacity 100ms linear; opacity: 1; display: block; background-size: inherit;}
-div.email a:hover {opacity: 0;}
+div.email a {
+    transition: opacity 100ms linear;
+    opacity: 1;
+    display: block;
+    background-size: inherit;
+}
 
-.email.teo         {background-position: right 0; width: calc(705em / 51); background-size: 200% auto;}
-.email.teo a       {background-position: left 0;}
-.email.ravmahov    {background-position: right -1em; width: calc(542em / 51); background-size: calc(705 * 200% / 542) auto;}
-.email.ravmahov a  {background-position: left -1em;}
-.email.piotrulos   {background-position: right -2em; width: calc(594em / 51); background-size: calc(705 * 200% / 594) auto;}
-.email.piotrulos a {background-position: left -2em;}
-.email.sahwar      {background-position: right -3em; width: calc(504em / 51); background-size: calc(705 * 200% / 503) auto;}
-.email.sahwar a    {background-position: left -3em;}
-.email.lsudny      {background-position: right -4em; width: calc(450em / 51); background-size: calc(705 * 200% / 450) auto;}
-.email.lsudny a    {background-position: left -4em;}
+div.email a:hover {
+    opacity: 0;
+}
 
+.email.teo {
+    background-position: right 0;
+    width: calc(705em / 51);
+    background-size: 200% auto;
+}
 
+.email.teo a {
+    background-position: left 0;
+}
 
-.disclaimer {font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+.email.ravmahov {
+    background-position: right -1em;
+    width: calc(542em / 51);
+    background-size: calc(705 * 200% / 542) auto;
+}
+
+.email.ravmahov a {
+    background-position: left -1em;
+}
+
+.email.piotrulos {
+    background-position: right -2em;
+    width: calc(594em / 51);
+    background-size: calc(705 * 200% / 594) auto;
+}
+
+.email.piotrulos a {
+    background-position: left -2em;
+}
+
+.email.sahwar {
+    background-position: right -3em;
+    width: calc(504em / 51);
+    background-size: calc(705 * 200% / 503) auto;
+}
+
+.email.sahwar a {
+    background-position: left -3em;
+}
+
+.email.lsudny {
+    background-position: right -4em;
+    width: calc(450em / 51);
+    background-size: calc(705 * 200% / 450) auto;
+}
+
+.email.lsudny a {
+    background-position: left -4em;
+}
+
+.disclaimer {
+    font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

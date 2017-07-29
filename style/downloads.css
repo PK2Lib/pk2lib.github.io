@@ -3,269 +3,131 @@
  * Stylesheet for PK2Lib Downloads page *
  ****************************************/
 
-
 /* General */
 
-h2, h3 {
-	font-family: "Vademecum";
-	text-align: center;
-	text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
-	margin: 4rem 0 2rem;
-	font-weight: normal;
-}
-
-h2 {font-size: 4rem;}
-h3 {font-size: 2.8rem;}
-h4 {margin: 1rem 0 0.5rem;}
-
-h2 + h3 {margin-top: 0;}
-
 h3.link, h4.link {
-	font-family: inherit;
-	background: #3f51b5;
-	border: 0.08em solid #1a237e;
-	border-radius: 1em;
-	box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5), 0 0 6pt rgba(0, 0, 0, 0.5) inset;
-	cursor: pointer;
-	padding: 0.3em;
-	display: block;
-	margin: 1em auto !important;
-	transition: all 200ms;
+    font-family: inherit;
+    background: #3f51b5;
+    border: 0.08em solid #1a237e;
+    border-radius: 1em;
+    box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5), 0 0 6pt rgba(0, 0, 0, 0.5) inset;
+    cursor: pointer;
+    padding: 0.3em;
+    display: block;
+    margin: 1em auto !important;
+    transition: all 200ms;
 }
 
 h3.link:hover, h4.link:hover {
-	transform: translateY(-0.3em);
-	color: #FFFFFF;
+    transform: translateY(-0.3em);
+    color: #FFFFFF;
 }
 
-h3.link {font-size: 2rem;}
+h3.link {
+    font-size: 2rem;
+}
 
 h3.link::before, h4.link::before {
-	content: "> ";
+    content: "> ";
 }
 
 h4.link {
-	text-align: center;
-	text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
-	margin: 4rem 0 2rem;
-	font-weight: normal;
-	max-width: 80%;
+    text-align: center;
+    text-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5);
+    margin: 4rem 0 2rem;
+    font-weight: normal;
+    max-width: 80%;
 }
-
-p, ul, ol {
-	text-align: justify;
-}
-
-p:not(:first-of-type) {text-indent: 1.5rem;}
-h3 + p:not(:first-of-type) {text-indent: 0;}
-
-a, a:link, a:visited {
-	color: #e65100;
-	cursor: pointer;
-	text-decoration: none;
-	transition: all 100ms linear;
-}
-
-a:hover, a:active {
-	color: #000000;
-	text-decoration: underline;
-}
-
-figure {
-	text-align: center;
-	display: inline-block;
-}
-
-figure img {
-	margin: 0.2rem;
-	float: left;
-	transition: all 300ms;
-	cursor: pointer;
-}
-
-figure img:hover {
-	transform: translateY(-0.3rem);
-	box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-}
-
-figcaption {
-	float: left;
-	width: 100%;
-	margin-bottom: 0.5rem;
-	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.5);
-}
-
-
-ul {
-	list-style-type: square;
-}
-
-ul, ol {
-	margin: 1rem 0 1rem 2rem;
-}
-
-p + ul, h4 + ul, p + ol, h4 + ol {
-	margin: 0 0 1rem 2rem;
-}
-
-blockquote {
-	background-position: -176px 0;
-	background-repeat: no-repeat;
-	padding: 0.5rem 32px 0.5rem 92px;
-	position: relative;
-}
-
-blockquote::before {
-    content: "“";
-    display: block;
-    font-size: 14em;
-    left: 0;
-    position: absolute;
-    top: -0.15em;
-	opacity: 0.54;
-}
-
-blockquote footer {
-	padding: 0.5rem 0 0.5rem 64px;
-}
-
-blockquote footer::before {
-	content: "— ";
-}
-
-table {
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
-	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
-	margin: 1.5rem 0;
-	padding: 0.5rem;
-	border-spacing: 1rem;
-}
-
-table tr > td:first-child {
-	text-align: right;
-}
-table tr > td:last-child {
-	text-align: left;
-}
-
-img {
-	margin: 0.5rem;
-}
-
-img.left  {float: left;}
-img.right {float: right;}
-
-mark {
-	background-color: #e0e0e0;
-	color: inherit;
-	cursor: help;
-	border-radius: 0.2rem;
-}
-
-::-moz-selection  {color: rgba(0, 0, 0, 0.8); background: rgba(255, 255, 255, 0.8);}
-::selection       {color: rgba(0, 0, 0, 0.8); background: rgba(255, 255, 255, 0.8);}
-
-
 
 /* Basic structure */
 
 body {
-	font-family: "Chelsea Market", "Verdana", sans-serif;
-	color: rgba(255, 255, 255, 0.75);
-	background: #FFFFFF;
-	min-height: calc(100vh + 2px);
-}
-
-#bg-canvas {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: -1000;
+    color: rgba(255, 255, 255, 0.75);
+    min-height: calc(100vh + 2px);
 }
 
 main {
-	background: rgba(0, 0, 0, 0.85);
-	width: 33%;
-	min-width: 640px;
-	max-width: 960px;
-	padding: 1rem;
-	border: 0.5rem solid rgba(255, 255, 255, 1);
-	border-image-source: url("../images/qbg2.png");
-	border-image-width: 0.5rem;
-	border-image-repeat: round;
-	border-image-slice: 22;
-	margin: 1rem auto;
-	box-sizing: border-box;
-	position: relative;
+    background: rgba(0, 0, 0, 0.85);
+    width: 33%;
+    min-width: 640px;
+    max-width: 960px;
+    padding: 1rem;
+    border: 0.5rem solid rgba(255, 255, 255, 1);
+    border-image-source: url("../images/qbg2.png");
+    border-image-width: 0.5rem;
+    border-image-repeat: round;
+    border-image-slice: 22;
+    margin: 1rem auto;
+    box-sizing: border-box;
+    position: relative;
 }
 
 #page_header {
-	width: 100%;
-	height: 20vh;
-	max-height: 512px;
-	min-height: 260px;
-	padding: 16px 0 48px;
-	position: relative;
+    width: 100%;
+    height: 20vh;
+    max-height: 512px;
+    min-height: 260px;
+    padding: 16px 0 48px;
+    position: relative;
 }
 
 #page_header nav {
-	width: 40%;
-	padding: 0.5rem 0 0;
-	text-align: center;
-	line-height: 1.5em;
-	position: absolute;
-	bottom: 5px;
-	left: 30%;
+    width: 40%;
+    padding: 0.5rem 0 0;
+    text-align: center;
+    line-height: 1.5em;
+    position: absolute;
+    bottom: 5px;
+    left: 30%;
 }
 
 #page_header nav a {
-	margin: 0 1rem;
-	white-space: nowrap;
-	color: #FFFFFF;
-	transition: color 200ms;
-	text-shadow: 0 3pt 6pt #FFFFFF;
+    margin: 0 1rem;
+    white-space: nowrap;
+    color: #FFFFFF;
+    transition: color 200ms;
+    text-shadow: 0 3pt 6pt #FFFFFF;
 }
 
 #page_header nav a:hover {
-	color: #000000;
+    color: #000000;
 }
 
 section {
-	float: left;
-	width: 100%;
-	opacity: 0;
-	transition: opacity 300ms;
+    float: left;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 300ms;
 }
 
 section:not(:first-child) {
-	margin-top: 3em;
+    margin-top: 3em;
 }
 
 section.active {
-	opacity: 1;
+    opacity: 1;
 }
 
 #back {
-	margin: 0 0 1em;
-	font-variant: small-caps;
-	height: 2em;
-	line-height: 2em;
-	clear: both;
-	cursor: pointer;
-	color: rgba(63, 81, 181, 0.8);
-	position: absolute;
-	left: 1rem;
+    margin: 0 0 1em;
+    font-variant: small-caps;
+    height: 2em;
+    line-height: 2em;
+    clear: both;
+    cursor: pointer;
+    color: rgba(63, 81, 181, 0.8);
+    position: absolute;
+    left: 1rem;
 }
 
 #back:hover {
-	color: rgba(63, 81, 181, 1);
+    color: rgba(63, 81, 181, 1);
 }
 
 #back::before {
-	content: "↩ ";
+    content: "↩ ";
 }
 
-
 footer {
-	clear: both;
+    clear: both;
 }
