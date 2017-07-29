@@ -9,7 +9,7 @@ console.log("Window width: " + window.innerWidth + '\n' + "Window height: " + wi
 
 // Background
 var pk2assetsroot = "./game_assets/";
-var pk2CustomLibraryRoot = "./js/bg/";
+var pk2CustomLibraryRoot = "https://v6p9d9t4.ssl.hwcdn.net/html/420707/";
 var backgroundMap = (function(){
 	var obj = [
 		{path: "rooster island 1/level004.map", x: 79, y: 24}, // rainy forest

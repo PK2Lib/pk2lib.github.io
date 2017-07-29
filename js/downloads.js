@@ -1,7 +1,7 @@
 // Background
 
 var pk2assetsroot = "../game_assets/";
-var pk2CustomLibraryRoot = "../js/bg/";
+var pk2CustomLibraryRoot = "https://v6p9d9t4.ssl.hwcdn.net/html/420707/";
 
 var backgroundMap = (function(){
     var random = Math.round(Math.random());
