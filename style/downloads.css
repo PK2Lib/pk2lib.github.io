@@ -156,8 +156,8 @@ blockquote footer::before {
 }
 
 table {
-	border-top: 0.1rem solid rgba(0, 0, 0, 0.7);
-	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.7);
+	border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+	border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
 	margin: 1.5rem 0;
 	padding: 0.5rem;
 	border-spacing: 1rem;

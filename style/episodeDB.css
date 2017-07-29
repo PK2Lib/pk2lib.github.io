@@ -38,6 +38,7 @@
     width: 80%;
     margin-left: 10%;
     cursor: pointer;
+    display: flex;
 }
 
 .episode * {
@@ -51,6 +52,7 @@
 
 .episode:not(.active) > header,
 .episode:not(.active) > figure {
+    flex: 1;
     height: auto;
     display: block;
     float: left;

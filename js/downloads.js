@@ -14,7 +14,6 @@ var backgroundMap = (function(){
 
 $(document).ready(function(){
     //$("a").smoothScroll();
-    preInit();
 
     window.onpopstate = function(event) {
         if (event.state == null || event.state.sectionId == "downloads") {
@@ -75,9 +74,24 @@ $(document).ready(function(){
 
 
     /* Episodes on display */
-    jQuery.getJSON("/downloads/episodeDB/test.json", function(episodeData) {
+    jQuery.getJSON("episodeDB/test.json", function(episodeData) {
         for (var i = 0; i < episodeData.length; i++) {
             episodeDatum = episodeData[i];
+
+            /* Authors */
+            var authors = "";
+            for (var j = 0; j < episodeDatum.authors.length; j++) {
+                var author = episodeDatum.authors[j];
+                if (author.url === null) {
+                    authors += author.name;
+                } else {
+                    authors += '<a href="' + author.url + '" target="_blank">' + author.name + '</a>';
+                }
+
+                if (j !== episodeDatum.authors.length - 1) {
+                    authors += ", ";
+                }
+            }
 
             /* Download links */
             var downloadLinks = "";
@@ -138,7 +152,7 @@ $(document).ready(function(){
                 '</tr>' +
                 '<tr>' +
                 '<td>Author(s):</td>' +
-                '<td>' + episodeDatum.authors + '</td>' +
+                '<td>' + authors + '</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<td>Number of maps:</td>' +

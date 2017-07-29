@@ -13,7 +13,12 @@
         "linkURL": "URL2"
       }
     ],
-    "authors": "Janne Kivilahti",
+    "authors": [
+      {
+        "name": "Janne Kivilahti",
+        "url": "http://pistegamez.net/"
+      }
+    ],
     "numberOfMaps": 11,
     "filesize": "228 kB",
     "description": "The first content of the whole game",
@@ -38,13 +43,15 @@
       {
         "linkName": "Version 1.0",
         "linkURL": "URL1"
-      },
-      {
-        "linkName": "Version 1.2",
-        "linkURL": "URL2"
       }
     ],
-    "authors": "Janne Kivilahti",
+    "authors": [
+      {
+        "name": "Janne Kivilahti",
+        "url": null
+      }
+    ],
+    "authorURL": "http://pistegamez.net/",
     "numberOfMaps": 13,
     "filesize": "533 kB",
     "description": "The second official episode by Janne",
