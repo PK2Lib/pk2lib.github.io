@@ -1,3 +1,35 @@
+@CHARSET "UTF-8";
+/***********************************************
+ * Common styles for PK2Lib text pages         *
+ * Written by The Evil One / Crudelis Diabolus *
+ ***********************************************/
+
+/* Reset */
+
+* {
+    margin:  0;
+    padding: 0;
+    border:  0;
+}
+
+article, aside, details, figure, footer, header, main, nav, section, summary {display: block;}
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    max-width: 100%;
+}
+
+html, body {width: 100%; height: 100%;}
+
+
+
+
+/* Logo */
+
 #page_header h1 {
     width: 240px;
     height: 240px;
