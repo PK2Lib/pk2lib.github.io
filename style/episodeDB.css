@@ -121,7 +121,16 @@
 }
 
 .episode:not(.active) figcaption {
-    display: none;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    opacity: 0;
+    margin: 0;
+    border: 0;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .episode.active h3:hover {

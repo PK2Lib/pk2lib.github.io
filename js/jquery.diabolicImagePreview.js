@@ -4,7 +4,7 @@
  * jQuery is needed for this plugin to work.             *
  * (C) 2016 Crudelis Diabolus. :)                        *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-$(document).ready(function() {
+function initDiabolicImagePreview() {
 	$("figure img").each(function(){
 
 		var img = $(this);
@@ -83,4 +83,4 @@ $(document).ready(function() {
 			});
 		});
 	});
-});
+}

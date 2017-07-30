@@ -145,5 +145,9 @@ $(document).ready(function () {
         $("#validhtml").attr("href", url1);
     })();
 
+
+    /* Initialize diabolicImagePreview */
+    initDiabolicImagePreview();
+
 }); // The End
 

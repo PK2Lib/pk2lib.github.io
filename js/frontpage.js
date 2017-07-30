@@ -17,8 +17,7 @@ var backgroundMap = (function(){
 		{path: "rooster island 1/level009.map", x: 91, y: 71}, // forest riddle
 		{path: "rooster island 2/level5.map", x: 103, y: 71}   // forest riddle 2
 	];
-	var random = Math.min(Math.floor(Math.random() * 4), 3);
-	return obj[random];
+	return obj[Math.floor(Math.random() * obj.length)];
 })();
 
 
