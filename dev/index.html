@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<meta name="description" content="Database of fanmade maps &amp; other custom resources for Pekka Kana 2" />
-		<title>PK2Lib/dev</title>
-		<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Share+Tech+Mono" />
-		<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
-		<link rel="stylesheet" type="text/css" href="../style/common.css" />
-		<link rel="stylesheet" type="text/css" href="../style/dev.css" />
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="../js/jquery.smooth-scroll.js"></script>
-		<script type="text/javascript" src="../js/dev.js"></script>
-		<script type="text/javascript" src="../js/require.js"></script>
-		<script type="text/javascript" src="../js/pk2_bg.js"></script>
-	</head>
-	<body>
-		<div style="width: 300px; position: fixed; top: 60px; right: -79px; text-align: center; transform: rotate(45deg); background: linear-gradient(to right, #AF3833, #FFA054); padding: 5px 0; box-shadow: 0 0 4pt rgba(0, 0, 0, 0.5) inset; border: 1px solid #300F0E; text-transform: uppercase; z-index: 10;">Work in progress!</div>
-		<aside>
-			<header id="page_header">
-				<h1><span>PK2</span><span>Lib</span></h1>
-			</header>
-			<nav>
-				<a href="/">Home</a>
-				<a href="/about/">About Us</a>
-				<a href="/downloads/">Downloads</a>
-				<a href="/submit/">Submit an Episode or Resources</a>
-				<a href="/help/">Help &amp; Tutorials</a>
-				<a href="/apply/">Apply for Staff Position</a>
-				<a href="/contact/">Contact Us</a>
-				<a href="/advertise/">Advertise</a>
-				<a href="/links/">Links</a>
-				<a href="/disclaimer/">Disclaimer &amp; License</a>
-			</nav>
-		</aside>
-		<main>
-			<h2>Placeholder</h2>
-			<p>Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.</p>
-			<p>Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.</p>
-			<p>Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen, Joukahaisen jousen tiestä, Pohjan peltojen periltä, Kalevalan kankahilta.</p>
-			<p>Niit' ennen isoni lauloi kirvesvartta vuollessansa; niitä äitini opetti väätessänsä värttinätä, minun lasna lattialla eessä polven pyöriessä, maitopartana pahaisna, piimäsuuna pikkaraisna. Sampo ei puuttunut sanoja eikä Louhi luottehia: vanheni sanoihin sampo, katoi Louhi luottehisin, virsihin Vipunen kuoli, Lemminkäinen leikkilöihin.</p>
-			<p>Viel' on muitaki sanoja, ongelmoita oppimia: tieohesta tempomia, kanervoista katkomia, risukoista riipomia, vesoista vetelemiä, päästä heinän hieromia, raitiolta ratkomia, paimenessa käyessäni, lasna karjanlaitumilla, metisillä mättähillä, kultaisilla kunnahilla, mustan Muurikin jälessä, Kimmon kirjavan keralla.</p>
-			<p>Vilu mulle virttä virkkoi, sae saatteli runoja. Virttä toista tuulet toivat, meren aaltoset ajoivat. Linnut liitteli sanoja, puien latvat lausehia.</p>
-		</main>
-		<canvas id="bg-canvas"></canvas>
-	</body>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="description" content="Database of fanmade maps &amp; other custom resources for Pekka Kana 2"/>
+        <title>PK2Lib/dev</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Share+Tech+Mono"/>
+        <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+        <link rel="stylesheet" type="text/css" href="../style/common.css"/>
+        <link rel="stylesheet" type="text/css" href="../style/dev.css"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.smooth-scroll.js"></script>
+        <script type="text/javascript" src="../js/dev.js"></script>
+        <script type="text/javascript" src="../js/require.js"></script>
+        <script type="text/javascript" src="../js/pk2_bg.js"></script>
+    </head>
+    <body>
+        <div style="width: 300px; position: fixed; top: 60px; right: -79px; text-align: center; transform: rotate(45deg); background: linear-gradient(to right, #AF3833, #FFA054); padding: 5px 0; box-shadow: 0 0 4pt rgba(0, 0, 0, 0.5) inset; border: 1px solid #300F0E; text-transform: uppercase; z-index: 10;">
+            Work in progress!
+        </div>
+        <aside>
+            <header id="page_header">
+                <h1><span>PK2</span><span>Lib</span></h1>
+            </header>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about/">About Us</a>
+                <a href="/downloads/">Downloads</a>
+                <a href="/submit/">Submit an Episode or Resources</a>
+                <a href="/help/">Help &amp;amp; Tutorials</a>
+                <a href="/apply/">Apply for Staff Position</a>
+                <a href="/contact/">Contact Us</a>
+                <a href="/advertise/">Advertise</a>
+                <a href="/links/">Links</a>
+                <a href="/disclaimer/">Disclaimer &amp;amp; License</a>
+            </nav>
+        </aside>
+        <main>
+            <h2>Placeholder</h2>
+            <p>Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan,
+                lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni
+                hajoovat.</p>
+            <p>Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen
+                yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla
+                rajoilla, poloisilla Pohjan mailla.</p>
+            <p>Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien
+                kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja,
+                virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen,
+                Joukahaisen jousen tiestä, Pohjan peltojen periltä, Kalevalan kankahilta.</p>
+            <p>Niit' ennen isoni lauloi kirvesvartta vuollessansa; niitä äitini opetti väätessänsä värttinätä, minun
+                lasna lattialla eessä polven pyöriessä, maitopartana pahaisna, piimäsuuna pikkaraisna. Sampo ei
+                puuttunut sanoja eikä Louhi luottehia: vanheni sanoihin sampo, katoi Louhi luottehisin, virsihin Vipunen
+                kuoli, Lemminkäinen leikkilöihin.</p>
+            <p>Viel' on muitaki sanoja, ongelmoita oppimia: tieohesta tempomia, kanervoista katkomia, risukoista
+                riipomia, vesoista vetelemiä, päästä heinän hieromia, raitiolta ratkomia, paimenessa käyessäni, lasna
+                karjanlaitumilla, metisillä mättähillä, kultaisilla kunnahilla, mustan Muurikin jälessä, Kimmon kirjavan
+                keralla.</p>
+            <p>Vilu mulle virttä virkkoi, sae saatteli runoja. Virttä toista tuulet toivat, meren aaltoset ajoivat.
+                Linnut liitteli sanoja, puien latvat lausehia.</p>
+        </main>
+        <canvas id="bg-canvas"></canvas>
+    </body>
 </html>

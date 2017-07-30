@@ -20,6 +20,61 @@ a {
 }
 
 
+/* Themes */
+
+[data-theme="frogwell"] aside:first-of-type {
+    background: url("../images/frogwell_kehys1.png") bottom right no-repeat;
+}
+[data-theme="frogwell"] aside:last-of-type {
+    background: url("../images/frogwell_kehys2.png") bottom left no-repeat;
+}
+[data-theme="frogwell"] #page_header {
+    background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
+}
+[data-theme="frogwell"] div.waterfall {
+    height: 416px;
+    background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
+}
+
+[data-theme="castle-ruins"] aside:first-of-type {
+    background: url("../images/rocks_kehys1.png") bottom right no-repeat;
+}
+[data-theme="castle-ruins"] aside:last-of-type {
+    background: url("../images/rocks_kehys2.png") bottom left no-repeat;
+}
+[data-theme="castle-ruins"] #page_header {
+    background: url("../images/rocks_header.png") repeat-x top center / auto 100%;
+}
+[data-theme="castle-ruins"] div.waterfall:nth-child(1) {
+    background: url("../images/waterfall_frontstuff2.png") left top, url("../images/waterfall.gif") repeat-y;
+    height: 128px;
+}
+[data-theme="castle-ruins"] div.waterfall:nth-child(2) {
+    background: url("../images/waterfall_frontstuff2.png") -32px top, url("../images/waterfall.gif") repeat-y;
+    height: 128px;
+}
+[data-theme="castle-ruins"] div.waterfall:nth-child(3) {
+    background: url("../images/waterfall_frontstuff2.png") -64px top, url("../images/waterfall.gif") repeat-y;
+    height: 128px;
+}
+[data-theme="castle-ruins"] div.waterfall:nth-child(4) {
+    background: url("../images/waterfall.gif") repeat-y;
+    height: 320px;
+}
+[data-theme="castle-ruins"] div.waterfall:nth-child(5) {
+    background: url("../images/waterfall_frontstuff2.png") -96px top, url("../images/waterfall.gif") repeat-y;
+    height: 160px;
+}
+[data-theme="castle-ruins"] div.waterfall:nth-child(6) {
+    background: url("../images/waterfall_frontstuff2.png") right top, url("../images/waterfall.gif") repeat-y;
+    height: 128px;
+}
+
+#page_footer {
+    background: url("../images/water.gif") repeat-x, url("../images/riverBG.png") repeat-x top left;
+}
+
+
 /* Structure */
 
 body {
@@ -44,12 +99,10 @@ aside {
 
 aside:first-of-type {
     right: calc(50% + 320px);
-    background: url("../images/frogwell_kehys1.png") bottom right no-repeat;
 }
 
 aside:last-of-type {
     left: calc(50% + 320px);
-    background: url("../images/frogwell_kehys2.png") bottom left no-repeat;
 }
 
 aside > * {
@@ -65,40 +118,9 @@ aside:last-of-type > * {
     left: 200vmax;
 }
 
-div.exit {
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: all 500ms;
-}
-
-div.exit:hover {
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5),
-    0 0 8px rgba(0, 0, 0, 0.5) inset;
-}
-
-div.waterfall {
-    width: 32px;
-    height: 416px;
-    background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
-}
-
-div.water {
-    height: 32px;
-    background: url("../images/water.gif") repeat-x;
-}
-
-div.blueswitch {
-    background: url("../images/switch.png") no-repeat;
-    width: 32px;
-    height: 32px;
-}
-
 #page_footer {
     height: 64px;
     line-height: 64px;
-    background: url("../images/water.gif") repeat-x, url("../images/riverBG.png") repeat-x top left;
     position: fixed;
     left: calc((100% - 864px) / 2);
     bottom: 0;
@@ -111,7 +133,6 @@ div.blueswitch {
 }
 
 #page_header {
-    background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
     width: 100%;
     height: 35vh;
     max-height: 512px;
@@ -324,4 +345,41 @@ div.email a:hover {
 
 .disclaimer {
     font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* Tiles */
+
+div.exit {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 500ms;
+}
+
+div.exit:hover {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(0, 0, 0, 0.5) inset;
+}
+
+div.waterfall {
+    width: 32px;
+}
+
+div.water {
+    height: 32px;
+    background: url("../images/water.gif") repeat-x;
+}
+
+div.blueswitch {
+    background: url("../images/switch.png") left top no-repeat;
+    width: 32px;
+    height: 32px;
+}
+
+div.greenswitch {
+    background: url("../images/switch.png") right top no-repeat;
+    width: 32px;
+    height: 32px;
 }

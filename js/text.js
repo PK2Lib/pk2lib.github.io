@@ -3,6 +3,9 @@
  *********************************/
 
 $(document).ready(function () {
+    var theme = $("body").data("theme");
+
+
     // Bird flight time
     function birdFlightTime() {
         $("#bird").css("animation", function () {
