@@ -39,6 +39,10 @@ h4.link {
     max-width: 80%;
 }
 
+table {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Basic structure */
 
 body {

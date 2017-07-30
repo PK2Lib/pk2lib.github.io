@@ -196,7 +196,7 @@ $(document).ready(function(){
             });
         });
 
-        $(".episode header, .episode figure").click(function(){
+        $(".episode header, .episode figure").on("click", function(){
             if (!$(this).parent().hasClass("active")) {
                 $(this).parent().addClass("active");
             }

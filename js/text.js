@@ -61,17 +61,6 @@ $(document).ready(function () {
     // Implementing smoothScroll
     $("a").smoothScroll();
 
-    // Emails
-    /*var email = {decode: function(uri) {return decodeURIComponent(uri);}, list: []};
-    email.list[0] = email.decode("%63%72%75%64%65%6C%69%73%2E%64%69%61%62%6F%6C%75%73%40%67%6D%61%69%6C%2E%63%6F%6D");	// TEO
-    email.list[1] = email.decode("%72%61%76%6D%61%68%6F%76%40%67%6D%61%69%6C%2E%63%6F%6D");								// Rav Mahov
-    email.list[2] = email.decode("%70%69%6F%74%72%2E%77%77%77%77%40%67%6D%61%69%6C%2E%63%6F%6D");						// piotrulos
-    email.list[3] = email.decode("%76%654%65%72%6E%69%6B%40%67%6D%61%69%6C%2E%63%6F%6D");								// Sah War
-    email.list[4] = email.decode("%6C%73%75%64%6E%79%40%67%6D%61%69%6C%2E%63%6F%6D");									// lsudny
-    for (var i = 0; i < email.list.length; i++) {
-        $("span.email").eq(i).append('<a href="mailto:' + email.list[i] + '">' + email.list[i] + '</a>');
-    }*/
-
     // Figures
     $("figure").each(function () {
         var columns = $(this).data("columns");
@@ -79,15 +68,9 @@ $(document).ready(function () {
             for (var i = 0; i < $(this).children().length - 1; i++) {
                 $(this).children().eq(i).css("width", "calc(100% / " + columns + " - 0.4rem)");
             }
-            $(this).css("height", function () {
-                return Math.ceil(($(this).innerWidth() / columns) * ($(this).children().length / columns)) + "px";
-            });
         } else {
             $(this).children().each(function () {
                 $(this).css("width", "calc(100% / " + columns + " - 0.4rem)");
-            });
-            $(this).css("height", function () {
-                return Math.ceil(($(this).innerWidth() / columns) * ($(this).children().length / columns)) + "px";
             });
         }
     });
@@ -138,7 +121,7 @@ $(document).ready(function () {
 
 
     /* Parallax Scrolling */
-    function initiateParallaxScrolling(element) {
+    (function(element) {
         function scrollBackground(element) {
             var yPos = -($(window).scrollTop() / element.data("speed"));
             element.css("background-position", "0 " + yPos + "px");
@@ -151,15 +134,14 @@ $(document).ready(function () {
                 scrollBackground(prxbg);
             });
         });
-    }
+    })($("#page_header"));
 
-    initiateParallaxScrolling($("#page_header"));
 
     /* Site URL */
     (function () {
-        $("#this").empty().append(window.location.hostname);								// for non-root paths
+        $("#this").empty().append(window.location.hostname);                       // for non-root paths
         $("a#this").attr("href", "http://" + window.location.hostname);
-        var url1 = "http://validator.w3.org/check?uri=" + window.location.href;					// W3C HTML validator link
+        var url1 = "http://validator.w3.org/check?uri=" + window.location.href;    // W3C HTML validator link
         $("#validhtml").attr("href", url1);
     })();
 
