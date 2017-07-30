@@ -82,7 +82,7 @@ $(document).ready(function(){
 
 
         /* Episodes on display */
-        jQuery.getJSON("episodeDB/test.json", function(episodeData) {
+        jQuery.getJSON("/downloads/episodeDB/test.json", function(episodeData) {
             for (var i = 0; i < episodeData.length; i++) {
                 episodeDatum = episodeData[i];
 
