@@ -67,7 +67,7 @@ html, body {
     display: block;
     font-size: 56pt;
     margin: auto;
-    border-radius: 4px;
+    border-radius: 16px 4px 16px 4px;
     z-index: 2;
     box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5),
     0 0 4pt rgba(0, 0, 0, 0.5) inset;
