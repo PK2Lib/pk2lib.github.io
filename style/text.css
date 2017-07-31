@@ -19,6 +19,14 @@ a {
     text-shadow: 0 3pt 6pt #FFFFFF;
 }
 
+h3 {
+    font-size: 1.5rem;
+    font-family: inherit;
+    text-align: left;
+}
+
+
+
 /* Themes */
 
 [data-theme="frogwell"] a, [data-theme="frogwell"] a:link, [data-theme="frogwell"] a:visited {
@@ -277,12 +285,6 @@ article nav:first-child {
 
 /* Pages */
 
-#staff h3 {
-    font-size: 1.5rem;
-    font-family: inherit;
-    text-align: left;
-}
-
 .inactive {
     color: #b71c1c;
     font-size: 1rem;
@@ -365,6 +367,20 @@ div.email a:hover {
 
 #disclaimer {
     font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#faq h4 {
+    color: #3F51B5;
+}
+#faq p {
+    text-indent: 0;
+}
+
+#faq h4::before {
+    content: "Q: ";
+}
+#faq p::before {
+    content: "A: ";
 }
 
 /* Tiles */

@@ -4,6 +4,14 @@
 
 $(document).ready(function () {
 
+    // Audio volume
+    (function(){
+        var audio = document.getElementsByTagName("audio");
+        for (var i = 0; i < audio.length; i++) {
+            audio[i].volume = "0.5";
+        }
+    })();
+
     // Bird flight time
     function birdFlightTime() {
         $("#bird").css("animation", function () {
