@@ -19,18 +19,27 @@ a {
     text-shadow: 0 3pt 6pt #FFFFFF;
 }
 
-
 /* Themes */
+
+[data-theme="frogwell"] a, [data-theme="frogwell"] a:link, [data-theme="frogwell"] a:visited {
+    color: #e65100;
+}
+[data-theme="castle-ruins"] a, [data-theme="castle-ruins"] a:link, [data-theme="castle-ruins"] a:visited {
+    color: #689F38;
+}
 
 [data-theme="frogwell"] aside:first-of-type {
     background: url("../images/frogwell_kehys1.png") bottom right no-repeat;
 }
+
 [data-theme="frogwell"] aside:last-of-type {
     background: url("../images/frogwell_kehys2.png") bottom left no-repeat;
 }
+
 [data-theme="frogwell"] #page_header {
     background: url("../images/frogwell_header2.png") repeat-x top center / auto 100%;
 }
+
 [data-theme="frogwell"] div.waterfall {
     height: 416px;
     background: url("../images/waterfall_frontstuff.png"), url("../images/waterfall.gif") repeat-y;
@@ -39,33 +48,41 @@ a {
 [data-theme="castle-ruins"] aside:first-of-type {
     background: url("../images/rocks_kehys1.png") bottom right no-repeat;
 }
+
 [data-theme="castle-ruins"] aside:last-of-type {
     background: url("../images/rocks_kehys2.png") bottom left no-repeat;
 }
+
 [data-theme="castle-ruins"] #page_header {
     background: url("../images/rocks_header.png") repeat-x top center / auto 100%;
 }
-[data-theme="castle-ruins"] div.waterfall:nth-child(1) {
+
+[data-theme="castle-ruins"] aside:first-of-type div.waterfall:nth-of-type(1) {
     background: url("../images/waterfall_frontstuff2.png") left top, url("../images/waterfall.gif") repeat-y;
     height: 128px;
 }
-[data-theme="castle-ruins"] div.waterfall:nth-child(2) {
+
+[data-theme="castle-ruins"] aside:first-of-type div.waterfall:nth-of-type(2) {
     background: url("../images/waterfall_frontstuff2.png") -32px top, url("../images/waterfall.gif") repeat-y;
     height: 128px;
 }
-[data-theme="castle-ruins"] div.waterfall:nth-child(3) {
+
+[data-theme="castle-ruins"] aside:first-of-type div.waterfall:nth-of-type(3) {
     background: url("../images/waterfall_frontstuff2.png") -64px top, url("../images/waterfall.gif") repeat-y;
     height: 128px;
 }
-[data-theme="castle-ruins"] div.waterfall:nth-child(4) {
+
+[data-theme="castle-ruins"] aside:last-of-type div.waterfall:nth-of-type(1) {
     background: url("../images/waterfall.gif") repeat-y;
     height: 320px;
 }
-[data-theme="castle-ruins"] div.waterfall:nth-child(5) {
+
+[data-theme="castle-ruins"] aside:last-of-type div.waterfall:nth-of-type(2) {
     background: url("../images/waterfall_frontstuff2.png") -96px top, url("../images/waterfall.gif") repeat-y;
     height: 160px;
 }
-[data-theme="castle-ruins"] div.waterfall:nth-child(6) {
+
+[data-theme="castle-ruins"] aside:last-of-type div.waterfall:nth-of-type(3) {
     background: url("../images/waterfall_frontstuff2.png") right top, url("../images/waterfall.gif") repeat-y;
     height: 128px;
 }
@@ -73,7 +90,6 @@ a {
 #page_footer {
     background: url("../images/water.gif") repeat-x, url("../images/riverBG.png") repeat-x top left;
 }
-
 
 /* Structure */
 
@@ -119,8 +135,9 @@ aside:last-of-type > * {
 }
 
 #page_footer {
-    height: 64px;
-    line-height: 64px;
+    height: 48px;
+    line-height: 48px;
+    padding-top: 16px;
     position: fixed;
     left: calc((100% - 864px) / 2);
     bottom: 0;
@@ -251,13 +268,16 @@ article.fullcontent {
 article nav:first-child {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: 4em;
     padding-top: 12em;
     background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
-#staff ~ h3 {
+/* Pages */
+
+#staff h3 {
     font-size: 1.5rem;
     font-family: inherit;
     text-align: left;
@@ -343,10 +363,9 @@ div.email a:hover {
     background-position: left -4em;
 }
 
-.disclaimer {
+#disclaimer {
     font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 
 /* Tiles */
 
@@ -372,14 +391,90 @@ div.water {
     background: url("../images/water.gif") repeat-x;
 }
 
-div.blueswitch {
-    background: url("../images/switch.png") left top no-repeat;
+div.fire {
+    height: 32px;
+    background: url("../images/fire.gif") repeat-x;
+}
+
+.switch, .movingtile, .arrowtile, .ground {
+    background-image: url("../images/switch.png");
     width: 32px;
     height: 32px;
 }
 
-div.greenswitch {
-    background: url("../images/switch.png") right top no-repeat;
-    width: 32px;
-    height: 32px;
+div.switch {
+    cursor: pointer;
+    z-index: 1;
+}
+
+div.ground {
+    z-index: 2;
+}
+
+div.switch.blue {
+    background-position: 0 0;
+}
+
+div.switch.green {
+    background-position: -32px 0;
+}
+
+div.switch.red {
+    background-position: -64px 0;
+}
+
+div.ground.blue {
+    background-position: 0 -96px;
+}
+
+div.ground.green {
+    background-position: -32px -96px;
+}
+
+div.ground.fire {
+    background: url("../images/firefrontstuff.png");
+}
+
+div.arrowtile.up {
+    background-position: 0 -32px;
+}
+
+div.arrowtile.down {
+    background-position: 0 -64px;
+}
+
+div.arrowtile.left {
+    background-position: -32px -32px;
+}
+
+div.arrowtile.right {
+    background-position: -32px -64px;
+}
+
+div.movingtile.vertical {
+    background-position: -64px -32px;
+    animation: moveTilesVertical 1.25s ease-in-out 0s infinite alternate none running;
+}
+
+div.movingtile.horizontal {
+    background-position: -64px -64px;
+    animation: moveTilesHorizontal 1.25s ease-in-out 0s infinite alternate none running;
+}
+
+@keyframes moveTilesVertical {
+    from {
+        transform: translateY(32px);
+    }
+    to {
+        transform: translateY(-32px);
+    }
+}
+
+@keyframes moveTilesHorizontal {
+    from {
+        transform: translateX(32px);
+    }
+    to {
+        transform: translateX(-32px);
+    }
 }

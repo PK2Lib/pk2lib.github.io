@@ -6,13 +6,9 @@
 /* Links */
 
 a, a:link, a:visited {
-    color: #FFFFFF;
     text-shadow: 0 3pt 6pt #FFFFFF;
 }
 
-a:hover, a:active {
-    color: #000000;
-}
 
 /* Colors */
 

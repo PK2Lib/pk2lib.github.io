@@ -3,8 +3,6 @@
  *********************************/
 
 $(document).ready(function () {
-    var theme = $("body").data("theme");
-
 
     // Bird flight time
     function birdFlightTime() {
@@ -18,51 +16,79 @@ $(document).ready(function () {
     });
     birdFlightTime();
 
+
     // See more buttons
-    $("article").each(function () {
-        if (!$(this).hasClass("fullcontent")) {
-            var id = $(this).children().eq(0).attr("id");
-            $(this).prepend('<nav><div class="arrow down"></div> <a href="#' + id + '">[ See more&hellip; ]</a> <div class="arrow down"></div></nav>');
-            $(this).append('<nav><div class="arrow up"></div> <a href="#' + id + '">[ See less ]</a> <div class="arrow up"></div></nav>');
-        }
-    });
-    $("article nav:first-child a").each(function () {
-        $(this).click(function () {
-            $(this).parent().fadeOut(500);
-            var t = $(this).parent().parent();
-            t.css("height", function () {
-                var height = 0;
-                for (var i = 1; i < $(this).children().length; i++) {
-                    height += $(this).children().eq(i).outerHeight(true);
-                }
-                return height + "px";
-            });
-            setTimeout(function () {
-                t.css("height", "auto");
-            }, 1000);
-            $(this).smoothScroll();
+    (function(){
+
+        $("article").each(function () {
+            var id = $(this).attr("id");
+            if (!$(this).hasClass("fullcontent")) {
+                $(this).prepend('<nav><div class="arrow down"></div> <a href="#' + id + '">[ See more&hellip; ]</a> <div class="arrow down"></div></nav>');
+                $(this).append('<nav><div class="arrow up"></div> <a href="#' + id + '">[ See less ]</a> <div class="arrow up"></div></nav>');
+            } else {
+                $(this).prepend('<nav style="display: none;"><div></div><a href="#' + id + '"></a><div></div></nav>');
+            }
         });
-    });
-    $("article nav:last-child a").each(function () {
-        $(this).click(function () {
-            var t = $(this).parent().parent();
-            t.css("height", function(){
-                var height = 0;
-                for (var i = 0; i < $(this).children().length; i++) {
-                    height += $(this).children().eq(i).outerHeight(true);
-                }
-                return height + "px";
-            });
-            setTimeout(function(){
-                t.css("height", "32em");
-            }, 10);
-            $(this).parent().siblings().eq(0).fadeIn(800);
+
+        $("article nav:first-child a").each(function () {
+            if (!$(this).parent().parent().hasClass("fullcontent")) {
+                $(this).click(function () {
+                    $(this).parent().fadeOut(500);
+                    var t = $(this).parent().parent();
+                    t.css("height", function () {
+                        var height = 0;
+                        for (var i = 1; i < $(this).children().length; i++) {
+                            height += $(this).children().eq(i).outerHeight(true);
+                        }
+                        return height + "px";
+                    });
+                    setTimeout(function () {
+                        t.css("height", "auto");
+                    }, 1000);
+                    $(this).smoothScroll();
+                });
+            }
         });
-        $(this).smoothScroll();
-    });
+
+        $("article nav:last-child a").each(function () {
+            if (!$(this).parent().parent().hasClass("fullcontent")) {
+                $(this).click(function () {
+                    var t = $(this).parent().parent();
+                    t.css("height", function () {
+                        var height = 0;
+                        for (var i = 0; i < $(this).children().length; i++) {
+                            height += $(this).children().eq(i).outerHeight(true);
+                        }
+                        return height + "px";
+                    });
+                    setTimeout(function () {
+                        t.css("height", "32em");
+                    }, 10);
+                    $(this).parent().siblings().eq(0).fadeIn(800);
+                });
+                $(this).smoothScroll();
+            }
+        });
+
+    })();
+
+
+    // Landing
+    if (window.location.href.indexOf("?section=") !== -1) {
+        var id = window.location.href.slice(window.location.href.lastIndexOf("?section=")+9);
+        history.replaceState({sectionId: id}, $("title").html(), window.location.href.slice(0, window.location.href.indexOf("?section=")));
+        $("article").each(function(){
+            if ($(this).attr("id") === id) {
+                $(this).children().eq(0).children().eq(1).smoothScroll();
+                $(this).children().eq(0).children().eq(1).click();
+            }
+        });
+    }
+
 
     // Implementing smoothScroll
     $("a").smoothScroll();
+
 
     // Figures
     $("figure").each(function () {
@@ -80,6 +106,17 @@ $(document).ready(function () {
 
 
     // Special tiles 'n' stuff
+    var theme = $("body").data("theme");
+    if (theme === "frogwell") {
+        $("aside:first-of-type").load("../themes/frogwell_left.html", function(){
+            $("aside:last-of-type").load("../themes/frogwell_right.html", initTiles);
+        });
+    } else if (theme === "castle-ruins") {
+        $("aside:first-of-type").load("../themes/castle-ruins_left.html", function(){
+            $("aside:last-of-type").load("../themes/castle-ruins_right.html", initTiles);
+        });
+    }
+
     function positionSpecialTiles(element, callback) {
         element.each(function () {
             if ($(this).data("right") !== undefined) {
@@ -95,25 +132,81 @@ $(document).ready(function () {
         }
     }
 
-    positionSpecialTiles($("div.waterfall"));
-    positionSpecialTiles($("div.water"));
-    positionSpecialTiles($("div.exit"), function () {
+    function initTiles() {
+        $("aside > *").each(function () {
+            positionSpecialTiles($("aside > *"));
+        });
+
         $(".exit").click(function () {
             $("audio.exit").trigger("play");
         });
-    });
-    positionSpecialTiles($("div.blueswitch"));
-    $("div.blueswitch").eq(0).click(function () {
-        $("audio.switch").trigger("play");
-        $(this).animate({"bottom": ($(this).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
-        $("div.blueswitch").eq(1).animate({"bottom": ($("div.blueswitch").eq(1).data("bottom") + 1) * 32 + "px"}, 1000, "linear");
-        $("div.blueswitch").eq(2).animate({"bottom": ($("div.blueswitch").eq(2).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
-        setTimeout(function () {
-            $("div.blueswitch").eq(0).animate({"bottom": $("div.blueswitch").eq(0).data("bottom") * 32 + "px"}, 1000, "linear");
-            $("div.blueswitch").eq(1).animate({"bottom": $("div.blueswitch").eq(1).data("bottom") * 32 + "px"}, 1000, "linear");
-            $("div.blueswitch").eq(2).animate({"bottom": $("div.blueswitch").eq(2).data("bottom") * 32 + "px"}, 1000, "linear");
-        }, 30000);
-    });
+
+        $("div.switch").click(function () {
+            $("audio.switch").trigger("play");
+            $(this).animate({"bottom": ($(this).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
+
+            if ($(this).hasClass("blue")) {
+                $("div.arrowtile.up").each(function () {
+                    $(this).animate({"bottom": ($(this).data("bottom") + 1) * 32 + "px"}, 1000, "linear");
+                });
+                $("div.arrowtile.down").each(function () {
+                    $(this).animate({"bottom": ($(this).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
+                });
+            } else if ($(this).hasClass("green")) {
+                $("div.arrowtile.left").each(function () {
+                    if ($(this).data("left") !== undefined) {
+                        $(this).animate({"left": ($(this).data("left") - 1) * 32 + "px"}, 1000, "linear");
+                    } else {
+                        $(this).animate({"right": ($(this).data("right") + 1) * 32 + "px"}, 1000, "linear");
+                    }
+                });
+                $("div.arrowtile.right").each(function () {
+                    if ($(this).data("left") !== undefined) {
+                        $(this).animate({"left": ($(this).data("left") + 1) * 32 + "px"}, 1000, "linear");
+                    } else {
+                        $(this).animate({"right": ($(this).data("right") - 1) * 32 + "px"}, 1000, "linear");
+                    }
+                });
+            } else if ($(this).hasClass("red")) {
+                $(".fire:not(.ground)").each(function(){
+                    $(this).animate({"bottom": ($(this).data("bottom") - 1) * 32 + "px"}, 1000, "linear");
+                });
+            }
+
+            var s = $(this);
+            setTimeout(function () {
+                s.animate({"bottom": s.data("bottom") * 32 + "px"}, 1000, "linear");
+                if (s.hasClass("blue")) {
+                    $("div.arrowtile.up").each(function () {
+                        $(this).animate({"bottom": $(this).data("bottom") * 32 + "px"}, 1000, "linear");
+                    });
+                    $("div.arrowtile.down").each(function () {
+                        $(this).animate({"bottom": $(this).data("bottom") * 32 + "px"}, 1000, "linear");
+                    });
+                } else if (s.hasClass("green")) {
+                    if ($(this).data("left") !== undefined) {
+                        $("div.arrowtile.left").each(function () {
+                            $(this).animate({"left": $(this).data("left") * 32 + "px"}, 1000, "linear");
+                        });
+                        $("div.arrowtile.right").each(function () {
+                            $(this).animate({"left": $(this).data("left") * 32 + "px"}, 1000, "linear");
+                        });
+                    } else {
+                        $("div.arrowtile.left").each(function () {
+                            $(this).animate({"right": $(this).data("right") * 32 + "px"}, 1000, "linear");
+                        });
+                        $("div.arrowtile.right").each(function () {
+                            $(this).animate({"right": $(this).data("right") * 32 + "px"}, 1000, "linear");
+                        });
+                    }
+                } else if (s.hasClass("red")) {
+                    $(".fire:not(.ground)").each(function(){
+                        $(this).animate({"bottom": $(this).data("bottom") * 32 + "px"}, 1000, "linear");
+                    });
+                }
+            }, 30000);
+        });
+    }
 
 
     // Size of the logo
@@ -124,7 +217,7 @@ $(document).ready(function () {
 
 
     /* Parallax Scrolling */
-    (function(element) {
+    (function (element) {
         function scrollBackground(element) {
             var yPos = -($(window).scrollTop() / element.data("speed"));
             element.css("background-position", "0 " + yPos + "px");
@@ -151,6 +244,7 @@ $(document).ready(function () {
 
     /* Initialize diabolicImagePreview */
     initDiabolicImagePreview();
+
 
 }); // The End
 

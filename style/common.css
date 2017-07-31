@@ -257,7 +257,7 @@ table tr > td:last-child {
 /* Defaul link styles */
 
 a, a:link, a:visited {
-    color: #e65100;
+    color: #FFFFFF;
     cursor: pointer;
     text-decoration: none;
     transition: all 100ms linear;
