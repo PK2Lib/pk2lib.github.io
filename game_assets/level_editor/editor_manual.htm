@@ -1,0 +1,713 @@
+<html>
+<head>
+<title>PK2 Level Editor Manual</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+table {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; color: #000000}
+h1 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14pt}
+h2 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt; color: #FFFFCC}
+h3 {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #99FF99}
+td {  }
+th {  background-color: #000000}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="2" cellpadding="0" align="center">
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2"> 
+      <h1>Pekka Kana 2 Level Editor (0.91 beta) Manual </h1>
+      <i><b>by Janne Kivilahti</b></i></td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" height="36" align="center">&nbsp;</td>
+    <td height="36" colspan="2"> 
+      <p>Piste Gamez 2003. Home page: <a href="http://koti.mbnet.fi/kiwi/pistegamez">http://koti.mbnet.fi/kiwi/pistegamez</a><br>
+        Copyrighted by Janne Kivilahti 2001-2004</p>
+    </td>
+    <td width="7%" height="36" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2>Table of Contents</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center" height="92">&nbsp;</td>
+    <td height="92" colspan="2"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="left" valign="top" colspan="2"> 
+            <p><b><br>
+              1. <a href="#editor">PK2 Level Editor</a>?<br>
+              2. <a href="#requirements">System Requirements</a><br>
+              3. <a href="#installation">Installation</a><br>
+              4. <a href="#newepsiode">Creating an Episode</a><br>
+              5. <a href="#windows">Editor Windows</a><br>
+              5.1 Help Window<br>
+              5.2 Map window<br>
+              5.3 Tile Palette Window<br>
+              </b><b>5.4 Sprites Window<br>
+              5.5 Files Window<br>
+              5.6 Map Information Window<br>
+              6. <a href="#editview">Edit View</a><br>
+              7. <a href="#editmode">Edit Mode</a><br>
+              7.1 Controls<br>
+              7.2 Cut, Copy &amp; Paste<br>
+              8. Small Example of making slopes the right way<br>
+              </b><br>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="7%" align="center" height="92">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2><a name="editor"></a>1. PK2 Level Editor?</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center" height="77">&nbsp;</td>
+    <td colspan="2" height="77"> 
+      <p>With this program you can create your own episodes and maps to Pekka 
+        Kana 2 game.<br>
+      </p>
+      <p>Like Pekka Kana 2, the editor is a full screen application. So you might 
+        want to print this<br>
+        manual or make notes before running the program. </p>
+      <p>This is the manual for the editor's beta version. Both manual and editor 
+        are work in process.<br>
+        Report bugs and improvement ideas to me (janne.kivilahti [ at ] mbnet.fi) 
+        or to Piste Gamez <br>
+        forum at <a href="http://pistegamez.proboards18.com">http://pistegamez.proboards18.com</a></p>
+      <p>The forum should be the first place to look for solutions to problems. 
+        I hope some sort of a <br>
+        community would form there. People helping each other and so on. You know 
+        how it goes :)</p>
+      <p><b>What's new in Version 0.91?</b></p>
+      <p> <i>1. Automatic saving of settings. </i><br>
+        <br>
+        You can continue now from where you left of last time.</p>
+      <p><i>2. Backup copies x 2</i></p>
+      <p>The editor makes to backp copies of you map automaticly. Everytime you 
+        exit the<br>
+        editor, a file 'backup.mop' is written to the editor's folder. This file 
+        includes the <br>
+        map as it was when you left the editor. This is for those 'ooops-moments',<br>
+        when you left the editor and then remembered that you forgot to save. 
+        Just<br>
+        rename the backup.mop to e.g. backup.map and copy it to your episode's 
+        folder<br>
+        and load it in the editor. </p>
+      <p>The other copy is saved in your episode's folder in cases where another 
+        program<br>
+        minimizes the editor window. This causes the editor to crash. Now, before 
+        crashing<br>
+        the editor saves you work to 'backup.map' file. And thanks to the automatic<br>
+        saving of settings, you can continue you work immediately when you start 
+        the<br>
+        editor again. Since I'm such a crappy programmer, so I wasn't able to 
+        fix this bug, <br>
+        but now the editor will just shut down when the window is minimized.<br>
+      </p>
+      <p>Now, I'm sure you are all wondering...</p>
+      <p><b>Where can I send my maps?</b></p>
+      <p><i>Well, don't</i> <i>send your maps to me, please</i>. First of all, 
+        I have a 56k modem and my mailbox<br>
+        will probably die a horrible death if you all start sending me your maps. 
+        Second,<br>
+        I don't have the space to host your maps. I'd love to, but I can't.</p>
+      <p> So instead, use the forum Luke. Get your maps on some server and then 
+        post your <br>
+        links there. It'll be much faster that way too. :)</p>
+    </td>
+    <td width="7%" align="center" height="77">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2><a name="requirements"></a>2. System requirements</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">- Operating system: Windows 95, 98, 2000, XP<br>
+      - CPU: 500 MHz (recommended) <br>
+      - DirectX 7.0 (at least) <br>
+      - 16MB memory <br>
+      - No 3D graphics card is required, but a graphics card with good 2D rendering 
+      capabilities is recommended.</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2><a name="installation"></a>3. Installation</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2"> 
+      <p> Download installation program (pk2editor.exe) from <a href="http://koti.mbnet.fi/kiwi/pistegamez">Piste 
+        Gamez site</a>.<br>
+      </p>
+      <p>Run the installation program and follow instructions. I recommend that 
+        you<br>
+        install the editor to the same directory, where you have installed Pekka<br>
+        Kana 2.<br>
+      </p>
+      <p><b>[IMPORTANT]</b> When you run the editor for the first time, the editor 
+        tries to find the directory<br>
+        where the game is installed. If you haven't installed the editor to the 
+        same directory<br>
+        with the game, you need to use the <a href="#files">Files Window</a> (press 
+        F5 in the editor) to navigate<br>
+        to that directory. You only need to do this once.</p>
+      <p>&nbsp;</p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2><a name="newepsiode"></a>4. Creating an Episode</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2"> 
+      <p>Creating a new episode is a easy as making a new folder in Pekka Kana 
+        2's 'episodes' directory. </p>
+      <p>Open the directory (or folder as Windows people call it) where Pekka 
+        Kana 2 is installed.<br>
+        E.g. C:\Games\Pekka Kana 2</p>
+      <p>Open 'episodes' directory.</p>
+      <p>Create a new directory. The name of the directory is the name of the 
+        episode. E.g. MyEpisode.</p>
+      <p>Done. Now that was easy, wasn't it boys and girls? :) Now the tough part: 
+        Creating levels for<br>
+        our new episode. It's time to run the editor.<br>
+      </p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center" height="30">&nbsp;</td>
+    <th height="30" colspan="2"> 
+      <h2><a name="windows"></a>5. Editor Windows</h2>
+    </th>
+    <td width="7%" align="center" height="30">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2"> 
+      <p>In editor you can make a window appear and disappear pressing it's shortcut 
+        key. For example pressing <br>
+        F1 function key causes Help Window to come visible Pressing it again makes 
+        it go away. You can move the windows<br>
+        by moving the mouse cursor on top of the heading and pressing the left 
+        mouse button while dragging the window.<br>
+        An alternative method to close a window is to click the little cross at 
+        the right top corner.</p>
+      <p>Use <b>ESC</b> key to exit editor.</p>
+      <p>&nbsp;</p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3>5.1 Help Window (shortcut: F1)</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td width="38%"><img src="manual/HELP.gif" width="258" height="257"></td>
+    <td width="48%"><b>The Help Window</b> shows the essential shortcut keys<br>
+      you need to edit and to display the editor's different windows.</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3>5.2 Map Window (shortcut: F2)</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td width="38%"><img src="manual/MAP.gif" width="258" height="241"></td>
+    <td width="48%"><b>The Map Window</b> shows the entire map area. You can focus 
+      the<br>
+      editor's view to any area of the map quickly by moving the mouse cursor 
+      over the area you want to edit, and then pressing the left mouse button.</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3><a name="tilepalette"></a>5.3 Tile Palette Window (shortcut: F3)</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td width="38%"><img src="manual/TILES.gif" width="322" height="497"></td>
+    <td width="48%"> 
+      <p>Tiles are the building blocks of levels. You can change the tile palette 
+        of your map by loading a new one in <a href="#files">Files Window</a>.</p>
+      <p>To select a tile, left click on it. Then you can use it in the <a href="#editmode">edit 
+        mode</a>.</p>
+      <p>Here is a brief explanation of what the different tiles do:</p>
+      <p><b>Tiles 1-40 </b><br>
+        Normal wall tiles. <br>
+        <br>
+        <b>Tiles 41-50 </b><br>
+        Special wall tiles.<br>
+        41: Special floor that is not displayed in the game.<br>
+        Player or any other sprite can't fall through it. <br>
+        42: Horizontal elevator.<br>
+        43: Vertical elevator.<br>
+        44: Trap wall (moves up when blue switch is pressed)<br>
+        45: Trap wall (moves right when green switch is pressed)<br>
+        46: Trap wall (moves down when blue switch is pressed)<br>
+        47: Trap wall (moves left when green switch is pressed)<br>
+        48: Lock wall. Lock wall vanishes when a key touches it.<br>
+        All lock walls in a map will disappear if player collects all the keys. 
+        <br>
+        49: Skull Switch Wall (foreground). If player hits a Skull Switch sprite,<br>
+        this wall will disappear. <br>
+        50: Skull Switch Wall (background). If player hits a Skull Switch sprite,<br>
+        a Skull Switch Wall (foreground) will appear in the foreground layer if 
+        this<br>
+        wall is in the background layer.<br>
+        <br>
+        <b>Tiles 51-60</b> <br>
+        Hill tiles.</p>
+      <p> <b>Tiles 61-80</b><br>
+        Animated tiles. All these tiles work as walls, but tiles 61, 66, 71, and 
+        76 are animated using the rest of the animated tiles. </p>
+      <p> <b>Tiles 81-130</b> <br>
+        Normal background tiles.</p>
+      <p> <b>Tiles 131-140</b> <br>
+        Water tiles. All these tiles work as backgrounds. They work as water only<br>
+        if drawn to background layer.<br>
+        <br>
+        <b>Tiles 141-150</b> <br>
+        Special tiles<br>
+        141: Wind to the left. Draw in foreground layer. <br>
+        142: Wind to the right Draw in foreground layer. <br>
+        143: Smoke tile<br>
+        144: Hideout tile (some sprites duck behind this tile)<br>
+        145: Fire tile (goes out when orange switch is pressed)<br>
+        146: Orange switch. Draw in foreground layer. <br>
+        147: Blue switch. Draw in foreground layer. <br>
+        148: Green switch. Draw in foreground layer. <br>
+        149: Start tile. <b>Every map needs at least one.</b> Draw in foreground 
+        layer. <br>
+        150: Exit tile. <b>Every map needs at least one.</b> Draw in foreground 
+        layer. <br>
+        <br>
+      </p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3><a name="sprites"></a>5.4 Sprites Window (shortcut: F4)</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td width="38%"><img src="manual/SPRITES.gif" width="322" height="497"></td>
+    <td width="48%"> 
+      <p>Sprites are enemies, friendly characters, bonuses, doodles and eggs, 
+        info signs, and background objects that appear in the game. You can load 
+        new sprite types to your map using the <a href="#files">Files Window</a>. 
+        By default, a rooster sprite type is loaded and set to be the player character.</p>
+      <p>Click a sprite type to select it. After you have selected a sprite type, 
+        you can use it in <a href="#editmode">edit mode</a>.<br>
+      </p>
+      <p>You can delete a sprite type from your sprite list by moving the mouse 
+        cursor over the sprite and by pressing DELETE-key. </p>
+      <p>By default, the rooster sprite is set as the character that player will 
+        be controlling when he/she is playing the map. However, you can change 
+        the player character by pressing the &quot;Set player&quot; -button of 
+        some other sprite. </p>
+      <p>Use the arrows at the bottom to scroll the list up and down.</p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3><a name="files"></a>5.5 Files Window (shortcut: F5)</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td width="38%"> 
+      <p><img src="manual/FILES.gif" width="322" height="317"><br>
+        Left side of the window displays a list of files in a <br>
+        directory. What files are displayed, depends on <br>
+        what kind of files you are looking for (maps,<br>
+        sprites, image files with tile palettes etc.). </p>
+    </td>
+    <td width="48%"> 
+      <p>Use <b>Files Window</b> to save your map and to load various objects 
+        to your map.</p>
+      <p><b>SAVE </b><br>
+        A new window will appear asking you </p>
+      <p><b>MAPS</b><br>
+        The editor remembers the last directory where it found maps.<br>
+        All files of type <b>.MAP</b> are listed. Click a file on the list <br>
+        to load a map. <br>
+      </p>
+      <p><b>TILES</b><br>
+        If Pekka Kana 2 directory has been found, this button will<br>
+        take you to game's gfx/tiles directory. All files of type<br>
+        <b>.BMP</b> and <b>.PCX</b> are listed. Click a file on the list to load 
+        a<br>
+        new tile palette.</p>
+      <p><b>SPRITES</b><br>
+        If Pekka Kana 2 directory has been found, this button will<br>
+        take you to game's sprites directory. All files of type<br>
+        <b>.SPR</b> are listed. Click a file on the list to load a new sprite.</p>
+      <p></p>
+      <p><b>SCENERY</b><br>
+        If Pekka Kana 2 directory has been found, this button will<br>
+        take you to game's gfx/scenery directory. All files of type<br>
+        <b>.BMP</b> and <b>.PCX</b> are listed. Click a file on the list to load 
+        a<br>
+        new background image.</p>
+      <p><b>MUSIC</b><br>
+        If Pekka Kana 2 directory has been found, this button will<br>
+        take you to game's music directory. All files of type<br>
+        <b>.XM</b>, <b>.MOD</b>, <b>.IT</b>, and <b>.S3M</b> are listed. Click 
+        a file on the list to load <br>
+        new background music. You can't preview the song in the editor.<br>
+      </p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3>5.6 Map Information Window (shortcut: F7)</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td width="38%"><img src="manual/INFO.gif" width="322" height="258"></td>
+    <td width="48%"> 
+      <p>From<b> Map Information Window</b> you can see and edit various information 
+        about your map:</p>
+      <p><b>Version:</b> <br>
+        The version number of the map's file format. </p>
+      <p><b>Name: </b><br>
+        The name of the map. This information is displayed at the game's map window.</p>
+      <p><b>File Name:</b><br>
+        The file where this map is saved.</p>
+      <p><b>Creator: </b><br>
+        The name of the map's creator. This information is not shown in the game 
+        (yet).</p>
+      <p><b>Tile Picture:</b> <br>
+        Image file (.bmp or .pcx) from which the map's tile palette is loaded.</p>
+      <p><b>Background Picture: </b><br>
+        Image file (.bmp or .pcx) from which the map's background image is loaded.</p>
+      <p><b>Background Music:</b> <br>
+        Music (module) file (.xm, .mod, .it or .s3m) from which the map's background 
+        music is loaded.</p>
+      <p><b>Level:</b><br>
+        1 means that level is the first level of the episode, 2 second etc.<br>
+        0 means that the level isn't visible. I kinda planned that level<br>
+        0 would work as a bonus level in future versions of the game.<br>
+        So don't use value zero (yet).</p>
+      <p><b>Time:</b><br>
+        Set it to something greater than 00:00 if you want to set a time limit<br>
+        to your map.</p>
+      <p><b>Background Scrolling:</b><br>
+        Click the button to toggle between different options. </p>
+      <p><b>Special:</b><br>
+        Click the button to toggle between different weather conditions.<br>
+        Note, that option SNOW is not yet supporter in 1.1 version of Pekka Kana 
+        2.</p>
+      <p><b>Map Icon:</b><br>
+        1 = Question mark<br>
+        2 = Forest Hill<br>
+        3 = Forest Hill at Night<br>
+        4 = Deep Forest<br>
+        5 = Deep Forest at Night<br>
+        6 = Field<br>
+        7 = Field at night<br>
+        8 = Mountains<br>
+        9 = Castle<br>
+        10 = Red Castle<br>
+        11 = Cave<br>
+        12 = Boss Battle<br>
+        13 = Factory</p>
+      <p><b>Map X and Map Y:</b><br>
+        Map's coordinates on episode map. If left to zero,<br>
+        default values will be used in game.<br>
+      </p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2><a name="editview"></a>6. Edit View</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center" height="385">&nbsp;</td>
+    <td colspan="2" height="385"> 
+      <p><img src="manual/EDITVIEW.gif" width="512" height="384" align="right">Edit 
+        view displays a 32x24 area of the map. The entire map is 256 tiles wide 
+        and 224 tiles high. You can scroll the visible area with arrow keys or 
+        moving the mouse cursor to any edge of the visible area.<br>
+        The edit view also displays various information about the map.</p>
+      <p><b>Layers</b></p>
+      <p>The map is divided into three overlapping layers: Background layer, foreground 
+        layer, and sprite layer. You can toggle between the foreground and background 
+        layers using the right SHIFT key. The sprite layer is always visible. 
+        A layer is editable only if it is visible.</p>
+      <p>When drawing tiles to foreground layer, it's important to know if the 
+        tile is a wall or a background tile (see <a href="#tilepalette">Tile Palette 
+        Window</a> for more details). Wall tiles will work as obstacles only if 
+        they are drawn to foreground layer. When you draw tiles to background 
+        layer, it doesn't matter if the tile is a wall or not, because tiles in 
+        the background layer never work as obstacles. Also, background tiles are 
+        never obstacles.</p>
+      <p>&nbsp;</p>
+    </td>
+    <td width="7%" align="center" height="385">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2><a name="editmode"></a>7. Edit Mode</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2"> 
+      <p>When the mouse cursor is not on a window, edit mode is on.<br>
+        In edit mode you can edit the map by adding tiles and sprites<br>
+        to it. Use <a href="#tilepalette">Tile Palette Window</a> or <a href="#sprites">Sprites 
+        Window</a> to select a tile<br>
+        or sprite you want to use as a drawing tool. </p>
+      <p>&nbsp;</p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3>7.1 Controls:</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center" height="134">&nbsp;</td>
+    <td colspan="2" height="134"> 
+      <p>Here is a list of controls available in edit mode:<br>
+      </p>
+      <p><b>Left mouse button</b>: Draw a tile or a sprite.<br>
+        <b>Right mouse button</b>: Remove a tile or a sprite.<br>
+        <br>
+        <b>Right SHIFT</b>: Toggle between visible layers.<br>
+        <b>A</b>: Animate all moving tiles (elevators and switches).<br>
+        <b>U</b>: Undo last change<br>
+        <b>Arrow keys</b>: Scroll the map area.<br>
+      </p>
+    </td>
+    <td width="7%" align="center" height="134">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3>7.2 Cut, Copy &amp; Paste</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2"> 
+      <p>It is also possible to cut, copy and paste areas of the map. <br>
+        Note, that only visible layers change when you cut or paste.<br>
+        Also, sprites can't be copied, pasted or cut. You need to add<br>
+        or remove them one by one. Also, you can't paste anything<br>
+        from foreground layer to background layer or vise versa.</p>
+      <p><b>Cut:</b><br>
+        <br>
+        - Hold down right ALT and move mouse cursor to select an area.<br>
+        - Press CTRL+X.</p>
+      <p><b>Copy:</b><br>
+        <br>
+        - Hold down right ALT and move mouse cursor to select an area.<br>
+        - Press CTRL+C. <br>
+        Note, that both foreground and background layers are copied.</p>
+      <p><b>Pattern Paste:</b><br>
+        <br>
+        In Pattern Paste you select an area and then press CTR+V. The<br>
+        selected area will be filled with copied area. If the destination area 
+        is<br>
+        bigger than the source area, the source area will be used as a <br>
+        looping pattern to fill the destination area. </p>
+      <p><b>Simple Paste:</b><br>
+        <br>
+        In Simple Paste you move the mouse cursor to that location<br>
+        where you want to paste the area on the clipboard and<br>
+        press CTRL+B. <br>
+      </p>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h2>8. Small Examples</h2>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td width="7%" align="center">&nbsp;</td>
+    <th colspan="2"> 
+      <h3>8.1. Example of Making Slopes</h3>
+    </th>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">
+      <table width="100%" border="2" cellspacing="3" cellpadding="0" bordercolor="#FFFFFF">
+        <tr valign="top"> 
+          <td width="25%"> 
+            <div align="left"><b>1.</b></div>
+          </td>
+          <td width="25%"> 
+            <div align="left"><b>2.</b></div>
+          </td>
+          <td width="25%"> 
+            <div align="left"><b>3.</b></div>
+          </td>
+          <td width="25%"> 
+            <div align="left"><b>4.</b></div>
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td width="25%"> 
+            <div align="center"><img src="manual/HILL1.gif" width="192" height="208"></div>
+          </td>
+          <td width="25%"> 
+            <div align="center"><img src="manual/HILL2.gif" width="192" height="208"></div>
+          </td>
+          <td width="25%"> 
+            <div align="center"><img src="manual/HILL3.gif" width="192" height="208"></div>
+          </td>
+          <td width="25%"> 
+            <div align="center"><img src="manual/HILL4.gif" width="192" height="208"></div>
+          </td>
+        </tr>
+        <tr valign="top" bordercolor="#000000" bgcolor="#FFFFCC"> 
+          <td width="25%">This is where I will build my slope.</td>
+          <td width="25%">I added 2 slope tiles (50). </td>
+          <td width="25%">I added 2 background tiles (130). The background tile 
+            130 in this tile palette looks like a wall tile. If I use a real wall 
+            tile here, the slope will not work right.</td>
+          <td width="25%">I added a slope tile (52) and a normal wall tile (23). 
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top">
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+  <tr align="left" valign="top"> 
+    <td width="7%" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td width="7%" align="center">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
