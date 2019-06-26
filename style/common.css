@@ -147,6 +147,9 @@ h2 + h3 {
 
 p, ul, ol {
     text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
 p:not(:first-of-type) {
@@ -279,6 +282,15 @@ a:hover, a:active {
     color: rgba(0, 0, 0, 0.8);
     background: rgba(255, 255, 255, 0.8);
 }
+
+
+/* Random */
+
+.emphasis {
+    text-align: center;
+    margin: 1em;
+}
+
 
 /* Canvas */
 

@@ -14,6 +14,11 @@ a:hover, a:active {
     color: #000000;
 }
 
+h2 {
+    font-size: 3.5rem;
+    font-variant: small-caps;
+}
+
 /* Structure */
 
 body {
@@ -24,9 +29,8 @@ body {
 main {
     float: right;
     background: rgba(0, 0, 0, 0.85);
-    width: 33%;
-    min-width: 320px;
-    max-width: 960px;
+    width: 34em;
+    max-width: calc(100% - 240px - 3rem);
     padding: 1rem;
     border: 0.5rem solid rgba(255, 255, 255, 1);
     border-image-source: url("../images/qbg3.png");
@@ -35,6 +39,8 @@ main {
     border-image-slice: 22;
     margin: 1rem;
     box-sizing: border-box;
+    height: calc(100vh - 2rem);
+    overflow-y: scroll;
 }
 
 aside {
@@ -74,4 +80,102 @@ aside nav a:hover {
 
 aside nav a::before {
     content: "> ";
+}
+
+/* "Minipages" */
+
+section {
+    width: 36vw;
+    padding: 2rem 32vw;
+    height: calc(100vh - 4rem);
+    z-index: 10;
+    position: fixed;
+    top: 120vh;
+    left: 0;
+    overflow-y: auto;
+    display: none;
+    transition: all 500ms;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+section.active {
+    display: block;
+}
+
+section.active.visible {
+    opacity: 1;
+    top: 0;
+}
+
+.back-link {
+    position: fixed;
+    top: 120vh;
+    left: 20vw;
+    cursor: pointer;
+    font-size: 1.25em;
+    text-decoration-color: rgba(255, 87, 34, 0.33);
+    text-decoration-style: wavy;
+    transition: all 500ms;
+}
+
+section.visible .back-link {
+    top: 5rem;
+}
+
+.back-link::before {
+    content: "↩ ";
+}
+
+
+/* Emphasis links */
+
+.emphasis {
+    margin: 2em 0 0;
+    padding-bottom: 2em;
+    border-bottom: 0.125em solid rgba(255,255,255,0.75);
+}
+
+.emphasis a {
+    color: #000000;
+    background-color: #d56942;
+    padding: 1em;
+    border-radius: 0.75em;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 100ms linear;
+}
+
+.emphasis a:hover {
+    background-color: #FFA054;
+}
+
+/* Webkit scrollbars */
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #FFAB91;
+}
+::-webkit-scrollbar-button {
+    height: 0;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-track-piece {}
+::-webkit-scrollbar-thumb {
+    background-color: #FF5722;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.75), 2px 2px 6px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-corner {height: 0;}
+::-webkit-resizer {height: 0;}
+
+
+/* Firefox scrollbars */
+
+* {
+    scrollbar-color: #FF5722 #FFAB91;
+    scrollbar-width: thin;
 }
