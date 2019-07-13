@@ -136,6 +136,7 @@ h3 {
 }
 
 h4 {
+    font-size: 1.5rem;
     margin: 1rem 0 0.5rem;
 }
 
@@ -156,7 +157,7 @@ p:not(:first-of-type) {
     text-indent: 1.5rem;
 }
 
-h3 + p:not(:first-of-type) {
+h2 + p:not(:first-of-type), h3 + p:not(:first-of-type), h4 + p:not(:first-of-type) {
     text-indent: 0;
 }
 

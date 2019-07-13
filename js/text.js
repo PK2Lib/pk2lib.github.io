@@ -92,6 +92,13 @@ $(document).ready(function () {
             }
         });
     }
+    if (window.location.href.indexOf("?staffmember=") !== -1) {
+        var id = window.location.href.slice(window.location.href.lastIndexOf("?staffmember=")+13);
+        history.replaceState({sectionId: id}, $("title").html(), window.location.href.slice(0, window.location.href.indexOf("?staffmember=")));
+        $("#staff").children().eq(0).children().eq(1).click();
+        $("body").append('<a href="#'+id+'" id="templink"></a>')
+        $("#templink").smoothScroll().click().remove();
+    }
 
 
     // Implementing smoothScroll

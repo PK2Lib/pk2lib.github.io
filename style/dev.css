@@ -40,7 +40,57 @@ main {
     margin: 1rem;
     box-sizing: border-box;
     height: calc(100vh - 2rem);
-    overflow-y: scroll;
+    overflow-y: auto;
+}
+
+main > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main h3 {
+    flex: 2;
+    background: #FF0000;
+    margin: 0.5rem 0.25rem;
+    padding: 1rem 0.25rem;
+    font-family: revert;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3pt 6pt rgba(0, 0, 0, 0.5), 0 0 6pt rgba(0, 0, 0, 0.5) inset;
+    cursor: pointer;
+    transition: 100ms all linear;
+}
+
+main h3:hover {
+    transform: translateY(-0.25rem);
+}
+
+#sdl-port-link {
+    background-color: #FFEB3B;
+    color: #000000;
+}
+
+#community-edition-link {
+    background-color: #F44336;
+}
+
+#pekaed-link {
+    background-color: #2E7D32;
+}
+
+#pekase-link {
+    background-color: #F57C00;
+}
+
+#webedit-link {
+    background-color: #00BCD4;
+}
+
+#palette-helper-link {
+    background: #FFFFFF;
+    color: #000000;
 }
 
 aside {
@@ -129,12 +179,25 @@ section.visible .back-link {
 }
 
 
+/* Typography */
+
+.green {
+    color: #33ff00;
+}
+.red {
+    color: #FF0000;
+}
+.yellow {
+    color: #ffff30;
+}
+
+
 /* Emphasis links */
 
 .emphasis {
-    margin: 2em 0 0;
-    padding-bottom: 2em;
-    border-bottom: 0.125em solid rgba(255,255,255,0.75);
+    margin: 2em 0 3em;
+    transition: all 100ms linear;
+    transform: translateY(0);
 }
 
 .emphasis a {
@@ -144,11 +207,15 @@ section.visible .back-link {
     border-radius: 0.75em;
     width: 100%;
     box-sizing: border-box;
-    transition: all 100ms linear;
+    transition: inherit;
 }
 
 .emphasis a:hover {
     background-color: #FFA054;
+}
+
+.emphasis:hover {
+    transform: translateY(-0.25rem);
 }
 
 /* Webkit scrollbars */
